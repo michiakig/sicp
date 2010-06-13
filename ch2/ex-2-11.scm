@@ -17,6 +17,8 @@
 (define up upper-bound)
 (define low lower-bound)
 
+; this is a tedious solution, which makes me think there may be a smarter way 
+; vim is actually slowed by having to handle the parens matching on this...
 (define (mul-interval2 x y)
   (cond ((and (pos? (low x)) (pos? (up x))) (cond ((and (pos? (low y)) (pos? (up y)))
                                                    (display "here we are")
@@ -37,7 +39,7 @@
                                                                        (* (low x) (low y)))))
                                                   (else (error "bad interval"))))
         ((and (neg? (low x)) (neg? (up x))) (cond ((and (neg? (low y)) (neg? (up y)))
-                                                   (make-interval (* (low x) (low y)) (* (up x) (up y))))
+                                                   (make-interval  (* (up x) (up y)) (* (low x) (low y))))
                                                   ((and (neg? (low y)) (pos? (up y)))
                                                    (make-interval (* (low x) (up y)) (* (up x) (low y))))
                                                   ((and (pos? (low y)) (pos? (up y)))
