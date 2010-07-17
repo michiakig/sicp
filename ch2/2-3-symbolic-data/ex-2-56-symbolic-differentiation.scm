@@ -88,3 +88,4 @@
         ((and (number? m1) (number? m2)) (* m1 m2))
         (else (list '* m1 m2))))
 
+; exercise 2.58
