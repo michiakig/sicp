@@ -70,12 +70,34 @@
                 (append (filter not-number? s1)   ; filter out the non-numbers
                         (filter not-number? s2)))))) ; append them together
 
-; need this for collapse-sum
+(define (common-terms s)
+  (fold-left
+      (lambda (result item)
+        (cond ((null? result)
+               (list (list '* 1 item)))
+              ((eq? (caddar result) item)
+               (cons
+                 (list '* (+ 1 (cadar result)) item)
+                 (cdr result)))
+              (else
+                (cons (list '* 1 item )
+                      result))))
+      '()
+      s))
+
+; some basic functional procedures from 2.2 which are used above
 (define (accumulate op initial sequence)
   (if (null? sequence)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
+(define (fold-left op initial sequence)
+  (define (iter result rest)
+    (if (null? rest)
+        result
+        (iter (op result (car rest))
+              (cdr rest))))
+  (iter initial sequence))
 
 (define (product? x)
   (and (pair? x) (eq? (car x) '*)))
@@ -87,5 +109,3 @@
         ((=number? m2 1) m1)
         ((and (number? m1) (number? m2)) (* m1 m2))
         (else (list '* m1 m2))))
-
-; exercise 2.58
