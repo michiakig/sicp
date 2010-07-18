@@ -41,7 +41,8 @@
 (define (=number? exp num)
   (and (number? exp) (= exp num)))
 
-; Exercise 2.57 Extend the differentiation program to handle sums and products of arbitrary numbers of (two or more) terms.
+; Exercise 2.57 Extend the differentiation program to handle sums and products 
+; of arbitrary numbers of (two or more) terms.
 (define (sum? x) 
   (and (pair? x) (eq? (car x) '+)))       ; No need to change sum? because this only checks if the car of a list is +
 (define (addend s) (cadr s))              ; Can also leave addend alone
@@ -58,18 +59,23 @@
         ((and (number? a1) (number? a2)) (+ a1 a2))
         ((and (sum? a1) (not (sum? a2))) (cons '+ (cons a2 (cdr a1)))) 
         ((and (sum? a2) (not (sum? a1))) (cons '+ (cons a1 (cdr a2))))
-        ((and (sum? a1) (sum? a2)) (collapse-sums a1 a2))
+        ((and (sum? a1) (sum? a2)) (collapse + '+ 0 a1 a2))
         (else (list '+ a1 a2))))
 
-; collapse two sums, adding all constants together
-(define (collapse-sums s1 s2)
-  (let ((not-number? (lambda (x) (not (number? x)))))
-    (cons '+
-          (cons (+ (accumulate + 0 (filter number? s1)) ; filter out the numbers, sum them, add sums together
-                   (accumulate + 0 (filter number? s2)))
-                (append (filter not-number? s1)   ; filter out the non-numbers
-                        (filter not-number? s2)))))) ; append them together
+; These procedures are not entirely within the scope of the exercise above (adding 
+; support for arbitrary sums and products) but I got distracted by exploring the 
+; way that expressions can be reduced by collecting like terms.
 
+; collapse two sums/products, adding/multiplying all constants together
+(define (collapse op sym init s1 s2)
+  (let ((not-number? (lambda (x) (not (number? x)))))
+    (cons sym 
+          (cons (op (accumulate op init (filter number? s1)) ; filter out the numbers, sum them, add sums together
+                    (accumulate op init (filter number? s2)))
+                (common-terms (append (filter not-number? (cdr s1))       ; filter out the non-numbers
+                                      (filter not-number? (cdr s2)))))))) ; append them together
+; collects like terms into products:
+; takes a list like (a a a b b c) and turns it into ((* 3 a) (* 2 b) (* 1 c))
 (define (common-terms s)
   (fold-left
       (lambda (result item)
@@ -83,7 +89,8 @@
                 (cons (list '* 1 item )
                       result))))
       '()
-      s))
+      (sort s (lambda (s1 s2) (string<? (symbol->string s1) (symbol->string s2))))
+        ))
 
 ; some basic functional procedures from 2.2 which are used above
 (define (accumulate op initial sequence)
@@ -99,13 +106,18 @@
               (cdr rest))))
   (iter initial sequence))
 
+; Predicate, selector, and constructor for products, with changes for exercise
+; 2.57 -- products of arbitrary length
 (define (product? x)
-  (and (pair? x) (eq? (car x) '*)))
-(define (multiplier p) (cadr p))
-(define (multiplicand p) (caddr p))
+  (and (pair? x) (eq? (car x) '*))) ; the predicate only checks if the car of a list is *
+(define (multiplier p) (cadr p))    ; the multiplier is also unchanged
+;(define (multiplicand p) (caddr p))
+(define (multiplicand p) ;(cons '* (cddr p)))
+  (cond ((null? (cdddr p)) (caddr p))
+        (else (cons '* (cddr p)))))
 (define (make-product m1 m2)
   (cond ((or (=number? m1 0) (=number? m2 0)) 0)
         ((=number? m1 1) m2)
         ((=number? m2 1) m1)
         ((and (number? m1) (number? m2)) (* m1 m2))
-        (else (list '* m1 m2))))
+        (else (collapse * '* 1 (cdr m1) (cdr m2)))))
