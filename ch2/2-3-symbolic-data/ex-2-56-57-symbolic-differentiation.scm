@@ -43,6 +43,9 @@
 
 ; Exercise 2.57 Extend the differentiation program to handle sums and products 
 ; of arbitrary numbers of (two or more) terms.
+;
+; The code below has bugs in it; it does not work for all sums and products of
+; arbitrary length.
 (define (sum? x) 
   (and (pair? x) (eq? (car x) '+)))       ; No need to change sum? because this only checks if the car of a list is +
 (define (addend s) (cadr s))              ; Can also leave addend alone

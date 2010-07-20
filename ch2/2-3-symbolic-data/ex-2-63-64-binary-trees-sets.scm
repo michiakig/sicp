@@ -66,6 +66,8 @@
 
 ; Exercise 2.65. Give a Theta(n) implementation of intersect-set and union-set for the binary tree
 ; representations using the results from 2.64 and 2.63.
+; 
+; Not sure if this is actually Theta(n)... 
 (define (bin-intersection-set s1 s2)
   (list->tree (intersection-set (tree->list-1 s1) (tree->list-1 s2))))
 (define (bin-union-set s1 s2)
