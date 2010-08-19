@@ -1,0 +1,225 @@
+1 Practical: A Simple Database
+
+list
+getf
+defun
+defvar
+push
+dolist
+format
+read-line
+force-output
+parse-integer
+or
+y-or-n-p
+loop
+return
+with-open-file
+print
+with-standard-io-syntax
+read
+setf
+remove-if-not
+evenp
+lambda
+equal
+mapcar
+defmacro
+reverse
+and
+macroexpand-1
+
+2 Syntax and Semantics
+
+if
+quote
+compile-file
+load
+
+*some notes on equality:
+eq    -"object identity" two objects are EQ if they are identical
+      -however, regarding numbers and characters, this is dependent
+        -upon the implementation: (eq 3 3) can legally be true or false
+
+eql     -behaves like eq, but guarantees two objects of the same class
+        -representing the same numeric or character value are eql
+        -so (eql 1 1) is true, but (eql 1 1.0) is not
+
+equal   -considers lists with the same structure and contents equivalent
+        -considers strings equivalent if they have the same characters
+        -looser definition of equivalence for bit vectors and pathnames
+        -than eql
+
+equalp  -(equalp "hello" "hElLo") is true
+        -(equalp 1 1.0) is true
+        -some other data structures also have looser equivalence
+
+3 Functions
+
+documentation
+return-from
+&optional
+&rest
+&key
+block
+function
+#'
+funcall
+apply
+
+7 Macros: Standard Control Constructs
+
+progn
+when
+unless
+cond
+and
+or
+not
+do
+dolist
+dotimes
+loop
+
+8 Macros: Writing your own
+
+random
+gensym
+let
+
+9 Practical: Building a Unit Test Framework
+
+append
+
+10 Numbers, Characters, Strings
+
+floor
+ceiling
+truncate
+round
+mod
+rem
+incf
+decf
+min
+max
+zerop
+minusp
+plusp
+oddp
+log
+exp
+expt
+sin, cos, tan
+asin, acos, atan
+sinh, cosh, tanh
+char=
+char-equal
+not-greaterp
+not-lessp
+string=, /=, <, >, <=, >= (case-sensitive)
+string-equal, not-equal, lessp, greaterp, not-greaterp, not-lessp (insensitive)
+
+11 Collections
+
+vector
+make-array
+vector-push
+vector-pop
+vector-push-extend
+length
+elt
+count
+find
+position
+remove
+substitute
+remove-if, if-not
+remove-duplicates
+copy-seq
+concatenate
+sort
+stable-sort
+merge
+subseq
+fill
+search
+mismatch
+every
+some
+notany
+notevery
+map
+map-into
+reduce
+make-hash-table
+gethash
+multiple-value-bind
+remhash
+clrhash
+maphash
+
+12 Lists
+
+cons
+car
+cdr
+first
+rest
+nreverse
+nconc
+nsubstitute
+n...
+nth
+
+last
+butlast
+nbutlast
+ldiff
+tailp
+list*
+make-list
+revappend
+nreconc
+consp
+atom
+listp
+null
+
+maplist
+mapcan
+mapcon
+mapc
+mapl
+
+
+13 Beyond Lists: Other Uses for Cons Cells
+
+copy-tree
+tree-equal
+subst, -if, -if-not
+nsubst, -if, -if-not
+adjoin
+pushnew
+member, -if, -if-not
+find, -if, -if-not
+intersection, union, set-difference, set-exclusive-or
+subsetp
+
+assoc, -if, -if-not
+acons
+rassoc, -if, -if-not
+copy-alist
+pairlis
+remf
+symbol-plist
+remprop
+
+destructuring-bind
+&whole
+
+14 File and File I/O
+
+open
+read-*, line, char, byte, sequence
+

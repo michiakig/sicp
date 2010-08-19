@@ -1,0 +1,5 @@
+(list 'a 'b 'c)
+12
+"a string" ;this is a comment
+((a b)
+ (c d))
