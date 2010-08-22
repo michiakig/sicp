@@ -1,3 +1,5 @@
+; 2.5.1 Generic Arithmetic Operations
+
 (define (add x y) (apply-generic 'add x y))
 (define (sub x y) (apply-generic 'sub x y))
 (define (mul x y) (apply-generic 'mul x y))
@@ -17,6 +19,9 @@
   (put 'make 'scheme-number
        (lambda (x) (tag x)))
   'done)
+
+(define (make-scheme-number n)
+  ((get 'make 'scheme-number) n))
 
 (define (install-rational-package)
   ;; internal procedures
@@ -53,9 +58,12 @@
   (put 'make 'rational
        (lambda (n d) (tag (make-rat n d))))
   'done)
+
 (define (make-rational n d)
   ((get 'make 'rational) n d))
 
+;; Installing this package depends on the rectangular and polar packages having been 
+;; installed already
 (define (install-complex-package)
   ;; imported procedures from rectangular and polar packages
   (define (make-from-real-imag x y)
@@ -91,3 +99,7 @@
        (lambda (r a) (tag (make-from-mag-ang r a))))
   'done)
 
+(define (make-complex-from-mag-ang r a)
+  ((get 'make-from-mag-ang 'complex) r a))
+(define (make-complex-from-real-imag x y)
+  ((get 'make-from-real-imag 'complex) x y))

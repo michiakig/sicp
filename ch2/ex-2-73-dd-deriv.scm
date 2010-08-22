@@ -13,6 +13,9 @@
 
 ; b. Procedures for sums and products and code to install them in the table
 ; These are not updated with the extra code to handle arbitrary sums and products
+; c. Added procedure to handle exponentiation
+; d. The install-deriv procedure below would need to be changed,
+; (put '+ 'deriv deriv-of-sum) etc...
 (define (install-deriv)
   (define (deriv-of-sum operands var) 
     (make-sum (deriv (car operands) var)
@@ -22,6 +25,13 @@
                             (deriv (cadr operands) var))
               (make-product (deriv (car operands) var)
                             (cadr operands))))
+  (define (deriv-of-exp operands var)
+    (make-product
+      (cadr operands)
+      (make-exponentiation (car operands) (- (cadr operands) 1))))
   (put 'deriv '+ deriv-of-sum)
-  (put 'deriv '* deriv-of-product))
+  (put 'deriv '* deriv-of-product)
+  (put 'deriv '** deriv-of-exp))
+
+
 

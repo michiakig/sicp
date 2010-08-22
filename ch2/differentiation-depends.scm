@@ -14,3 +14,14 @@
   (and (pair? x) (eq? (car x) '*)))
 (define (multiplier p) (cadr p))
 (define (multiplicand p) (caddr p))
+
+; predicate, selector, constructor for exponentiation
+(define (exponentiation? exp) (and (pair? exp) (eq? (car exp) '**)))
+(define (base exp) (cadr exp))
+(define (exponent exp) (caddr exp))
+(define (make-exponentiation base exponent)
+  (cond ((= exponent 0) 1)
+        ((= exponent 1) base)
+        (else (list '** base exponent))))
+
+
