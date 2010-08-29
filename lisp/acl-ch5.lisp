@@ -1,6 +1,4 @@
-
-
-
+;; Chapter 5, Control
 
 ;; 1. Translate the following expressions into equivalent expressions that don't
 ;; use let or let* and don't cause an expression to be evaluated twice.
@@ -105,4 +103,19 @@
 	lst
 	(cdr lst))
   t)
-		
+
+;; 8. Define a single recursive function that returns, as two values, 
+;; the minimum and maximum elements of a vector
+
+(defun maxmin (v)
+  (let ((len (- (length v) 1)))
+    (maxmin-r v (elt v len) (elt v len) (- len 1))))
+
+(defun maxmin-r (v mx mn pos)
+  (if (< pos 0)
+      (values mx mn)
+      (let ((val (elt v pos)))
+	(maxmin-r v
+		  (if (< mx val) mx val)
+		  (if (> mn val) mn val)
+		  (- pos 1)))))
