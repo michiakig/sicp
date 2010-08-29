@@ -1,5 +1,11 @@
 
 
+(defun intersperse-r (obj list)
+  (cond ((null list) nil)
+	((null (cdr list)) list)
+	(t (cons (car list)
+		 (cons obj
+		       (intersperse-r obj (cdr list)))))))
 
 
 ;; 1. Translate the following expressions into equivalent expressions that don't
@@ -41,12 +47,12 @@
       nil
       (* x x)))
 
-;; 5. 
-(defun precedes-r (obj v)
+;; 5.
+(defun precedes-rec (obj v)
   (let ((pos (position obj v)))
     (cond (pos
 	   (if (> pos 0)
-	       (adjoin (elt v (- pos 1))
+	       (cons (elt v (- pos 1))
 		     (precedes-r obj (subseq v (1+ pos))))
 	       (precedes-r obj (subseq v (1+ pos)))))
 	  (t nil))))
@@ -60,49 +66,3 @@
 		     (not (member (elt v (- pos 1)) list)))
 	    (push (elt v (- pos 1)) list)))
 	list))
-
-;; 6.
-(defun intersperse-r (obj lst)
-  (cond ((null (cdr lst)) lst)
-	(t (cons (car lst)
-		 (cons obj
-		       (intersperse-r obj (cdr lst)))))))
-
-(defun intersperse-iter (obj lst)
-  (do ((acc nil)
-       (d (cdr lst) (cdr d))
-       (a (car lst) (car d)))
-      ((null d) 
-       (reverse (cons a acc)))
-    (setf acc (cons obj
-		    (cons a acc)))))
-
-;; 7. Define a function which takes a list of numbers and returns true iff the
-;; difference of successive pairs of them is 1, using:
-
-; a) recursion
-(defun diffsp1-r (lst)
-  (if (null (cdr lst))
-      t
-      (and (= 1 (abs (- (car lst) (cadr lst))))
-	   (diffsp1-r (cdr lst)))))
-
-; b) do
-(defun diffsp1-d (lst)
-  (do ((l lst (cdr l)))
-      ((or (null (cdr l))
-	   (not (= 1
-		   (abs (- (car l) (cadr l))))))
-       (null (cdr l)))))
-
-; c) mapc and return
-
-(defun diffsp1-m (lst)
-  (mapc #'(lambda (a d)
-	    (when (not (= 1
-			  (abs (- a d))))
-	      (return-from diffsp1-m nil)))
-	lst
-	(cdr lst))
-  t)
-		
