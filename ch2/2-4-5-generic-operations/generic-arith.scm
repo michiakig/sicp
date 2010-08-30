@@ -1,5 +1,8 @@
 ;;;; 2.5.1 Generic Arithmetic Operations
 
+;;; Most of this code is straight from the text, except where noted for certain
+;;; exercises.
+
 ;;; The definitions below form the "public API" of the system
 (define (add x y) (apply-generic 'add x y))
 (define (sub x y) (apply-generic 'sub x y))
@@ -8,6 +11,21 @@
 ;; ex 2.79, 2.80
 (define (equ? x y) (apply-generic 'equ? x y))
 (define (=zero? x) (apply-generic '=zero? x))
+
+;; and these are the constructors for individual types
+(define (make-scheme-number n)
+  ((get 'make 'scheme-number) n))
+
+(define (make-rational n d)
+  ((get 'make 'rational) n d))
+
+(define (make-complex-from-mag-ang r a)
+  ((get 'make-from-mag-ang 'complex) r a))
+(define (make-complex-from-real-imag x y)
+  ((get 'make-from-real-imag 'complex) x y))
+
+;;; The rest of the file includes the three definitions for installing the
+;;; different packages: Scheme (basic), rational, and complex numbers.
 
 (define (install-scheme-number-package)
   (define (tag x) (attach-tag 'scheme-number x))    
@@ -29,9 +47,6 @@
   (put 'make 'scheme-number
        (lambda (x) (tag x)))
   'done)
-
-(define (make-scheme-number n)
-  ((get 'make 'scheme-number) n))
 
 (define (install-rational-package)
   ;; internal procedures
@@ -78,9 +93,6 @@
   (put 'make 'rational
        (lambda (n d) (tag (make-rat n d))))
   'done)
-
-(define (make-rational n d)
-  ((get 'make 'rational) n d))
 
 ;; Installing this package depends on the rectangular and polar packages having been 
 ;; installed already
@@ -129,13 +141,10 @@
   (put 'make-from-mag-ang 'complex
        (lambda (r a) (tag (make-from-mag-ang r a))))
 
+  ;; ex 2.77
   (put 'real-part '(complex) real-part)
   (put 'imag-part '(complex) imag-part)
   (put 'magnitude '(complex) magnitude)
   (put 'angle '(complex) angle)
   'done)
 
-(define (make-complex-from-mag-ang r a)
-  ((get 'make-from-mag-ang 'complex) r a))
-(define (make-complex-from-real-imag x y)
-  ((get 'make-from-real-imag 'complex) x y))

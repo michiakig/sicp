@@ -1,3 +1,21 @@
+;;;; Complex number system
+
+;;; This file contains the procedure definition for the complex number
+;;; system, which can be used can be used separately from the larger
+;;; generic arithmetic system.
+
+(define (real-part z) (apply-generic 'real-part z))
+(define (imag-part z) (apply-generic 'imag-part z))
+(define (magnitude z) (apply-generic 'magnitude z))
+(define (angle z) (apply-generic 'angle z))
+
+(define (make-from-real-imag x y)
+  ((get 'make-from-real-imag 'rectangular) x y))
+(define (make-from-mag-ang r a)
+  ((get 'make-from-mag-ang 'polar) r a))
+
+;; The two package installation procedures follow:
+
 (define (install-rectangular-package)
   ;; internal procedures
   (define (real-part z) (car z))
@@ -46,14 +64,4 @@
        (lambda (r a) (tag (make-from-mag-ang r a))))
   'done)
 
-
-(define (real-part z) (apply-generic 'real-part z))
-(define (imag-part z) (apply-generic 'imag-part z))
-(define (magnitude z) (apply-generic 'magnitude z))
-(define (angle z) (apply-generic 'angle z))
-
-(define (make-from-real-imag x y)
-  ((get 'make-from-real-imag 'rectangular) x y))
-(define (make-from-mag-ang r a)
-  ((get 'make-from-mag-ang 'polar) r a))
 

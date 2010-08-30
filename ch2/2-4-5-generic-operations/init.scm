@@ -1,3 +1,8 @@
+;;;; Initialize the generic arithmetic system
+
+;;; This function loads the required files and calls the installation 
+;;; procedures.
+
 (define (init)
   (load "rect-and-polar-pckgs.scm")
   (load "generic-arith.scm")
