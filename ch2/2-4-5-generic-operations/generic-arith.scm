@@ -31,7 +31,7 @@
   (define (tag x) (attach-tag 'scheme-number x))    
 
   ;; ex 2.79, 2.80
-  (put '=zero? 'scheme-number
+  (put '=zero? '(scheme-number)
        (lambda (x) (= 0 x)))
   (put 'equ? '(scheme-number scheme-number)
        (lambda (x y) (= x y)))
@@ -73,7 +73,7 @@
   (define (tag x) (attach-tag 'rational x))
 
   ;; ex 2.79, 2.80
-  (put '=zero? 'rational
+  (put '=zero? '(rational)
        (lambda (x)
           (= 0 (numer x))))
   (put 'equ? '(rational rational)
@@ -123,7 +123,7 @@
        (lambda (z1 z2)
          (and (= (magnitude z1) (magnitude z1))
               (= (angle z1) (angle z2)))))
-  (put '=zero? 'complex
+  (put '=zero? '(complex)
        (lambda (z)
          (and (= 0 (magnitude z))
               (= 0 (angle z)))))
