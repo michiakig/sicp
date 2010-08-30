@@ -1,2 +1,28 @@
 This directory contains the code developed in sections 2.4 and 2.5 for implementing
 a generic arithmetic package.  
+
+Exercises in sections 2.4 and 2.5:
+
+X 2.73 Adapt the deriv procedure to dispatch on the type of expression being 
+differentiated.
+
+2.74 Insatiable Enterprises
+
+X 2.75 Implement make-from-mag-ang in a message passing style.
+
+2.76 Describe which style (explicit dispatch, data-directed, and message passing) would
+be more appropriate in a situation where new types must be often added? Where new 
+operations must be often added. 
+
+X 2.77 Louis Reasoner tries to evaluate the expression (magnitude z) where z is the object
+(cons 'complex (cons 'rectangular (cons 3 4))) ... explain why this fails
+
+X 2.78 The internal procedures in the scheme-number package are just wrappers around 
+primitive procedures. Modify type-tag, contents, and attach-tag so that our generic
+system takes advantage of Scheme's internal type system.
+
+X 2.79 Define a generic equality predicate equ? that tests the equality of two numbers 
+and install it in the generic arithmetic package.
+
+X 2.80 Define a generic procedure =zero? that tests if its argument is zero, and install
+it in the generic arithmetic package.

@@ -33,5 +33,3 @@
   (put 'deriv '* deriv-of-product)
   (put 'deriv '** deriv-of-exp))
 
-
-

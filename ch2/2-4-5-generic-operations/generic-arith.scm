@@ -1,13 +1,23 @@
-; 2.5.1 Generic Arithmetic Operations
+;;;; 2.5.1 Generic Arithmetic Operations
 
+;;; The definitions below form the "public API" of the system
 (define (add x y) (apply-generic 'add x y))
 (define (sub x y) (apply-generic 'sub x y))
 (define (mul x y) (apply-generic 'mul x y))
 (define (div x y) (apply-generic 'div x y))
+;; ex 2.79, 2.80
+(define (equ? x y) (apply-generic 'equ? x y))
+(define (=zero? x) (apply-generic '=zero? x))
 
 (define (install-scheme-number-package)
-  (define (tag x)
-    (attach-tag 'scheme-number x))    
+  (define (tag x) (attach-tag 'scheme-number x))    
+
+  ;; ex 2.79, 2.80
+  (put '=zero? 'scheme-number
+       (lambda (x) (= 0 x)))
+  (put 'equ? '(scheme-number scheme-number)
+       (lambda (x y) (= x y)))
+
   (put 'add '(scheme-number scheme-number)
        (lambda (x y) (tag (+ x y))))
   (put 'sub '(scheme-number scheme-number)
@@ -46,6 +56,16 @@
               (* (denom x) (numer y))))
   ;; interface to rest of the system
   (define (tag x) (attach-tag 'rational x))
+
+  ;; ex 2.79, 2.80
+  (put '=zero? 'rational
+       (lambda (x)
+          (= 0 (numer x))))
+  (put 'equ? '(rational rational)
+       (lambda (x y)
+          (and (= (numer x) (numer y))
+               (= (denom x) (denom y)))))
+
   (put 'add '(rational rational)
        (lambda (x y) (tag (add-rat x y))))
   (put 'sub '(rational rational)
@@ -85,6 +105,17 @@
                        (- (angle z1) (angle z2))))
   ;; interface to rest of the system
   (define (tag z) (attach-tag 'complex z))
+
+  ;; ex 2.79, 2.80
+  (put 'equ? '(complex complex)
+       (lambda (z1 z2)
+         (and (= (magnitude z1) (magnitude z1))
+              (= (angle z1) (angle z2)))))
+  (put '=zero? 'complex
+       (lambda (z)
+         (and (= 0 (magnitude z))
+              (= 0 (angle z)))))
+
   (put 'add '(complex complex)
        (lambda (z1 z2) (tag (add-complex z1 z2))))
   (put 'sub '(complex complex)
@@ -97,6 +128,11 @@
        (lambda (x y) (tag (make-from-real-imag x y))))
   (put 'make-from-mag-ang 'complex
        (lambda (r a) (tag (make-from-mag-ang r a))))
+
+  (put 'real-part '(complex) real-part)
+  (put 'imag-part '(complex) imag-part)
+  (put 'magnitude '(complex) magnitude)
+  (put 'angle '(complex) angle)
   'done)
 
 (define (make-complex-from-mag-ang r a)
