@@ -26,3 +26,8 @@ and install it in the generic arithmetic package.
 
 X 2.80 Define a generic procedure =zero? that tests if its argument is zero, and install
 it in the generic arithmetic package.
+
+2.81 Louis Reasoner ... 
+
+2.82 Show how to generalize apply-generic to handle coercion in the general case of
+multiple arguments.

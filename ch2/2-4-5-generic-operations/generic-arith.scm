@@ -1,23 +1,27 @@
 ;;;; 2.5.1 Generic Arithmetic Operations
 
-;;; Most of this code is straight from the text, except where noted for certain
-;;; exercises.
+;;; The majority of this code is straight from the text, except where noted for 
+;;; certain snippets where exercises are implemented.
 
-;;; The definitions below form the "public API" of the system
+;;; The definitions below form the "public API" of the system.
 (define (add x y) (apply-generic 'add x y))
 (define (sub x y) (apply-generic 'sub x y))
 (define (mul x y) (apply-generic 'mul x y))
 (define (div x y) (apply-generic 'div x y))
+
 ;; ex 2.79, 2.80
 (define (equ? x y) (apply-generic 'equ? x y))
 (define (=zero? x) (apply-generic '=zero? x))
 
-;; and these are the constructors for individual types
+;; ex 2.83
+(define (raise x) (apply-generic 'raise x))
+
+;; These are the constructors for individual types.
 (define (make-scheme-number n)
-  ((get 'make 'scheme-number) n))
+  ((get 'make '(scheme-number)) n))
 
 (define (make-rational n d)
-  ((get 'make 'rational) n d))
+  ((get 'make '(rational)) n d))
 
 (define (make-complex-from-mag-ang r a)
   ((get 'make-from-mag-ang 'complex) r a))
@@ -44,8 +48,11 @@
        (lambda (x y) (tag (* x y))))
   (put 'div '(scheme-number scheme-number)
        (lambda (x y) (tag (/ x y))))
-  (put 'make 'scheme-number
+  (put 'make '(scheme-number)
        (lambda (x) (tag x)))
+  ;; ex 2.83
+  (put 'raise '(scheme-number)
+       (lambda (x) (make-rational x 1)))
   'done)
 
 (define (install-rational-package)
@@ -89,19 +96,24 @@
        (lambda (x y) (tag (mul-rat x y))))
   (put 'div '(rational rational)
        (lambda (x y) (tag (div-rat x y))))
-
-  (put 'make 'rational
+  (put 'make '(rational)
        (lambda (n d) (tag (make-rat n d))))
+
+  ;; ex 2.83
+  (put 'raise '(rational)
+       (lambda (r) (make-complex-from-real-imag (/ (numer r) (denom r)) 0)))
   'done)
 
 ;; Installing this package depends on the rectangular and polar packages having been 
 ;; installed already
 (define (install-complex-package)
   ;; imported procedures from rectangular and polar packages
+  ;; I think you need to have installed the rect and polar packages first, right?
   (define (make-from-real-imag x y)
     ((get 'make-from-real-imag 'rectangular) x y))
   (define (make-from-mag-ang r a)
     ((get 'make-from-mag-ang 'polar) r a))
+
   ;; internal procedures
   (define (add-complex z1 z2)
     (make-from-real-imag (+ (real-part z1) (real-part z2))
@@ -140,6 +152,10 @@
        (lambda (x y) (tag (make-from-real-imag x y))))
   (put 'make-from-mag-ang 'complex
        (lambda (r a) (tag (make-from-mag-ang r a))))
+
+  ;; ex 2.83
+  (put 'raise '(complex)
+       (lambda (c) (tag c)))
 
   ;; ex 2.77
   (put 'real-part '(complex) real-part)
