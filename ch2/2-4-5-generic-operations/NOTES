@@ -31,3 +31,8 @@ it in the generic arithmetic package.
 
 2.82 Show how to generalize apply-generic to handle coercion in the general case of
 multiple arguments.
+
+X 2.83 Show how to install a generic raise operation that will work with any type
+
+2.84 Using the raise operation in 2.83, modify apply-generic to coerce arguments to
+have the same type by successive raising
