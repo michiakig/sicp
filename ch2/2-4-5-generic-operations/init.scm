@@ -8,10 +8,12 @@
   (load "generic-arith.scm")
   (load "apply-generic.scm")
   (load "proto-table.scm")
+  (load "symbolic-algebra.scm")
   (install-rectangular-package)
   (install-polar-package)
   (install-scheme-number-package)
   (install-rational-package)
   (install-complex-package)
+  (install-polynomial-package)
   'done!)
 
