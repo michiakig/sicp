@@ -6,7 +6,7 @@
 (define (init)
   (load "rect-and-polar-pckgs.scm")
   (load "generic-arith.scm")
-  (load "simple-apply-generic.scm")
+  (load "apply-generic.scm")
   (load "proto-table.scm")
   (install-rectangular-package)
   (install-polar-package)
@@ -14,3 +14,4 @@
   (install-rational-package)
   (install-complex-package)
   'done!)
+
