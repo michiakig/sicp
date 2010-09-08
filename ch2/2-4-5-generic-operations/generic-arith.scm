@@ -15,6 +15,8 @@
 
 ;; ex 2.83
 (define (raise x) (apply-generic 'raise x))
+;; ex 2.84
+(define (height x) (apply-generic 'height x))
 
 ;; These are the constructors for individual types.
 (define (make-scheme-number n)
@@ -53,6 +55,9 @@
   ;; ex 2.83
   (put 'raise '(scheme-number)
        (lambda (x) (make-rational x 1)))
+  ;; ex 2.84
+  (put 'height '(scheme-number)
+       (lambda (x) 0))
   'done)
 
 (define (install-rational-package)
@@ -102,6 +107,9 @@
   ;; ex 2.83
   (put 'raise '(rational)
        (lambda (r) (make-complex-from-real-imag (/ (numer r) (denom r)) 0)))
+  ;; ex 2.84
+  (put 'height '(rational)
+       (lambda (r) 1))
   'done)
 
 ;; Installing this package depends on the rectangular and polar packages having been 
@@ -156,7 +164,10 @@
   ;; ex 2.83
   (put 'raise '(complex)
        (lambda (c) (tag c)))
-
+  ;; ex 2.84
+  (put 'height '(complex)
+       (lambda (c) 2))
+  
   ;; ex 2.77
   (put 'real-part '(complex) real-part)
   (put 'imag-part '(complex) imag-part)
