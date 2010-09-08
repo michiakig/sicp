@@ -1,6 +1,10 @@
 This directory contains the code developed in sections 2.4 and 2.5 for implementing
 a generic arithmetic package.  
 
+The application is developed over several exercises, but to use it load "init.scm",
+and then call init. Then the procedures to construct various numbers and add, sub, mul,
+and div them will be available.
+
 Exercises in sections 2.4 and 2.5:
 
 X 2.73 Adapt the deriv procedure to dispatch on the type of expression being 
@@ -14,8 +18,8 @@ X 2.75 Implement make-from-mag-ang in a message passing style.
 be more appropriate in a situation where new types must be often added? Where new 
 operations must be often added. 
 
-X 2.77 Louis Reasoner tries to evaluate the expression (magnitude z) where z is the object
-(cons 'complex (cons 'rectangular (cons 3 4))) ... explain why this fails
+X 2.77 Louis Reasoner tries to evaluate the expression (magnitude z) where z is the 
+object (cons 'complex (cons 'rectangular (cons 3 4))) ... explain why this fails
 
 X 2.78 The internal procedures in the scheme-number package are just wrappers around 
 primitive procedures. Modify type-tag, contents, and attach-tag so that our generic
@@ -36,3 +40,10 @@ X 2.83 Show how to install a generic raise operation that will work with any typ
 
 2.84 Using the raise operation in 2.83, modify apply-generic to coerce arguments to
 have the same type by successive raising
+
+2.85 Design a procedure drop that accomplishes the method for "simplifying" a data 
+object by lowering it in the tower of types as far as possible. 
+
+2.86 Describe and implement the changes to the to the system needed to accomodate
+complex numbers whose real and imaginary parts, magnitudes and angles can be either 
+ordinary numbers, rational numbers, or other numbers we might wish to add to the system.
