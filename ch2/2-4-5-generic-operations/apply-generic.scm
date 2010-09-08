@@ -17,16 +17,12 @@
                         (t2->t1
                          (apply-generic op a1 (t2->t1 a2)))
                         (else
-                         (error "No method for these types"
+                         (error "No method for these types -- no coercion available"
                                 (list op type-tags))))))
-              (error "No method for these types"
+              (error "No method for these types -- more than 2 args"
                      (list op type-tags)))))))
 
-;;;; Exercise 2.78
-;;; Modify the definitions of type-tag, contents, and attach-tag from
-;;; section 2.4.2 so that our generic system takes advantage of Scheme's 
-;;; internal type system. 
-
+;; ex 2.78
 (define (attach-tag type-tag contents)
   (cond ((number? contents) contents)
         (else (cons type-tag contents))))
