@@ -1,0 +1,8 @@
+Chapter 3 Modularity, Objects, and State
+
+3.1 Write a procedure make-accumulator that generates accumulators.
+
+3.2 Write a procedure make-monitored that takes as input a procedure, f, that itself
+takes one input and returns a third procedure, say mf, that keeps track of the number 
+of times it has been called. If the input is the symbol how-many-calls, it returns the value of the counter; if the input is the symbol reset-count, it resets the counter.
+
