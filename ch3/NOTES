@@ -1,8 +1,20 @@
 Chapter 3 Modularity, Objects, and State
 
-3.1 Write a procedure make-accumulator that generates accumulators.
+X 3.1 Write a procedure make-accumulator that generates accumulators.
 
-3.2 Write a procedure make-monitored that takes as input a procedure, f, that itself
+X 3.2 Write a procedure make-monitored that takes as input a procedure, f, that itself
 takes one input and returns a third procedure, say mf, that keeps track of the number 
 of times it has been called. If the input is the symbol how-many-calls, it returns the value of the counter; if the input is the symbol reset-count, it resets the counter.
 
+X 3.3 Modify the make-account procedure so that it creates password protected accounts.
+
+X 3.4 Modify the make-account procedure by adding another local state variable so that,
+if an account has been accessed with more than 7 consecutive times with an incorrect
+password, it invokes the procedure call-the-cops.
+
+X 3.5 Implement Monte Carlo integration as a procedure estimate-integral that takes as
+arguments a predicate, upper and lower bounds for the rectangle, and the number of 
+trials to perform. Use the same monte-carlo procedure as in the text.
+
+X 3.6 Design a new rand procedure that is called with an argument that is either the 
+symbol generate or reset...
