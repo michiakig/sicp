@@ -50,4 +50,7 @@ ordinary numbers, rational numbers, or other numbers we might wish to add to the
 
 Exercises in sections 2.5.3 Symbolic Algebra
 
-2.87 Install =zero? for polynomials in the generic arithmetic package.
+X 2.87 Install =zero? for polynomials in the generic arithmetic package.
+
+X 2.88 Define a subtract procedure for polynomials. (includes generic negate)
+
