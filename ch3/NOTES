@@ -1,5 +1,7 @@
 Chapter 3 Modularity, Objects, and State
 
+3.1 Assignment and Local State
+
 X 3.1 Write a procedure make-accumulator that generates accumulators.
 
 X 3.2 Write a procedure make-monitored that takes as input a procedure, f, that itself
@@ -18,3 +20,11 @@ trials to perform. Use the same monte-carlo procedure as in the text.
 
 X 3.6 Design a new rand procedure that is called with an argument that is either the 
 symbol generate or reset...
+
+3.7 Define a procedure make-joint which takes three args, a password protected account,
+password to the account, new password for joint account, and returns a new bank account
+which can access the original via the new password.
+
+3.8 Define a simple procedure f such that evaluating (+ (f 0) (f 1)) will return 0 if
+the arguments to + are evaluated from left to right but will return 1 if the arguments
+are evaluated right to left.
