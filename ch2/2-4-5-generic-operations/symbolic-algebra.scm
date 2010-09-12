@@ -2,18 +2,26 @@
 
 (define (install-polynomial-package)
   ;; ex 2.87
-  (define (reduce op lst acc) ; used in =zero? below
+  (define (reduce op lst acc) ; used below
     (cond ((null? lst) acc)
           (else (reduce op
                         (cdr lst)
                         (op (car lst) acc)))))
 
-  (put '=zero? '(polynomial)
-       (lambda (p) (or (null? (term-list p))
-                       (reduce (lambda (x y) (and x y))
-                               (map (lambda (t) (=zero? (cadr t))) (term-list p))
-                               #t))))
-                       
+  (define =zero-poly?
+       (lambda (p)
+         (or (null? (term-list p))
+             (reduce (lambda (x y) (and x y))
+                     (map (lambda (t) (=zero? (cadr t))) (term-list p))
+                     #t))))
+  ;; ex 2.88
+  (define negate-poly
+       (lambda (p)
+         (make-poly (variable p)
+                    (map (lambda (t)
+                           (list (car t) (negate (cadr t))))
+                         (term-list p)))))
+
   ;; internal procedures
   ;; representation of poly
   (define (make-poly variable term-list)
@@ -96,6 +104,16 @@
        (lambda (p1 p2) (tag (mul-poly p1 p2))))
   (put 'make 'polynomial
        (lambda (var terms) (tag (make-poly var terms))))
+  ;; ex 2.87
+  (put '=zero? '(polynomial)
+       (lambda (p)
+         (=zero-poly? p)))
+  ;; ex 2.88
+  (put 'negate '(polynomial)
+       (lambda (p) (tag (negate-poly p))))
+  (put 'sub '(polynomial polynomial)
+       (lambda (p1 p2)
+         (tag (add-poly p1 (negate-poly p2)))))
   'done)
 
 (define (make-polynomial var terms)
