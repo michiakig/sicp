@@ -14,24 +14,30 @@
 	(rear-ptr '()))
 
     (define (insert item)
-      (let ((new-pair (cons item '())))
 	(cond ((null? front-ptr)
-	       (set! front-ptr (cons new-pair front-ptr))
-	       (set! rear-ptr front-ptr))
+	       (set! front-ptr (cons item front-ptr))
+	       (set! rear-ptr front-ptr)
+	       front-ptr)
 	      (else
-	       (set-cdr! rear-ptr new-pair)
-	       (set! rear-ptr new-pair)
-	       queue))))
+	       (set-cdr! rear-ptr (cons item '()))
+	       (set! rear-ptr (cdr rear-ptr))
+	       front-ptr)))
 
     (define (delete)
       (cond ((null? front-ptr)
 	     (error "DELETE! called on an empty queue"))
 	    (else
-	     (set! front-ptr (cdr (front-ptr queue)))
-	     queue)))
+	     (set! front-ptr (cdr front-ptr))
+	     front-ptr)))
+
+    (define (front)
+      (cond ((null? front-ptr)
+	     (error "FRONT called on an empty queue"))
+	    (else
+	     (car front-ptr))))
 
     (define (dispatch m)
-      (cond ((eq? m 'front) (car front-ptr))
+      (cond ((eq? m 'front) front)
 	    ((eq? m 'insert) insert)
 	    ((eq? m 'delete) delete)))
     dispatch))
