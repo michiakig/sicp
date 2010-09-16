@@ -8,7 +8,7 @@
   (display (front-ptr queue))
   'ok)
 
-; from the text...
+;; Exercise 3.22
 (define (make-queue-proc)
   (let ((front-ptr '())
 	(rear-ptr '()))
@@ -41,5 +41,3 @@
 	    ((eq? m 'insert) insert)
 	    ((eq? m 'delete) delete)))
     dispatch))
-
-;; Exercise 3.22
