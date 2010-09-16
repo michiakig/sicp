@@ -1,10 +1,3 @@
-;; Exercise 3.3
-;; Modify the make-account procedure so that it creates password protected accounts.
-;; Exercise 3.4
-;; Modify the make-account procedure by adding another local state variable so that,
-;; if an account has been accessed with more than 7 consecutive times with an incorrect
-;; password, it invokes the procedure call-the-cops.
-
 (define (make-account balance passwd)
   (define (withdraw amount)
     (if (>= balance amount)
