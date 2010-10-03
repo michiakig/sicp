@@ -1,0 +1,29 @@
+notes from the video lecture
+
+@24:24
+
+"We say that a variable, v, is "bound in an expression", E, if the meaning of E is
+unchanged by the uniform replacement of a variable w, not occurring in E, for every
+occurence of v in E.
+
+@29:11
+
+"We say that a variable, v, is "free in an expression" E if the meaning of E is changed
+by the uniform replacement of a variable w, not occurring in E for every occurrence of 
+V in E."
+
+(lamnda (x) (* x y))
+
+X is bound and Y is free
+
+@31:21
+
+"If X is a bound variable in E then there is a lambda expression where it is bound. We
+call the list of formal parameters of the lambda expression the "bound variable list"
+and we say that the lambda expression "binds" the variables "declared" in its bound 
+variable list. In addition, those parts of the expression where a variable has a value
+defined by the lambda expression which binds it is called the "scope" of the variable."
+
+@36:16
+
+@33:07

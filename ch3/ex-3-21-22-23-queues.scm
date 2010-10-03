@@ -49,64 +49,90 @@
 (define (delete q) ((q 'delete)))
 (define (front q) ((q 'front)))
 
-;; Exercise 3.23
+;;;; Exercise 3.23 deque - "double-ended queue"
 
-; Implementation of a double ended queue
+;;;; A deque is implemented simply as a pair pointing to a doubly-linked list.
+;;;; The pair representing the deque consist of the car pointing to the first
+;;;; element and the cdr pointing to the last element.
 
-; dequeue is a list - either the empty list when empty or a list containing three
-; elements: if it has one element, the first and third point to the same element
-; and the second is set to '(). if it has more than one, the first points to the 
-; front of the dequeue, the second to the second to last element, and the third to
-; the rear (last element)
+;;; constructor
+(define (make-deque)
+  (cons '() '()))
 
-(define (make-dequeue) (list))
-(define (empty-dequeue? q) (null? q))
+;;; empty predicate
+(define (empty-deque? d)
+  (null? (front-deque d)))
 
-(define (front-deqeue q)
-  (if (empty-dequeue? q)
-      (error "FRONT called on empty dequeue")
-      (caar q)))
+;;; returns the node at the front
+(define (front-deque d)
+  (car d))
 
-(define (rear-dequeue q)
-  (if (empty-dequeue q)
-      (error "REAR called on empty dequeue")
-      (third q)))
-  
-(define (front-insert-dequeue! q item)
-  (let ((new-pair (cons item '())))
-    (cond ((empty-dequeue? q)
-	   (list new-pair '() new-pair))
+;;; returns the node at the rear
+(define (rear-deque d)
+  (cdr d))
+
+;;; predicate to test for a deque with only one element
+(define (single-deque? d)
+  (null? (next-node (front-deque d))))
+
+(define (front-insert-deque! d item)
+  (let ((new-node (make-node! item (front-deque d) '())))
+    (cond ((empty-deque? d)
+	   (set-car! d new-node)
+	   (set-cdr! d new-node))
 	  (else
-	     (if (null? (second q))
-		 (set-cdr! new-pair (car q))
-		 (set-car! q new-pair)	; set the first to new-pair
-		 (set-cad)))
-	   (set-cdr! new-pair (first q))
-	   (set-car! q new-pair)
-	   q))))
+	   (set-car! d new-node)))
+    d))
 
-
-(define (front-delete-dequeue! q)
-  (cond ((empty-dequeue? q)
-	 (error "DELETE! called on empty queue"))
-	(else
-	 (set-car! q (cdar q))
-	 q)))
-
-(define (rear-insert-dequeue! q item)
-  (let ((new-pair (cons item '())))
-    (cond ((empty-dequeue? q)
-	   (set-car! q new-pair)
-	   (set-cdr! q (car q))
-	   q)
+(define (rear-insert-deque! d item)
+  (let ((new-node (make-node! item '() (rear-deque d))))
+    (cond ((empty-deque? d)
+	   (set-car! d new-node)
+	   (set-cdr! d new-node))
 	  (else
-	   (let ((end (cdr q)))
-	     (set-cdr! end new-pair)
-	     (set-cdr! q new-pair)
-	     q)))))
+	   (set-cdr! d new-node)))
+    d))
 
-(define (rear-delete-dequeue! q)
-  (cond ((empty-dequeue? q)
-	 (error "DELETE! called on an empty queue"))
+(define (front-delete-deque! d)
+  (cond ((empty-deque? d)
+	 (error "DELETE! on empty deque"))
+	((single-deque? d)
+	 (set-car! d '())
+	 (set-cdr! d '()))
 	(else
-	 ())))
+	 (set-car! d (next-node (front-deque d)))))
+  d)
+
+(define (rear-delete-deque! d)
+  (cond ((empty-deque? d)
+	 (error "DELETE! on empty deque"))
+	((single-deque? d)
+	 (set-car! d '())
+	 (set-cdr! d '()))
+	(else
+	 (set-cdr! d (prev-node (rear-deque d)))
+	 (set-next! (rear-deque d) '())))
+  d)
+
+;;; doubly linked list implementation
+(define (next-node n) (cddr n))
+(define (prev-node n) (cadr n))
+(define (item-node n) (car n))
+
+(define (make-node! item next prev)
+  (let ((new-node (cons item (cons prev next))))
+    (if (not (null? next))
+	(set-prev! next new-node))
+    (if (not (null? prev))
+	(set-next! prev new-node))
+    new-node))
+
+(define (set-next! n x) (set-cdr! (cdr n) x))
+(define (set-prev! n x) (set-car! (cdr n) x))
+
+;;; convert a doubly-linked list to a regular list
+(define (double-to-list lst)
+  (cond ((null? lst) '())
+	(else (cons (item-node lst)
+		    (double-to-list (next-node lst))))))
+
