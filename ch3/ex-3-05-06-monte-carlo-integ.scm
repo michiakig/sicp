@@ -1,4 +1,6 @@
-;; Exercise 3.5 Monte Carlo integration
+;;;; Ex. 3.5, 3.6
+
+;;; Monte Carlo integration and a reset-able random number generator
 
 (define (estimate-integral P x1 x2 y1 y2 trials)
   (let ((area (* (abs (- x1 x2)) ; area of the rectangle
@@ -32,7 +34,7 @@
   (let ((range (- high low)))
     (+ low (random range))))
 
-;; Exercise 3.6 reset-able random number generator
+
 
 (define rand
   (let ((x random-init))

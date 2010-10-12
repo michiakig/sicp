@@ -1,3 +1,8 @@
+;;;; Ex. 3.3, 3.4
+
+;;; creates password protected accounts and keeps track of the number of failed
+;;; attempts to access the account.
+
 (define (make-account balance passwd)
   (define (withdraw amount)
     (if (>= balance amount)

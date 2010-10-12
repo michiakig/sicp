@@ -1,16 +1,15 @@
-;; Exercise 3.21
+;;;; Exercise 3.21, 3.22, 3.23
 
-; A queue is a cons of the form (<list> . <last item in list>) so this means that
-; Scheme prints queues out as ((a b) b), where the list representation of the queue
-; is (a b) and the last item in the queue is the second b
+;;; A queue is a cons of the form (<list> . <last item in list>) so this means
+;;; that Scheme prints queues out as ((a b) b), where the list representation 
+;;; of the queue is (a b) and the last item in the queue is the second b
 
 (define (print-queue queue)
   (display (front-ptr queue))
   'ok)
 
-;; Exercise 3.22
 
-; Implements a queue in terms of a procedure with local state.
+;;; Implements a queue in terms of a procedure with local state.
 (define (make-queue-proc)
   (let ((front-ptr '())
 	(rear-ptr '()))
@@ -44,16 +43,14 @@
 	    ((eq? m 'delete) delete)))
     dispatch))
 
-; external facing procedures
+;;; external facing procedures
 (define (insert q item) ((q 'insert) item))
 (define (delete q) ((q 'delete)))
 (define (front q) ((q 'front)))
 
-;;;; Exercise 3.23 deque - "double-ended queue"
-
-;;;; A deque is implemented simply as a pair pointing to a doubly-linked list.
-;;;; The pair representing the deque consist of the car pointing to the first
-;;;; element and the cdr pointing to the last element.
+;;; A deque is implemented simply as a pair pointing to a doubly-linked list.
+;;; The pair representing the deque consist of the car pointing to the first
+;;; element and the cdr pointing to the last element.
 
 ;;; constructor
 (define (make-deque)

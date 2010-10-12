@@ -1,6 +1,8 @@
-;; Exercise 3.14
-; a better name for mystery would be reverse!
-; it destructively (but efficiently) reverses a list
+;;;; Ex. 3.14, 3.17
+
+;;; A better name for mystery would be reverse! It destructively (but 
+;;; efficiently) reverses a list.
+
 (define (reverse! x)
   (define (loop x y)
     (if (null? x)
@@ -10,7 +12,8 @@
         (loop temp x))))
   (loop x '()))
 
-;; Exercise 3.17
+;;; A correct version of count-pairs
+
 (define (count-pairs x)
   (let ((lst '()))
     (define (count-pairs-r x)

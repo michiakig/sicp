@@ -1,5 +1,6 @@
-;; Exercise 3.18
-;; Write a procedure that examines a list and determines whether it contains a cycle.
+;;;; Ex. 3.18, 3.19
+
+;;; Detect whether a list contains a cycle
 
 (define (detect-cycle x)
   (define seen '())
@@ -11,10 +12,9 @@
 	   (detect-cycle-r (cdr x)))))
   (detect-cycle-r x))
 
-;; Exercise 3.19
-;; Redo exercise 3.18 using an algorithm using only a contant amount of space.
+;;; Redo exercise 3.18 using an algorithm using only a contant amount of space.
+;;; Floyd's famous Tortoise and Hare algorithm
 
-; Floyd's famous tortoise and hare algorithm
 (define (detect-cycle-constant x)
   (define (floyd t h)
     (cond ((null? h) #f)
