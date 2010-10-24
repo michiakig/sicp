@@ -138,6 +138,12 @@
 
 (define (for-each-except exception procedure list)
   (define (loop items)
+;    (newline)
+;    (display "for-each-except ")
+;    (display (length list))
+;    (display " ")
+;    (display (car list))
+;    (newline)
     (cond ((null? items) 'done)
           ((eq? (car items) exception) (loop (cdr items)))
           (else (procedure (car items))
