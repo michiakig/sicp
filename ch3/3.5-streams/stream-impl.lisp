@@ -8,6 +8,7 @@
 ;;; delay must be a "special form" or a macro
 (defmacro delay (x)
   `(memo-proc (lambda () ,x)))
+;  (lambda () x))
 (defun force (x) (funcall x))
 
 (defun memo-proc (proc)

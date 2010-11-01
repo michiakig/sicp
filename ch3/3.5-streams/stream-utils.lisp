@@ -38,3 +38,8 @@
 	 (cons-stream (stream-car s)
 		      (stream-filter pred (stream-cdr s))))
 	(t (stream-filter pred (stream-cdr s)))))
+
+;; Additional code from the text, pp 326-
+
+(defun add-streams (s1 s2)
+  (stream-map #'+ s1 s2))
