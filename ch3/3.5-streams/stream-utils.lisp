@@ -44,19 +44,22 @@
 (defun add-streams (s1 s2)
   (stream-map #'+ s1 s2))
 
+(defun scale-stream (stream factor)
+  (stream-map #'(lambda (x) (* x factor)) stream))
+
 ;; merge procedure from exercise 3.56
 
-(defun merge (s1 s2)
+(defun merge-streams (s1 s2)
   (cond ((stream-null? s1) s2)
 	((stream-null? s2) s1)
 	(t
 	 (let ((s1car (stream-car s1))
 	       (s2car (stream-car s2)))
 	   (cond ((< s1car s2car)
-		  (cons-stream s1car (merge (stream-cdr s1) s2)))
+		  (cons-stream s1car (merge-streams (stream-cdr s1) s2)))
 		 ((> s1car s2car)
-		  (cons-stream s2car (merge s1 (stream-cdr s2))))
+		  (cons-stream s2car (merge-streams s1 (stream-cdr s2))))
 		 (t
 		  (cons-stream s1car
-			       (merge (stream-cdr s1)
+			       (merge-streams (stream-cdr s1)
 				      (stream-cdr s2)))))))))
