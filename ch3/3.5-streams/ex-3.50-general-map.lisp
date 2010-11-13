@@ -8,5 +8,3 @@
       (cons-stream
        (apply proc (mapcar #'stream-car args))
        (apply #'stream-map (cons proc (mapcar #'stream-cdr args))))))
-
-

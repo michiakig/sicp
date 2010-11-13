@@ -1,4 +1,4 @@
-;;;; Stream utility functions from Chapter 3. Requires the stream implementation
+
 ;;; code from the text, pp 319-322
 
 (defun stream-ref (s n)
