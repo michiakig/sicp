@@ -21,6 +21,13 @@
 ;;;SECTION 4.1.1
 
 (define (eval exp env)
+
+  (if (pair? exp)
+      (begin
+	(display "EVAL:")
+	(display exp)
+	(newline)))
+
   (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
         ((quoted? exp) (text-of-quotation exp))
@@ -30,13 +37,15 @@
 
 	((and? exp) (eval-and (operands exp) env))
 	((or? exp) (eval-or (operands exp) env))
-	((let? exp) (eval (let->combination exp)))
+	((let? exp) (eval (let->combination exp) env))
+	((let*? exp) (eval (let*->nested-lets exp) env))
+	((named-let? exp) (eval (named-let->combination exp) env))
 
         ((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
                          env))
-        ((begin? exp) 
+        ((begin? exp)
          (eval-sequence (begin-actions exp) env))
         ((cond? exp) (eval (cond->if exp) env))
         ((application? exp)
@@ -44,7 +53,12 @@
                 (list-of-values (operands exp) env)))
         (else
          (error "Unknown expression type -- EVAL" exp))))
+
 (define (apply procedure arguments)
+
+  (display "APPLY:")
+  (newline)
+
   (cond ((primitive-procedure? procedure)
          (apply-primitive-procedure procedure arguments))
         ((compound-procedure? procedure)
@@ -102,7 +116,6 @@
 	(if val
 	    val
 	    (eval-or (cdr ops) env)))))
-
 
 (define (eval-sequence exps env)
   (cond ((last-exp? exps) (eval (first-exp exps) env))
@@ -265,7 +278,9 @@
 
 ;;; Ex. 4.6
 
-(define (let? exp) (tagged-list? exp 'let))
+(define (let? exp) (and (tagged-list? exp 'let)
+			(pair? (cadr exp)))) ; make sure it's not a named let
+
 
 (define (let-body exp) (cddr exp))
 (define (let-bindings exp) (cadr exp))
@@ -284,6 +299,43 @@
 	      (cons (cadar rest) exps)
 	      body)))
   (loop (let-bindings exp) '() '() (let-body exp)))
+
+;;; Ex. 4.7
+
+(define (let*? exp) (tagged-list? exp 'let*))
+
+
+;; It's perfectly fine to define let* in this way because when 
+;; (eval (let*->nested-lets exp) env) is called it will recursively 
+;; call eval again, with the nested let expression, then with the lets
+;; expanded to be lambda applications, etc ...
+
+(define (let*->nested-lets exp)
+  (define (rec bindings body)
+    (if (null? (cdr bindings))
+	(cons 'let (cons (list (car bindings)) body))
+	(list 'let (list (car bindings)) (rec (cdr bindings) body))))
+  (rec (let-bindings exp) (let-body exp)))
+
+(define (named-let? exp) (and (tagged-list? exp 'let)
+			      (not (pair? (let-bindings exp)))))
+(define (named-let-name exp) (cadr exp))
+(define (named-let-bindings exp) (caddr exp))
+(define (named-let-body exp) (cdddr exp))
+
+(define (named-let->combination exp)
+  (define (nloop bindings vars exps body)
+    (if (null? bindings)
+	(list (make-lambda '()
+			   (list (list 'define
+				       (named-let-name exp)
+				       (make-lambda (reverse vars) body))
+				 (cons (named-let-name exp) (reverse exps)))))
+	(nloop (cdr bindings)
+	       (cons (caar bindings) vars)
+	       (cons (cadar bindings) exps)
+	       body)))
+  (nloop (named-let-bindings exp) '() '() (named-let-body exp)))
 
 ;;;SECTION 4.1.3
 
