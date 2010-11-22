@@ -22,11 +22,11 @@
 
 (define (eval exp env)
 
-  (if (pair? exp)
-      (begin
-	(display "EVAL:")
-	(display exp)
-	(newline)))
+;  (if (pair? exp)
+;      (begin
+;	(display "EVAL:")
+;	(display exp)
+;	(newline)))
 
   (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
@@ -40,6 +40,7 @@
 	((let? exp) (eval (let->combination exp) env))
 	((let*? exp) (eval (let*->nested-lets exp) env))
 	((named-let? exp) (eval (named-let->combination exp) env))
+	((for? exp) (eval (for->combination exp) env))
 
         ((lambda? exp)
          (make-procedure (lambda-parameters exp)
@@ -56,8 +57,8 @@
 
 (define (apply procedure arguments)
 
-  (display "APPLY:")
-  (newline)
+;  (display "APPLY:")
+;  (newline)
 
   (cond ((primitive-procedure? procedure)
          (apply-primitive-procedure procedure arguments))
