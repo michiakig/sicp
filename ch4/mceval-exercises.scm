@@ -324,6 +324,33 @@
 	       body)))
   (nloop (named-let-bindings exp) '() '() (named-let-body exp)))
 
+;; Ex. 4.9 Implementation of an for-loop style iteration construct
+;; This is pretty ugly looking and definitely motivates the back-quote
+;; syntax used in macros, etc.
+
+(define (for? exp) (tagged-list? exp 'for))
+(define (for-var exp) (cadr exp))
+(define (for-init exp) (caddr exp))
+(define (for-limit exp) (cadddr exp))
+(define (for-body exp) (cddddr exp))
+
+(define (for->combination exp)
+  (list
+   (make-lambda '()
+		(list (list
+		       'define
+		       (list 'loop (for-var exp) 'n)
+		       (list 'if
+			     (list 'or
+				   (list '< (for-var exp) 'n)
+				   (list '= (for-var exp) 'n))
+			     (cons 'begin
+				   (append (for-body exp)
+					   (list (list 'loop
+						       (list '+ 1 (for-var exp))
+								 'n))))))
+		      (list 'loop (for-init exp) (for-limit exp))))))
+
 ;;;SECTION 4.1.3
 
 (define (true? x)
@@ -510,8 +537,8 @@
 
 ;;;Following are commented out so as not to be evaluated when
 ;;; the file is loaded.
-(define the-global-environment (setup-environment))
-(driver-loop)
+;(define the-global-environment (setup-environment))
+;(driver-loop)
 
 
 ;;'METACIRCULAR-EVALUATOR-LOADED
