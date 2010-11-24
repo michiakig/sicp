@@ -3,7 +3,7 @@
 ;;;; STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS
 
 ;;;; Exercises interleaved with code from the text
-;;;; 4.1, 4.4, 4.5, 4.6
+;;;; 4.1, 4.4, 4.5, 4.6, 4.11, 4.12, 4.13
 
 ;;;; Matches code in ch4.scm
 
@@ -30,7 +30,7 @@
 
   (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
-        ((quoted? exp) (text-of-quotation exp))
+	((quoted? exp) (text-of-quotation exp))
         ((assignment? exp) (eval-assignment exp env))
         ((definition? exp) (eval-definition exp env))
         ((if? exp) (eval-if exp env))
@@ -41,6 +41,7 @@
 	((let*? exp) (eval (let*->nested-lets exp) env))
 	((named-let? exp) (eval (named-let->combination exp) env))
 	((for? exp) (eval (for->combination exp) env))
+	((unbind? exp) (eval-unbind exp env))
 
         ((lambda? exp)
          (make-procedure (lambda-parameters exp)
@@ -242,20 +243,6 @@
 (define (cond->if exp)
   (expand-clauses (cond-clauses exp)))
 
-;(define (expand-clauses clauses)
-;  (if (null? clauses)
-;      'false                          ; no else clause
-;      (let ((first (car clauses))
-;            (rest (cdr clauses)))
-;        (if (cond-else-clause? first)
-;            (if (null? rest)
-;                (sequence->exp (cond-actions first))
-;                (error "ELSE clause isn't last -- COND->IF"
-;                       clauses))
-;            (make-if (cond-predicate first)
-;                     (sequence->exp (cond-actions first))
-;                     (expand-clauses rest))))))
-
 ;;; Ex. 4.5
 
 (define (cond-action clause) (caddr clause))
@@ -281,7 +268,6 @@
 
 (define (let? exp) (and (tagged-list? exp 'let)
 			(pair? (cadr exp)))) ; make sure it's not a named let
-
 
 (define (let-body exp) (cddr exp))
 (define (let-bindings exp) (cadr exp))
@@ -365,15 +351,24 @@
 
 (define the-empty-environment '())
 
+;; Ex. 4.11 Represent a frame as an alist
 (define (make-frame variables values)
-  (cons variables values))
+  (map cons variables values))
 
-(define (frame-variables frame) (car frame))
-(define (frame-values frame) (cdr frame))
+(define (frame-variables frame) (map car frame))
+(define (frame-values frame) (map cdr frame))
 
+(define (first-binding frame) (car frame))
+(define (rest-binding frame) (cdr frame))
+
+;; now we can use assoc very simply to look up a binding
+(define (find-in-frame var frame) (assoc var frame))
+
+;; this is basically (push (cons var val) frame)
 (define (add-binding-to-frame! var val frame)
-  (set-car! frame (cons var (car frame)))
-  (set-cdr! frame (cons val (cdr frame))))
+  (let ((f (cons (car frame) (cdr frame))))
+    (set-car! frame (cons var val))
+    (set-cdr! frame f)))
 
 (define (extend-environment vars vals base-env)
   (if (= (length vars) (length vals))
@@ -382,46 +377,57 @@
           (error "Too many arguments supplied" vars vals)
           (error "Too few arguments supplied" vars vals))))
 
+;; now we can just use assoc instead of the internal scan procedures
 (define (lookup-variable-value var env)
-  (define (env-loop env)
-    (define (scan vars vals)
-      (cond ((null? vars)
-             (env-loop (enclosing-environment env)))
-            ((eq? var (car vars))
-             (car vals))
-            (else (scan (cdr vars) (cdr vals)))))
-    (if (eq? env the-empty-environment)
-        (error "Unbound variable" var)
-        (let ((frame (first-frame env)))
-          (scan (frame-variables frame)
-                (frame-values frame)))))
-  (env-loop env))
+  (let ((record (env-frame-search var env)))
+    (if record
+	(cdr record)
+	(error "Unbound variable" var))))
 
 (define (set-variable-value! var val env)
+  (let ((record (env-frame-search var env)))
+    (if record
+	(set-cdr! record val)
+        (error "Unbound variable -- SET!" var))))
+	
+(define (define-variable! var val env)
+  (let ((record (find-in-frame var (first-frame env))))
+    (if record
+	(set-cdr! record val)
+	(add-binding-to-frame! var val (first-frame env)))))
+
+;; Ex. 4.12
+;; this searches the given environment, and it's enclosing environments,
+;; for the given variable, return the pair (var . val) or false
+;; this still doesn't really implement much more than a leaky abstraction
+;; to improve readability...
+
+(define (env-frame-search var env)
   (define (env-loop env)
-    (define (scan vars vals)
-      (cond ((null? vars)
-             (env-loop (enclosing-environment env)))
-            ((eq? var (car vars))
-             (set-car! vals val))
-            (else (scan (cdr vars) (cdr vals)))))
     (if (eq? env the-empty-environment)
-        (error "Unbound variable -- SET!" var)
-        (let ((frame (first-frame env)))
-          (scan (frame-variables frame)
-                (frame-values frame)))))
+	#f
+	(let ((record (find-in-frame var (first-frame env))))
+	  (if record
+	      record
+	      (env-loop (enclosing-environment env))))))
   (env-loop env))
 
-(define (define-variable! var val env)
-  (let ((frame (first-frame env)))
-    (define (scan vars vals)
-      (cond ((null? vars)
-             (add-binding-to-frame! var val frame))
-            ((eq? var (car vars))
-             (set-car! vals val))
-            (else (scan (cdr vars) (cdr vals)))))
-    (scan (frame-variables frame)
-          (frame-values frame))))
+;; Ex. 4.13 make-unbound
+;; this only removes the binding the first frame of the enviroment.
+;; it doesn't seem to make sense to allow an unbind! special form to
+;; remove bindings in the enclosing environments, since that could wreak
+;; quite a bit of havoc?
+
+(define (make-unbound! var env)
+  (set-car! env
+	    (remove! (lambda (record)
+		       (eq? var (car record)))
+		     (first-frame env))))
+
+(define (unbind? exp) (tagged-list? exp 'unbind!))
+
+(define (eval-unbind exp env)
+  (make-unbound! (car (operands exp)) env))
 
 ;;;SECTION 4.1.4
 
@@ -459,6 +465,8 @@
 ;;      more primitives
 	(list 'display display)
 	(list 'newline newline)
+
+	(list 'append append)
         ))
 
 (define (primitive-procedure-names)
@@ -474,8 +482,6 @@
 (define (apply-primitive-procedure proc args)
   (apply-in-underlying-scheme
    (primitive-implementation proc) args))
-
-
 
 (define input-prompt ";;; M-Eval input:")
 (define output-prompt ";;; M-Eval value:")
@@ -504,7 +510,8 @@
 
 ;;;Following are commented out so as not to be evaluated when
 ;;; the file is loaded.
-;(define the-global-environment (setup-environment))
-;(driver-loop)
+(define the-global-environment (setup-environment))
+(driver-loop)
+
 
 ;;'METACIRCULAR-EVALUATOR-LOADED
