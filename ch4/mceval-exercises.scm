@@ -54,7 +54,7 @@
          (apply (eval (operator exp) env)
                 (list-of-values (operands exp) env)))
         (else
-         (error "Unknown expression type -- EVAL" exp))))
+         (error "**** Unknown expression type -- EVAL" exp))))
 
 (define (apply procedure arguments)
 
@@ -72,7 +72,7 @@
              (procedure-environment procedure))))
         (else
          (error
-          "Unknown procedure type -- APPLY" procedure))))
+          "**** Unknown procedure type -- APPLY" procedure))))
 
 ;;; Ex. 4.1
 
@@ -255,7 +255,7 @@
         (if (cond-else-clause? first)
             (if (null? rest)
                 (sequence->exp (cond-actions first))
-                (error "ELSE clause isn't last -- COND->IF"
+                (error "**** ELSE clause isn't last -- COND->IF"
                        clauses))
 	    ;; the expand-clauses is the same as in the text up until here
 	    ;; we compute the value of the predicate and store it in val
@@ -401,21 +401,21 @@
   (if (= (length vars) (length vals))
       (cons (make-frame vars vals) base-env)
       (if (< (length vars) (length vals))
-          (error "Too many arguments supplied" vars vals)
-          (error "Too few arguments supplied" vars vals))))
+          (error "**** Too many arguments supplied" vars vals)
+          (error "**** Too few arguments supplied" vars vals))))
 
 ;; now we can just use assoc instead of the internal scan procedures
 (define (lookup-variable-value var env)
   (let ((record (env-frame-search var env)))
     (if record
 	(cdr record)
-	(error "Unbound variable" var))))
+	(error "**** Unbound variable" var))))
 
 (define (set-variable-value! var val env)
   (let ((record (env-frame-search var env)))
     (if record
 	(set-cdr! record val)
-        (error "Unbound variable -- SET!" var))))
+        (error "**** Unbound variable -- SET!" var))))
 	
 (define (define-variable! var val env)
   (let ((record (find-in-frame var (first-frame env))))
@@ -537,8 +537,9 @@
 
 ;;;Following are commented out so as not to be evaluated when
 ;;; the file is loaded.
-;(define the-global-environment (setup-environment))
-;(driver-loop)
+(define the-global-environment (setup-environment))
+(driver-loop)
+
 
 
 ;;'METACIRCULAR-EVALUATOR-LOADED
