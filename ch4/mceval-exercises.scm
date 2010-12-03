@@ -267,7 +267,7 @@
 ;;; Ex. 4.6
 
 (define (let? exp) (and (tagged-list? exp 'let)
-			(pair? (cadr exp)))) ; make sure it's not a named let
+                        (list? (cadr exp)))) ; make sure it's not a named let
 
 (define (let-body exp) (cddr exp))
 (define (let-bindings exp) (cadr exp))
