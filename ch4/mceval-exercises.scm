@@ -361,7 +361,9 @@
 
 
 (define (make-procedure parameters body env)
-  (list 'procedure parameters body env))
+  ;; changed for ex. 4.16 (c), installed here so it runs when the
+  ;; procedure is created, not when it is applied 
+  (list 'procedure parameters (scan-out-defines body) env))
 
 (define (compound-procedure? p)
   (tagged-list? p 'procedure))
@@ -408,13 +410,16 @@
 (define (lookup-variable-value var env)
   (let ((record (env-frame-search var env)))
     (if record
-	(cdr record)
-	(error "**** Unbound variable" var))))
+	;; changed to support ex. 4.16 (a)
+	(if (eq? (cdr record) '*unassigned*)
+	    (error "Unassigned variable" var)
+	    (cdr record))
+	(error "Unbound variable" var))))
 
 (define (set-variable-value! var val env)
   (let ((record (env-frame-search var env)))
     (if record
-	(set-cdr! record val)
+        (set-cdr! record val)
         (error "**** Unbound variable -- SET!" var))))
 	
 (define (define-variable! var val env)
@@ -534,6 +539,47 @@
                      (procedure-body object)
                      '<procedure-env>))
       (display object)))
+
+;;; SECTION 4.1.6 Internal Definitions
+
+;; predicates and selectors for "regular" definitions like (define a 1) 
+(define (define? e) (tagged-list? e 'define))
+(define (define-var e) (cadr e))
+(define (define-exp e) (caddr e))
+
+;; and procedure definition syntactic sugar (define (foo x) ...)
+(define (proc-define? e) (list? (cadr e)))
+(define (proc-define-var e) (caadr e))
+(define (proc-define-formals e) (cdadr e))
+(define (proc-define-body e) (cddr e))
+
+(define (get-exp-or-lambda e)
+  (if (proc-define? e)
+      (cons 'lambda
+            (cons (proc-define-formals e)
+                  (proc-define-body e)))
+      (define-exp e)))
+
+(define (get-var-or-proc e)
+  (if (proc-define? e)
+      (proc-define-var e)
+      (define-var e)))
+
+;; Ex. 4.16 (b) - implementation of the method for interpreting
+;; internal definitions
+(define (scan-out-defines body)
+  (let* ((definitions (filter define? body))
+	 (rest (remove define? body))
+	 (vars (map get-var-or-proc definitions))
+	 (exps (map get-exp-or-lambda definitions)))
+    (if (null? definitions)
+        body
+        (list (cons 'let
+                    (cons (map (lambda (v) (list v ''*unnassigned*)) vars)
+                          (append (map (lambda (v e) (list 'set! v e))
+                                       vars
+                                       exps)
+                                  rest)))))))
 
 ;;;Following are commented out so as not to be evaluated when
 ;;; the file is loaded.
