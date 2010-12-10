@@ -1,0 +1,84 @@
+Exercises from Chapter 4 Metalinguistic Abstraction
+
+Section 4.1 The Metacircular Evaluator
+
+X 4.1 left-to-right and right-to-left evaluation of operands
+X 4.2 recognize procedure application before other forms
+X 4.3 eval using data-directed dispatch
+X 4.4 implement `and` and `or`
+X 4.5 support the alternate syntax for `cond` clauses.
+X 4.6 implement `let` as syntax transformation to applied `lambda`
+X 4.7 implement `let*` as syntax transformation to nested `let`
+X 4.8 support named `let` forms
+X 4.9 design and implement some iteration constructs as derived expressions
+  4.10 design and implement a new syntax for Scheme
+X 4.11 represent a frame as an assoc list of bindings
+X 4.12 factor out common patterns in frame operations
+X 4.13 implement a special form `make-unbound!`
+  4.14 map in the metacircular evaluator
+  4.15 Turing's proof of the halting problem
+X 4.16 implement a method of interpreting internal defines
+  4.17 consider the environment diagram when interpreting internal defines
+  4.18 consider an alternative strategy for internal defines
+  4.19 consider a discussion on internal defines
+  4.20 implement `letrec` as a derived expression
+X 4.21 compute Fibonacci numbers with the y-combinator
+
+4.22
+4.23
+4.24
+4.25
+4.26
+4.27
+4.28
+4.29
+4.30
+4.31
+4.32
+4.33
+4.34
+4.35
+4.36
+4.37
+4.38
+4.39
+4.40
+4.41
+4.42
+4.43
+4.44
+4.45
+4.46
+4.47
+4.48
+4.49
+4.50
+4.51
+4.52
+4.53
+4.54
+4.55
+4.56
+4.57
+4.58
+4.59
+4.60
+4.61
+4.62
+4.63
+4.64
+4.65
+4.66
+4.67
+4.68
+4.69
+4.70
+4.71
+4.72
+4.73
+4.74
+4.75
+4.76
+4.77
+4.78
+4.79

@@ -267,6 +267,7 @@
 ;;; Ex. 4.6
 
 (define (let? exp) (and (tagged-list? exp 'let)
+                        ;; modified to support named lets
                         (list? (cadr exp)))) ; make sure it's not a named let
 
 (define (let-body exp) (cddr exp))
@@ -291,7 +292,6 @@
 
 (define (let*? exp) (tagged-list? exp 'let*))
 
-
 ;; It's perfectly fine to define let* in this way because when 
 ;; (eval (let*->nested-lets exp) env) is called it will recursively 
 ;; call eval again, with the nested let expression, then with the lets
@@ -304,6 +304,7 @@
 	(list 'let (list (car bindings)) (rec (cdr bindings) body))))
   (rec (let-bindings exp) (let-body exp)))
 
+;; Ex. 4.8 support for named let form
 (define (named-let? exp) (and (tagged-list? exp 'let)
 			      (not (pair? (let-bindings exp)))))
 (define (named-let-name exp) (cadr exp))
@@ -585,6 +586,7 @@
 ;;; the file is loaded.
 (define the-global-environment (setup-environment))
 (driver-loop)
+
 
 
 
