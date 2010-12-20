@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.02
+
 ; (not a programming exercise... )
 
 ; Translate the following expression into prefix form

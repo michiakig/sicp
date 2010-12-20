@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.01
+
 ; (not a programming exercise, but for completeness,
 ; and to make it easy to find unfinished exercises ...)
 

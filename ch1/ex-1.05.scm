@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.05
+
 ; SICP exercise 1.5
 ; Ben Bitdiddle has invented a test to determine whether the interpreter he is
 ; faced with is using applicative-order evaluation or normal-order evaluation.

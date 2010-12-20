@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 2 Procedures and the Processes They Generate
+
+;;; Exercise 1.12
+
 ; The following pattern of numbers is called Pascal's triangle.
 ;     1
 ;    1 1

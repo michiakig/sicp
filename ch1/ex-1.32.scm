@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 3 Formulating Abstractions with Higher-Order Procedures
+
+;;; Exercise 1.32
+
 ; Recursive accumulate function
 (define accumulate
   (lambda (combiner null-value term a next b)

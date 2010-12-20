@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 2 Procedures and the Processes They Generate
+
+;;; Exercise 1.24
+
 ; This was even more difficult to test than the naive prime search...
 ; Searching for primes above 100 000 000 000 000 000 000 000 000 did not 
 ; take long enough to return > 0

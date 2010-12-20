@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 3 Formulating Abstractions with Higher-Order Procedures
+
+;;; Exercise 1.40
+
 (define cubic
   (lambda (a b c)
     (lambda (x) (+ (* x x x) (* a x x) (* b x) c))))

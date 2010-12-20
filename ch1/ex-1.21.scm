@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 2 Procedures and the Processes They Generate
+
+;;; Exercise 1.21
+
 ; Use the smallest-divisor procedure to find the smallest divisor of each of the following numbers: 199, 1999, 19999.
 ;
 ;1 ]=> (smallest-divisor 199)

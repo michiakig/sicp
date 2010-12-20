@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 3 Formulating Abstractions with Higher-Order Procedures
+
+;;; Exercise 1.29
+
 ; Example function to approximate the integral of
 (define (cube x) (* x x x))
 

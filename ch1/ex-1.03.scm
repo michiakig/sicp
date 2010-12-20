@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.03
+
 ;SICP exercise 1.3
 ;Define a procedure that takes three numbers as arguments and
 ;returns the sum of the squares of the two larger numbers.

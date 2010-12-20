@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 2 Procedures and the Processes They Generate
+
+;;; Exercise 1.23
+
 
 (define (find-divisor n test-divisor)
   (cond ((> (square test-divisor) n) n)

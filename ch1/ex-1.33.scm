@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 3 Formulating Abstractions with Higher-Order Procedures
+
+;;; Exercise 1.33
+
 (define filtered-accumulate
   (lambda (combiner null-value term a next b filter)
     (if (> a b)

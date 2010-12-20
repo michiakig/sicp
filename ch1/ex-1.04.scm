@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.04
+
 ; (not a programming exercise ...)
 
 ; Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure:
