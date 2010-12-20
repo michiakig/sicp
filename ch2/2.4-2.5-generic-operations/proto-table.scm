@@ -1,3 +1,7 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
 ;;;; Prototype table
 
 ;;; In section 2.4.3 the authors introduce "data-directed programming," and 

@@ -1,3 +1,7 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
 ;;;; Complex number system
 
 ;;; This file contains the procedure definition for the complex number

@@ -1,3 +1,7 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
 ; Vanilla procedures from the text for symbolic differentiation
 
 (define (variable? x) (symbol? x))

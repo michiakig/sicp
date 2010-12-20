@@ -1,5 +1,8 @@
-; Exercise 2.75
-; Implement the constructor make-from-mag-ang in message-passing style.
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
+;;; Exercise 2.75
 
 (define (make-from-mag-ang r a)
   (define (dispatch op)

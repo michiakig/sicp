@@ -1,3 +1,7 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
 ; Exercise 2.73 
 ; Impelement symbolic differentiation from sec. 2.3.2, using the data-directed
 ; style described in this section. Below is the modified deriv procedure using

@@ -1,3 +1,7 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 4 Multiple Representations for Abstract Data
+;;;; Chapter 2 Section 5 Systems with Generic Operations
+
 ;;;; 2.5.1 Generic Arithmetic Operations
 
 ;;; The majority of this code is straight from the text, except where noted for 
