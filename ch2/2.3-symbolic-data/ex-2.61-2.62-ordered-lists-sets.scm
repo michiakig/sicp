@@ -1,3 +1,6 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
 (define (element-of-set? x set)
   (cond ((null? set) false)
         ((= x (car set)) true)
@@ -16,14 +19,20 @@
               ((< x2 x1)
                (intersection-set set1 (cdr set2)))))))
 
-; Exercise 2.61.  Implement adjoin-set using the ordered representation.
+;;; Exercise 2.61
+
+;;; Implement adjoin-set using the ordered representation.
+
 (define (adjoin-set x s)
   (cond ((null? s) (list x))
         ((= x (car s)) s)
         ((< x (car s)) (cons x s))
         (else (cons (car s) (adjoin-set x (cdr s))))))
 
-; Exercise 2.61. Give a Theta(n) implementation of union-set for sets as ordered lists.
+;;; Exercise 2.61
+
+;;; Give a Theta(n) implementation of union-set for sets as ordered lists.
+
 (define (union-set s1 s2)
   (cond ((null? s1) s2)
         ((null? s2) s1)

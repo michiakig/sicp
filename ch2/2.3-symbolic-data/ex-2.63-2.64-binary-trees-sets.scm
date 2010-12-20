@@ -1,4 +1,7 @@
-; Exercise 2.63, 2.64
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
+;;; Exercise 2.63, 2.64
 
 (define (entry tree) (car tree))
 (define (left-branch tree) (cadr tree))
@@ -42,9 +45,9 @@
                                           result-list)))))
   (copy-to-list tree '()))
 
-; Exercise 2.64 refers to the following procedures, defined in the text:
-; a. Describe how partial-tree works, and draw the tree produced by (list->tree '(1 3 5 7 9 11)).
-; b. What is the order of growth for list->tree on a list of n elements?
+;; Exercise 2.64 refers to the following procedures, defined in the text:
+;; a. Describe how partial-tree works, and draw the tree produced by (list->tree '(1 3 5 7 9 11)).
+;; b. What is the order of growth for list->tree on a list of n elements?
 (define (list->tree elements)
   (car (partial-tree elements (length elements))))
 
@@ -64,10 +67,12 @@
                 (cons (make-tree this-entry left-tree right-tree)
                       remaining-elts))))))))
 
-; Exercise 2.65. Give a Theta(n) implementation of intersect-set and union-set for the binary tree
-; representations using the results from 2.64 and 2.63.
-; 
-; Not sure if this is actually Theta(n)... 
+;;; Exercise 2.65
+
+;; Give a Theta(n) implementation of intersect-set and union-set for the binary tree
+;; representations using the results from 2.64 and 2.63.
+
+;; Not sure if this is actually Theta(n)... 
 (define (bin-intersection-set s1 s2)
   (list->tree (intersection-set (tree->list-1 s1) (tree->list-1 s2))))
 (define (bin-union-set s1 s2)

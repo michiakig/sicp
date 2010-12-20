@@ -1,4 +1,7 @@
-; implementation of Huffman encoding from section 2.3.4
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
+;;; implementation of Huffman encoding from section 2.3.4
 (define (make-leaf symbol weight)
   (list 'leaf symbol weight))
 (define (leaf? object)
@@ -53,7 +56,7 @@
                                (cadr pair))  ; frequency
                     (make-leaf-set (cdr pairs))))))
 
-; Exercise 2.67. Use the sample tree to decode the sample message.
+;;; Exercise 2.67
 (define sample-tree
   (make-code-tree (make-leaf 'A 4)
                   (make-code-tree

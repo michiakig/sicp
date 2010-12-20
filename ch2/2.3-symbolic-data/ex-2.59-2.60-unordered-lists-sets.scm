@@ -1,3 +1,6 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
 ; Section 2.3.3, Example: representing sets
 
 (define (element-of-set? x set)
@@ -17,7 +20,9 @@
                (intersection-set (cdr set1) set2)))
         (else (intersection-set (cdr set1) set2))))
 
-; Exercise 2.59. Implement union-set for sets as unordered lists
+;;; Exercise 2.59
+;;; Implement union-set for sets as unordered lists
+
 (define (union-set set1 set2)
   (cond ((null? set1) set2)
         ((null? set2) set1)
@@ -26,8 +31,10 @@
                (union-set (cdr set1) set2)))
         (else (union-set (cdr set1) set2))))
 
-; Exercise 2.60. Allow duplicate elements in a set, write element-of-set?,
-; union-set, intersection-set.
+;;; Exercise 2.60.
+
+;;; Allow duplicate elements in a set, write element-of-set?,
+;;; union-set, intersection-set.
 (define dupe-element-of-set? element-of-set?)
 (define dupe-union-set append)
 (define (dupe-intersection-set set1 set2)

@@ -1,4 +1,7 @@
-; Exercise 2.68
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
+;;; Exercise 2.68
 
 (define (encode message tree)
   (if (null? message)

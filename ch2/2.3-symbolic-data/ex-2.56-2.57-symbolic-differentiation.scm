@@ -1,7 +1,12 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 3 Symbolic Data
+
 ;#lang scheme
 
-; Exercise 2.56.  Show how to extend the basic differentiator to handle more kinds of expressions.
-; For instance, implement the differentiation rule [power rule]
+;;; Exercise 2.56.
+
+;; Show how to extend the basic differentiator to handle more kinds of expressions.
+;; For instance, implement the differentiation rule [power rule]
 
 (define (deriv exp var)
   (cond ((number? exp) 0)
@@ -25,7 +30,7 @@
         (else
          (error "unknown expression type -- DERIV" exp))))
 
-; predicate, selector, constructor for exponentiation
+;; predicate, selector, constructor for exponentiation
 (define (exponentiation? exp) (and (pair? exp) (eq? (car exp) '**)))
 (define (base exp) (cadr exp))
 (define (exponent exp) (caddr exp))
@@ -34,18 +39,20 @@
         ((= exponent 1) base)
         (else (list '** base exponent))))
 
-; selectors and constructurs:
+;; selectors and constructurs:
 (define (variable? x) (symbol? x))
 (define (same-variable? v1 v2)
   (and (variable? v1) (variable? v2) (eq? v1 v2)))
 (define (=number? exp num)
   (and (number? exp) (= exp num)))
 
-; Exercise 2.57 Extend the differentiation program to handle sums and products 
-; of arbitrary numbers of (two or more) terms.
-;
-; The code below has bugs in it; it does not work for all sums and products of
-; arbitrary length.
+;;; Exercise 2.57
+
+;;; Extend the differentiation program to handle sums and products 
+;;; of arbitrary numbers of (two or more) terms.
+
+;; The code below has bugs in it; it does not work for all sums and products of
+;; arbitrary length.
 (define (sum? x) 
   (and (pair? x) (eq? (car x) '+)))       ; No need to change sum? because this only checks if the car of a list is +
 (define (addend s) (cadr s))              ; Can also leave addend alone
@@ -55,7 +62,7 @@
          (caddr s))
         (else (cons '+ (cddr s)))))
 
-; We need to change make-sum to collapse two sums into one:
+;; We need to change make-sum to collapse two sums into one:
 (define (make-sum a1 a2)
   (cond ((=number? a1 0) a2)
         ((=number? a2 0) a1)
@@ -65,11 +72,11 @@
         ((and (sum? a1) (sum? a2)) (collapse + '+ 0 a1 a2))
         (else (list '+ a1 a2))))
 
-; These procedures are not entirely within the scope of the exercise above (adding 
-; support for arbitrary sums and products) but I got distracted by exploring the 
-; way that expressions can be reduced by collecting like terms.
+;; These procedures are not entirely within the scope of the exercise above (adding 
+;; support for arbitrary sums and products) but I got distracted by exploring the 
+;; way that expressions can be reduced by collecting like terms.
 
-; collapse two sums/products, adding/multiplying all constants together
+;; collapse two sums/products, adding/multiplying all constants together
 (define (collapse op sym init s1 s2)
   (let ((not-number? (lambda (x) (not (number? x)))))
     (cons sym 
@@ -77,8 +84,8 @@
                     (accumulate op init (filter number? s2)))
                 (common-terms (append (filter not-number? (cdr s1))       ; filter out the non-numbers
                                       (filter not-number? (cdr s2)))))))) ; append them together
-; collects like terms into products:
-; takes a list like (a a a b b c) and turns it into ((* 3 a) (* 2 b) (* 1 c))
+;; collects like terms into products:
+;; takes a list like (a a a b b c) and turns it into ((* 3 a) (* 2 b) (* 1 c))
 (define (common-terms s)
   (fold-left
       (lambda (result item)
@@ -95,7 +102,7 @@
       (sort s (lambda (s1 s2) (string<? (symbol->string s1) (symbol->string s2))))
         ))
 
-; some basic functional procedures from 2.2 which are used above
+;; some basic functional procedures from 2.2 which are used above
 (define (accumulate op initial sequence)
   (if (null? sequence)
       initial
@@ -109,8 +116,8 @@
               (cdr rest))))
   (iter initial sequence))
 
-; Predicate, selector, and constructor for products, with changes for exercise
-; 2.57 -- products of arbitrary length
+;; Predicate, selector, and constructor for products, with changes for exercise
+;; 2.57 -- products of arbitrary length
 (define (product? x)
   (and (pair? x) (eq? (car x) '*))) ; the predicate only checks if the car of a list is *
 (define (multiplier p) (cadr p))    ; the multiplier is also unchanged
