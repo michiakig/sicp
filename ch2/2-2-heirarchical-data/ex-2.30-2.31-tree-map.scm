@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.30 and 2.31
+
 (define (square-tree tree)
   (cond ((null? tree) '())
         ((not (pair? tree)) (* tree tree))

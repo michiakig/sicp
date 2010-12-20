@@ -1,4 +1,7 @@
-; Exercise 2.18 and 2.27...
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.18 and 2.27
 
 (define (reverse l)
   (define (reverse-iter l rev)

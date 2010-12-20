@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.33, 2.34, 2.35, 2.36, 2.37
+
 ; 2.33, basic list-manipulation functions via accumulate
 (define (map p sequence)
   (accumulate (lambda (x y) (cons (p x) y)) '() sequence))

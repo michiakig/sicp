@@ -1,4 +1,7 @@
-; 2.39 reverse using folds
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.39
 
 (define (reverse sequence)
   (fold-right (lambda (x y) (append y (cons x '()))) '() sequence))

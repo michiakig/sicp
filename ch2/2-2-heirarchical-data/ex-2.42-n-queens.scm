@@ -1,8 +1,13 @@
-; Ex 2.42: "eight queens puzzle" or really n-queens puzzle.
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
 
-; The function below is defined for us, the exercise is in completing the
-; details: safe?, empty-board, adjoin-position, and a representations of a 
-; board.
+;;; Exercise 2.42
+
+;;; "eight queens puzzle" or really n-queens puzzle.
+
+;; The function below is defined for us, the exercise is in completing the
+;; details: safe?, empty-board, adjoin-position, and a representations of a 
+;; board.
 (define (queens board-size)
   (define (queen-cols k)  
     (if (= k 0)
@@ -17,10 +22,10 @@
           (queen-cols (- k 1))))))
   (queen-cols board-size))
 
-; Let's start with safe?, it seems easy.
-; Assume that positions is a list of integers, the kth queen is in the
-; row (car positions), and the (k-1)th queen is in (car (cdr positions)), etc.
-; We only need to check the kth queen, all others are assumed safe.
+;; Let's start with safe?, it seems easy.
+;; Assume that positions is a list of integers, the kth queen is in the
+;; row (car positions), and the (k-1)th queen is in (car (cdr positions)), etc.
+;; We only need to check the kth queen, all others are assumed safe.
 (define (safe? k positions)
   (define (safe?-r R C pos)
     (cond ((null? pos) #t)
@@ -31,14 +36,14 @@
           (else (safe?-r R (+ C 1) (cdr pos)))))
   (safe?-r (car positions) 1 (cdr positions)))
 
-; So, based on our assumption above, an empty board is just an empty list:
+;; So, based on our assumption above, an empty board is just an empty list:
 (define empty-board '())
 
-; Now we also need adjoin-position 
+;; Now we also need adjoin-position 
 (define (adjoin-position new-row k rest-of-queens)
   (cons new-row rest-of-queens))
 
-; some basic dependencies:
+;; some basic dependencies:
 (define (filter predicate sequence)
   (cond ((null? sequence) '())
         ((predicate (car sequence))

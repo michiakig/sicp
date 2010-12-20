@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.23
+
 (define for-each
   (lambda (f l)
     (cond ((null? l) #t)
