@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
+;;; Exercise 2.50
+
 #lang scheme
 (require (planet "sicp.ss" ("soegaard" "sicp.plt" 2 1)))
 
@@ -5,7 +10,7 @@
     (my-transform-painter painter (make-vect 1.0 0.0)
 				(make-vect 0.0 0.0)
                                 (make-vect 1.0 1.0)))
-; defined for us: 
+;; defined for us: 
 (define (my-transform-painter painter origin corner1 corner2)
   (lambda (frame)
     (let ((m (frame-coord-map frame)))
@@ -15,7 +20,7 @@
                      (sub-vect (m corner1) new-origin)
                      (sub-vect (m corner2) new-origin)))))))
 
-;(define make-vect cons)
+;;(define make-vect cons)
 (define xcor-vect car)
 (define ycor-vect cdr)
 

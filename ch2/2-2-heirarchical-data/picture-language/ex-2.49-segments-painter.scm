@@ -1,11 +1,13 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 2 Hierarchical Data and the Closure Property
+
 #lang scheme
 (require (planet "sicp.ss" ("soegaard" "sicp.plt" 2 1)))
 (define segments-painter segments->painter)
 
-;Exercise 2.49.  Use segments->painter to define the following primitive painters:
+;;; Exercise 2.49.
 
-;a.  The painter that draws the outline of the designated frame.
-
+;;a.  The painter that draws the outline of the designated frame.
 (define outline 
   (lambda (f)
   (let ((lower-left (make-vect 0 0))
@@ -17,8 +19,7 @@
                              (make-segment upper-left upper-right)
                              (make-segment lower-right upper-right))) f))))
 
-;b.  The painter that draws an ``X'' by connecting opposite corners of the frame.
-
+;;b.  The painter that draws an ``X'' by connecting opposite corners of the frame.
 (define (xcorners f)
   (let ((lower-left (make-vect 0 0))
         (upper-left (make-vect 0 1))
@@ -28,8 +29,7 @@
                             (make-segment lower-right upper-left))) f)))
         
 
-;c.  The painter that draws a diamond shape by connecting the midpoints of the sides of the frame.
-
+;;c.  The painter that draws a diamond shape by connecting the midpoints of the sides of the frame.
 (define (diamond f)
   (let ((mid-left (make-vect 0 0.5))
         (mid-right (make-vect 1 0.5))
@@ -40,4 +40,4 @@
                              (make-segment mid-right mid-top)
                              (make-segment mid-right mid-bottom))) f)))
 
-;d.  The wave painter.
+;;d.  The wave painter.
