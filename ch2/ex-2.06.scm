@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.06
+
 ; Church numerals in Scheme... 
 ; I am continually delighted by the depth of SICP. This is the second section 
 ; of Chapter 2, something like the 50th exercise? Awesome.

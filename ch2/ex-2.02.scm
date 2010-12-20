@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.02
+
 (define make-point (lambda (x y) (cons x y)))
 (define x-point (lambda (point) (car point)))
 (define y-point (lambda (point) (cdr point)))

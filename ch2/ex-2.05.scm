@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.05
+
 ; Pairs of non-negative integers represented as (2^a)(3^b)
 ; This is almost as cool as the procedural/functional implementation
 ; of cons, car, and cdr in the last exercise...

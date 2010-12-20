@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.14
+
 ; Exercise 2.14, also non-programming...
 
 (define (par1 r1 r2)

@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.13
+
 ; Exercise 2.13... non-programming one
 ; Show that under the assumption of small percentage tolerances there is a simple formula for the approximate percentage tolerance of the product of two intervals in terms of the tolerances of the factors. You may simplify the problem by assuming that all numbers are positive.
 

@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.11
+
 ; Exercise 2.11
 ; "... by testing sign of end-points, it is possible to break
 ; mul-interval up into 9 cases, only one of which requires more

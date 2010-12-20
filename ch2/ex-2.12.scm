@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.12
+
 ; Exercise 2.12
 (define make-center-percent
   (lambda (c p)

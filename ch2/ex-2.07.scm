@@ -1,3 +1,8 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 2 Section 1 Introduction to Data Abstraction
+
+;;; Exercise 2.07
+
 (define (make-interval a b) (cons a b))
 (define (lower-bound i) (car i))
 (define (upper-bound i) (cdr i))
