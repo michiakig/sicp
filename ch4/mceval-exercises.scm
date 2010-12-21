@@ -3,7 +3,7 @@
 ;;;; STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS
 
 ;;;; Exercises interleaved with code from the text
-;;;; 4.1, 4.4, 4.5, 4.6, 4.11, 4.12, 4.13
+;;;; 4.1, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.11, 4.12, 4.13, 4.16
 
 ;;;; Matches code in ch4.scm
 
