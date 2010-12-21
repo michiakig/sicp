@@ -2,7 +2,7 @@
 ;;;; METACIRCULAR EVALUATOR FROM CHAPTER 4 (SECTIONS 4.1.1-4.1.4) of
 ;;;; STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS
 
-;;;; Exercises interleaved with code from the text
+;;;; Exercisercises interleaved with code from the text
 ;;;; 4.1, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.11, 4.12, 4.13, 4.16
 
 ;;;; Matches code in ch4.scm
@@ -74,7 +74,7 @@
          (error
           "**** Unknown procedure type -- APPLY" procedure))))
 
-;;; Ex. 4.1
+;;; Exercise 4.1
 
 ;; This version of list-of-values evaluates operands from left-to-right.
 
@@ -102,7 +102,7 @@
       (eval (if-consequent exp) env)
       (eval (if-alternative exp) env)))
 
-;;; Ex. 4.4
+;;; Exercise 4.4
 
 (define (eval-and ops env)
   (if (null? (cdr ops)) ; last one
@@ -243,7 +243,7 @@
 (define (cond->if exp)
   (expand-clauses (cond-clauses exp)))
 
-;;; Ex. 4.5
+;;; Exercise 4.5
 
 (define (cond-action clause) (caddr clause))
 
@@ -264,7 +264,7 @@
 		       (list (cond-action first) (cond-predicate first))
 		       (expand-clauses rest))))))
 
-;;; Ex. 4.6
+;;; Exercise 4.6
 
 (define (let? exp) (and (tagged-list? exp 'let)
                         ;; modified to support named lets
@@ -288,7 +288,7 @@
 	      body)))
   (loop (let-bindings exp) '() '() (let-body exp)))
 
-;;; Ex. 4.7
+;;; Exercise 4.7
 
 (define (let*? exp) (tagged-list? exp 'let*))
 
@@ -304,7 +304,7 @@
 	(list 'let (list (car bindings)) (rec (cdr bindings) body))))
   (rec (let-bindings exp) (let-body exp)))
 
-;; Ex. 4.8 support for named let form
+;; Exercise 4.8 support for named let form
 (define (named-let? exp) (and (tagged-list? exp 'let)
 			      (not (pair? (let-bindings exp)))))
 (define (named-let-name exp) (cadr exp))
@@ -325,7 +325,7 @@
 	       body)))
   (nloop (named-let-bindings exp) '() '() (named-let-body exp)))
 
-;; Ex. 4.9 Implementation of an for-loop style iteration construct
+;; Exercise 4.9 Implementation of an for-loop style iteration construct
 ;; This is pretty ugly looking and definitely motivates the back-quote
 ;; syntax used in macros, etc.
 
@@ -381,7 +381,7 @@
 
 (define the-empty-environment '())
 
-;; Ex. 4.11 Represent a frame as an alist
+;; Exercise 4.11 Represent a frame as an alist
 (define (make-frame variables values)
   (map cons variables values))
 
@@ -429,7 +429,7 @@
 	(set-cdr! record val)
 	(add-binding-to-frame! var val (first-frame env)))))
 
-;; Ex. 4.12
+;; Exercise 4.12
 ;; this searches the given environment, and it's enclosing environments,
 ;; for the given variable, return the pair (var . val) or false
 ;; this still doesn't really implement much more than a leaky abstraction
@@ -445,7 +445,7 @@
 	      (env-loop (enclosing-environment env))))))
   (env-loop env))
 
-;; Ex. 4.13 make-unbound
+;; Exercise 4.13 make-unbound
 ;; this only removes the binding the first frame of the enviroment.
 ;; it doesn't seem to make sense to allow an unbind! special form to
 ;; remove bindings in the enclosing environments, since that could wreak
@@ -566,7 +566,7 @@
       (proc-define-var e)
       (define-var e)))
 
-;; Ex. 4.16 (b) - implementation of the method for interpreting
+;; Exercise 4.16 (b) - implementation of the method for interpreting
 ;; internal definitions
 (define (scan-out-defines body)
   (let* ((definitions (filter define? body))
@@ -586,8 +586,5 @@
 ;;; the file is loaded.
 (define the-global-environment (setup-environment))
 (driver-loop)
-
-
-
 
 ;;'METACIRCULAR-EVALUATOR-LOADED
