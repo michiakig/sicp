@@ -2,7 +2,7 @@
 ;;;; METACIRCULAR EVALUATOR FROM CHAPTER 4 (SECTIONS 4.1.1-4.1.4) of
 ;;;; STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS
 
-;;;; Exercisercises interleaved with code from the text
+;;;; Exercises interleaved with code from the text
 ;;;; 4.1, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.11, 4.12, 4.13, 4.16
 
 ;;;; Matches code in ch4.scm
