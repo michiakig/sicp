@@ -16,6 +16,20 @@
 
 ;; In a normal-order Scheme, this would work.
 
+;;;; Exercise 4.26
+
+(define (unless-condition exp) (cadr exp))
+(define (unless-usual exp) (caddr exp))
+(define (unless-exceptional exp) (cadddr exp))
+
+(define (eval-unless exp env)
+  (eval (list 'if
+	      (unless-condition exp)
+	      (unless-exceptional exp)
+	      (unless-usual exp))))
+
+;; I cannot fathom when it would be useful to use unless as an argument to a higher-order procedure
+
 ;;;; Exercise 4.27
 
 (define count 0)
