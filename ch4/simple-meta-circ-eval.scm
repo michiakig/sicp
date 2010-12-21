@@ -1,4 +1,7 @@
-;; From lecture 7a
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 4 Section 1 The Metacircular Evaluator
+
+;; A simplified version of the metacircular evaluator, as presented in lecture 7a.
 
 (define eval
   (lambda (exp env)
