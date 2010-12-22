@@ -1,4 +1,7 @@
-;;;; Ex. 3.24
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 3 Modeling with Mutable Data
+
+;;;; Exercise 3.24
 
 ;;; make-table now takes as an argument same-key? which is used to test equality 
 ;;; of keys in assoc, which now also takes an extra equality predicate argument.

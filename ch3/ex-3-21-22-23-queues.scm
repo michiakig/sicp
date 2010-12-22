@@ -1,4 +1,7 @@
-;;;; Exercise 3.21, 3.22, 3.23
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 3 Modeling with Mutable Data
+
+;;;; Exercise 3.21
 
 ;;; A queue is a cons of the form (<list> . <last item in list>) so this means
 ;;; that Scheme prints queues out as ((a b) b), where the list representation 
@@ -8,6 +11,7 @@
   (display (front-ptr queue))
   'ok)
 
+;;;; Exercise 3.22
 
 ;;; Implements a queue in terms of a procedure with local state.
 (define (make-queue-proc)
@@ -47,6 +51,8 @@
 (define (insert q item) ((q 'insert) item))
 (define (delete q) ((q 'delete)))
 (define (front q) ((q 'front)))
+
+;;;; Exercie 3.23
 
 ;;; A deque is implemented simply as a pair pointing to a doubly-linked list.
 ;;; The pair representing the deque consist of the car pointing to the first

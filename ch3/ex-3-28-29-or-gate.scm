@@ -1,4 +1,7 @@
-;;;; Ex 3.28, 3.29
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 3 Modeling with Mutable Data
+
+;;;; Exercise 3.28
 
 ;;; Define an or-gate as a primitive function box, and then as a compound device,
 ;;; using inverters and and-gates.
@@ -13,6 +16,8 @@
   (add-action! o1 or-action-proc)
   (add-action! o2 or-action-proc)
   'ok)
+
+;;;; Exercise 3.29
 
 (define (or-gate o1 o2 output)
   (and-gate (inverter o1)

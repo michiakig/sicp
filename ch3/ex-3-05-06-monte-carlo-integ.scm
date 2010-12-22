@@ -1,4 +1,7 @@
-;;;; Ex. 3.5, 3.6
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 1 Assignment and Local State
+
+;;;; Exerise 3.5
 
 ;;; Monte Carlo integration and a reset-able random number generator
 
@@ -34,7 +37,7 @@
   (let ((range (- high low)))
     (+ low (random range))))
 
-
+;;;; Exercise 3.6
 
 (define rand
   (let ((x random-init))

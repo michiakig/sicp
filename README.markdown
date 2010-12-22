@@ -926,7 +926,7 @@ Write a procedure <tt>make-accumulator</tt> that generates accumulators,
 each maintaining an independent sum.  The input to <tt>make-accumulator</tt> should specify the initial value of the sum; for
 example</strike>
 
-**Exercise 3.2.** In software-testing applications, it is useful to be able to count the
+<strike>**Exercise 3.2.** In software-testing applications, it is useful to be able to count the
 number of times a given procedure is called during the course of a
 computation.  Write a procedure <tt>make-monitored</tt> that takes as
 input a procedure, <tt>f</tt>, that itself takes one input.  The result
@@ -937,18 +937,18 @@ special symbol <tt>how-many-calls?</tt>, then <tt>mf</tt> returns the
 value of the counter.  If the input is the special symbol <tt>reset-count</tt>, then <tt>mf</tt> resets the counter to zero.  For any other
 input, <tt>mf</tt> returns the result of calling <tt>f</tt> on that input
 and increments the counter.  For instance, we could make a monitored
-version of the <tt>sqrt</tt> procedure:
+version of the <tt>sqrt</tt> procedure:</strike>
 
-**Exercise 3.3.** Modify the <tt>make-account</tt> procedure so that it creates
+<strike>**Exercise 3.3.** Modify the <tt>make-account</tt> procedure so that it creates
 password-protected accounts.  That is, <tt>make-account</tt> should take
-a symbol as an additional argument, as in
+a symbol as an additional argument, as in</strike>
 
-**Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
+<strike>**Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
 exercise 3.3 by adding another local state
 variable so that, if an account is accessed more than seven
 consecutive times with an incorrect password, it invokes the procedure
 <tt>call-the-cops</tt>.
-
+</strike>
 
 **Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
 integrals by means of Monte Carlo simulation.  Consider computing the
@@ -970,13 +970,13 @@ rectangle that lies in the region.  Hence, multiplying this fraction
 by the area of the entire rectangle should produce an estimate of the
 integral.
 
-**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
+<strike>**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
 a sequence starting from a given value.  Design a new <tt>rand</tt>
 procedure that is called with an argument that is either the symbol
 <tt>generate</tt> or the symbol <tt>reset</tt> and behaves as follows: <tt>(rand
 'generate)</tt> produces a new random number; <tt>((rand 'reset)
 &lt;<em>new-value</em>&gt;)</tt> resets the internal state variable to the designated
-&lt;*new-value*
+&lt;*new-value*</strike>
 
 **Exercise 3.7.** Consider the bank account objects created by <tt>make-account</tt>, with
 the password modification described in
@@ -1023,7 +1023,7 @@ section 2.2.1:
 
 **Exercise 3.13.** Consider the following <tt>make-cycle</tt> procedure, which uses the <tt>last-pair</tt> procedure defined in exercise 3.12:
 
-**Exercise 3.14.** The following procedure is quite useful, although obscure:
+<strike>**Exercise 3.14.** The following procedure is quite useful, although obscure:</strike>
 
 **Exercise 3.15.** Draw box-and-pointer diagrams to explain the effect of <tt>set-to-wow!</tt> on the structures <tt>z1</tt> and <tt>z2</tt> above.
 
@@ -1034,21 +1034,21 @@ of pairs in any structure is the number in the <tt>car</tt> plus the
 number in the <tt>cdr</tt> plus one more to count the current pair.''
 So Ben writes the following procedure:
 
-**Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
+<strike>**Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
 exercise 3.16 that returns the number of distinct
 pairs in any structure.  (Hint: Traverse the structure, maintaining an
 auxiliary data structure that is used to keep track of which pairs
 have already been counted.)
+</strike>
 
-
-**Exercise 3.18.** Write a procedure that examines a list and determines whether it
+<strike>**Exercise 3.18.** Write a procedure that examines a list and determines whether it
 contains a cycle, that is, whether a program that tried to find the
 end of the list by taking successive <tt>cdr</tt>s would go into an
-infinite loop.  Exercise 3.13
+infinite loop.  Exercise 3.13</strike>
 
-**Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
+<strike>**Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
 constant amount of space.  (This requires a very clever idea.)
-
+</strike>
 
 **Exercise 3.20.** Draw environment diagrams to illustrate the evaluation of the sequence
 of expressions
@@ -1057,10 +1057,10 @@ of expressions
 above.  He types in the procedures to the Lisp interpreter and
 proceeds to try them out:</strike>
 
-**Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
+<strike>**Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
 queue as a procedure with local state.  The local state will consist
 of pointers to the beginning and the end of an ordinary list.  Thus,
-the <tt>make-queue</tt> procedure will have the form
+the <tt>make-queue</tt> procedure will have the form</strike>
 
 **Exercise 3.23.** A *deque* (``double-ended queue'') is a sequence in which items
 can be inserted and deleted at either the front or the rear.
@@ -1069,7 +1069,7 @@ give implementations of the operations.<sup><small>23</small></sup>
 All operations should be accomplished in <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(1) steps.
 
 
-**Exercise 3.24.** In the table implementations above, the keys are tested for equality
+<strike>**Exercise 3.24.** In the table implementations above, the keys are tested for equality
 using <tt>equal?</tt> (called by <tt>assoc</tt>).  This is not always the appropriate test.  For
 instance, we might have a table with numeric keys in which we don't
 need an exact match to the number we're looking up,
@@ -1077,14 +1077,14 @@ but only a number within some tolerance of it.
 Design a table constructor <tt>make-table</tt> that takes as an argument a <tt>same-key?</tt> procedure
 that will be used to test ``equality'' of keys.  <tt>Make-table</tt> should
 return a <tt>dispatch</tt> procedure that can be used to access
-appropriate <tt>lookup</tt> and <tt>insert!</tt>
+appropriate <tt>lookup</tt> and <tt>insert!</tt></strike>
 
-**Exercise 3.25.** Generalizing one- and two-dimensional tables, show how to implement a
+<strike>**Exercise 3.25.** Generalizing one- and two-dimensional tables, show how to implement a
 table in which values are stored under an arbitrary number of keys and
 different values may be stored under different numbers of keys.  The
 <tt>lookup</tt> and <tt>insert!</tt> procedures should take as input a list
 of keys used to access the table.
-
+</strike>
 
 **Exercise 3.26.** To search a table as implemented above, one needs to scan through the
 list of records.  This is basically the unordered list representation of
@@ -1109,14 +1109,14 @@ and stores this in the table.  As an example of memoization, recall
 from section 1.2.2 the exponential process for
 computing Fibonacci numbers:
 
-**Exercise 3.28.** Define an or-gate as a primitive function box.  Your <tt>or-gate</tt>
+<strike>**Exercise 3.28.** Define an or-gate as a primitive function box.  Your <tt>or-gate</tt>
 constructor should be similar to <tt>and-gate</tt>.
+</strike>
 
-
-**Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
+<strike>**Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
 device, built from and-gates and inverters.  Define a procedure <tt>or-gate</tt> that accomplishes this.  What is the delay time of the
 or-gate in terms of <tt>and-gate-delay</tt> and <tt>inverter-delay</tt>?
-
+</strike>
 
 **Exercise 3.30.** Figure 3.27 shows a *ripple-carry adder* formed by stringing
 together *n* full-adders.  This is the simplest form of parallel adder

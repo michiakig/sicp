@@ -1,4 +1,7 @@
-;;;; Ex. 3.2
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 1 Assignment and Local State
+
+;;;; Exercise 3.2
 
 ;;; make-monitored returns a function which counts the number of times its
 ;;; argument has been called.

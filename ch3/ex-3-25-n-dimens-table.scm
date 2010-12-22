@@ -1,4 +1,7 @@
-;;;; Ex. 3.25 n-dimensional tables
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 3 Section 3 Modeling with Mutable Data
+
+;;;; Exercise 3.25 n-dimensional tables
 
 ;;; use assoc from the text:
 (define (assoc key records)
