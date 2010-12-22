@@ -950,7 +950,7 @@ consecutive times with an incorrect password, it invokes the procedure
 <tt>call-the-cops</tt>.
 </strike>
 
-**Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
+<strike>**Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
 integrals by means of Monte Carlo simulation.  Consider computing the
 area of a region of space described by a predicate *P*(*x*, *y*) that is
 true for points (*x*, *y*) in the region and false for points not in the
@@ -968,7 +968,7 @@ If we try this with many points, then the fraction of points that fall
 in the region should give an estimate of the proportion of the
 rectangle that lies in the region.  Hence, multiplying this fraction
 by the area of the entire rectangle should produce an estimate of the
-integral.
+integral.</strike>
 
 <strike>**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
 a sequence starting from a given value.  Design a new <tt>rand</tt>
