@@ -919,12 +919,12 @@ to the two term lists supplied by <tt>reduce-terms</tt>.
 
 
 ## 3 Modularity, Objects, and State
-**Exercise 3.1.** An *accumulator* is a procedure that is called repeatedly with a
+<strike>**Exercise 3.1.** An *accumulator* is a procedure that is called repeatedly with a
 single numeric argument and accumulates its arguments into a sum.
 Each time it is called, it returns the currently accumulated sum.
 Write a procedure <tt>make-accumulator</tt> that generates accumulators,
 each maintaining an independent sum.  The input to <tt>make-accumulator</tt> should specify the initial value of the sum; for
-example
+example</strike>
 
 **Exercise 3.2.** In software-testing applications, it is useful to be able to count the
 number of times a given procedure is called during the course of a
