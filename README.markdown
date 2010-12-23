@@ -943,12 +943,12 @@ version of the <tt>sqrt</tt> procedure:</strike>
 password-protected accounts.  That is, <tt>make-account</tt> should take
 a symbol as an additional argument, as in</strike>
 
-<strike>**Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
+**Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
 exercise 3.3 by adding another local state
 variable so that, if an account is accessed more than seven
 consecutive times with an incorrect password, it invokes the procedure
 <tt>call-the-cops</tt>.
-</strike>
+
 
 <strike>**Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
 integrals by means of Monte Carlo simulation.  Consider computing the
@@ -970,13 +970,13 @@ rectangle that lies in the region.  Hence, multiplying this fraction
 by the area of the entire rectangle should produce an estimate of the
 integral.</strike>
 
-<strike>**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
+**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
 a sequence starting from a given value.  Design a new <tt>rand</tt>
 procedure that is called with an argument that is either the symbol
 <tt>generate</tt> or the symbol <tt>reset</tt> and behaves as follows: <tt>(rand
 'generate)</tt> produces a new random number; <tt>((rand 'reset)
 &lt;<em>new-value</em>&gt;)</tt> resets the internal state variable to the designated
-&lt;*new-value*</strike>
+&lt;*new-value*
 
 **Exercise 3.7.** Consider the bank account objects created by <tt>make-account</tt>, with
 the password modification described in
@@ -1034,21 +1034,21 @@ of pairs in any structure is the number in the <tt>car</tt> plus the
 number in the <tt>cdr</tt> plus one more to count the current pair.''
 So Ben writes the following procedure:
 
-<strike>**Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
+**Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
 exercise 3.16 that returns the number of distinct
 pairs in any structure.  (Hint: Traverse the structure, maintaining an
 auxiliary data structure that is used to keep track of which pairs
 have already been counted.)
-</strike>
+
 
 <strike>**Exercise 3.18.** Write a procedure that examines a list and determines whether it
 contains a cycle, that is, whether a program that tried to find the
 end of the list by taking successive <tt>cdr</tt>s would go into an
 infinite loop.  Exercise 3.13</strike>
 
-<strike>**Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
+**Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
 constant amount of space.  (This requires a very clever idea.)
-</strike>
+
 
 **Exercise 3.20.** Draw environment diagrams to illustrate the evaluation of the sequence
 of expressions
@@ -1057,10 +1057,10 @@ of expressions
 above.  He types in the procedures to the Lisp interpreter and
 proceeds to try them out:</strike>
 
-<strike>**Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
+**Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
 queue as a procedure with local state.  The local state will consist
 of pointers to the beginning and the end of an ordinary list.  Thus,
-the <tt>make-queue</tt> procedure will have the form</strike>
+the <tt>make-queue</tt> procedure will have the form
 
 **Exercise 3.23.** A *deque* (``double-ended queue'') is a sequence in which items
 can be inserted and deleted at either the front or the rear.
@@ -1113,10 +1113,10 @@ computing Fibonacci numbers:
 constructor should be similar to <tt>and-gate</tt>.
 </strike>
 
-<strike>**Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
+**Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
 device, built from and-gates and inverters.  Define a procedure <tt>or-gate</tt> that accomplishes this.  What is the delay time of the
 or-gate in terms of <tt>and-gate-delay</tt> and <tt>inverter-delay</tt>?
-</strike>
+
 
 **Exercise 3.30.** Figure 3.27 shows a *ripple-carry adder* formed by stringing
 together *n* full-adders.  This is the simplest form of parallel adder
