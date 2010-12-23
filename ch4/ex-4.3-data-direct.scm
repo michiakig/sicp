@@ -31,15 +31,18 @@
 
 ;; alist of special form name -> evaluation procedure take two args, the expression and the environment just like the eval-* procedures in the text
 (define *table* (list (cons 'quote eval-quotation)
-		    (cons 'set! eval-assignment)
-		    (cons 'define eval-definition)
-		    (cons 'if eval-if)
-		    (cons 'lambda eval-lambda)
-		    (cons 'begin eval-begin)
-		    (cons 'cond eval-cond)
-		    
-		    (cons 'self-evaluating eval-self)
-		    (cons 'variable eval-variable)))
+		      (cons 'set! eval-assignment)
+		      (cons 'define eval-definition)
+		      (cons 'if eval-if)
+		      (cons 'lambda eval-lambda)
+		      (cons 'begin eval-begin)
+		      (cons 'cond eval-cond)
+		      (cons 'self-evaluating eval-self)
+		      (cons 'variable eval-variable)
+
+		      ;; additional procedures
+		      (cons 'and eval-and)
+		      (cons 'or eval-or)))
 
 ;; data-directed eval
 (define (eval exp env)
