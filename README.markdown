@@ -1532,13 +1532,13 @@ environment?  Complete the specification and justify any choices you
 make.
 </strike>
 
-**Exercise 4.14.** Eva Lu Ator and Louis Reasoner are each experimenting with the
+<strike>**Exercise 4.14.** Eva Lu Ator and Louis Reasoner are each experimenting with the
 metacircular evaluator.  Eva types in the definition of <tt>map</tt>, and
 runs some test programs that use it.  They work fine.  Louis, in contrast,
 has installed the system version of <tt>map</tt> as a primitive for the
 metacircular evaluator.  When he tries it, things go terribly
 wrong.  Explain why Louis's <tt>map</tt> fails even though Eva's works.
-
+</strike>
 
 <strike>**Exercise 4.15.** Given a one-argument procedure <tt>p</tt> and an object <tt>a</tt>, <tt>p</tt>
 is said to ``halt'' on <tt>a</tt> if evaluating the expression <tt>(p

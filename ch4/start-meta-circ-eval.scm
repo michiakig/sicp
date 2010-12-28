@@ -46,12 +46,21 @@
 
 (define the-global-environment (setup-environment))
 
+;; for exercise 4.5
 (eval '(define (assoc val alist)
 	 (if (null? val)
 	     #f
 	     (if (equal? val (car (car alist)))
 		 (car alist)
 		 (assoc val (cdr alist)))))
+      the-global-environment)
+
+;; for exercise 4.14
+(eval '(define (map fn lst)
+	 (if (null? lst)
+	     '()
+	     (cons (fn (car lst))
+		   (map fn (cdr lst)))))
       the-global-environment)
 
 ;(driver-loop)
