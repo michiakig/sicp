@@ -8,14 +8,13 @@
 ;; in macros
 
 ;; example use, this code:
-(for i 1 10 (display i))
-
+;(for i 1 10 (display i))
 ;; ... is transformed into this, and then evaluated:
-((lambda ()
-   (define (loop i n)
-     (if (or (< i n) (= i n))
-	 (begin (display i) (loop (+ 1 i) n))))
-   (loop 1 10)))
+;((lambda ()
+;   (define (loop i n)
+;     (if (or (< i n) (= i n))
+;	 (begin (display i) (loop (+ 1 i) n))))
+;   (loop 1 10)))
 
 (define (eval-for exp env)
   (eval (for->combination exp) env))
