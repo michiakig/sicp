@@ -1498,13 +1498,13 @@ bindings are visible.  For example
 <strike>**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
 </strike>
 
-**Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
+<strike>**Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
 iterative processes can be expressed in terms of ordinary procedure
 calls, so special iteration constructs provide no essential gain in
 computational power.  On the other hand, such constructs are often
 convenient.  Design some iteration constructs, give examples of their
 use, and show how to implement them as derived expressions.
-
+</strike>
 
 **Exercise 4.10.** By using data abstraction, we were able to write an <tt>eval</tt>
 procedure that is independent of the particular syntax of the language

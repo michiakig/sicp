@@ -49,6 +49,8 @@
 		      (cons 'or eval-or)
 		      (cons 'let eval-let)
 		      (cons 'let* eval-let*)
+
+		      (cons 'for eval-for)
 		      ))
 
 ;; data-directed eval

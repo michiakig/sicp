@@ -11,6 +11,8 @@
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.4-and-or.scm")
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.5-extended-cond.scm")
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.6-4.7-4.8-let-star-named.scm")
+(load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.9-iteration.scm")
+
 
 ;; data-directed version of eval
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.3-data-direct.scm")
