@@ -14,6 +14,7 @@
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.9-iteration.scm")
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.11-4.12.scm")
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.13-make-unbound.scm")
+(load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.16-internal-defines.scm")
 
 ;; data-directed version of eval
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.3-data-direct.scm")
