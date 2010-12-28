@@ -9,6 +9,7 @@
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/meta-circ-eval.scm")
 
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.4-and-or.scm")
+(load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.5-extended-cond.scm")
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.6-let.scm")
 
 ;; data-directed version of eval
@@ -37,7 +38,17 @@
 	(list 'eq? eq?)
 	(list 'equal? equal?)
 	(list 'display display)
+	(list 'cadr cadr)
         ))
 
 (define the-global-environment (setup-environment))
-(driver-loop)
+
+(eval '(define (assoc val alist)
+	 (if (null? val)
+	     #f
+	     (if (equal? val (car (car alist)))
+		 (car alist)
+		 (assoc val (cdr alist)))))
+      the-global-environment)
+
+;(driver-loop)
