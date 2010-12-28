@@ -1495,8 +1495,8 @@ binding is made in an environment in which all of the preceding
 bindings are visible.  For example
 </strike>
 
-**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
-
+<strike>**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
+</strike>
 
 **Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
 iterative processes can be expressed in terms of ordinary procedure

@@ -46,7 +46,10 @@
 	(list 'let (list (car bindings)) (rec (cdr bindings) body))))
   (rec (let-bindings exp) (let-body exp)))
 
-;;;; Exercise 4.8 support for named let form
+;;;; Exercise 4.8
+
+;; support for named let form
+;; named lets are differentiated from normal lets by the eval-let procedure above
 
 (define (named-let? exp) (and (tagged-list? exp 'let)
 			      (not (pair? (let-bindings exp)))))
