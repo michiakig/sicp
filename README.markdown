@@ -1468,7 +1468,7 @@ his modified <tt>eval</tt> will usually check fewer
 clauses than the original <tt>eval</tt> before identifying the type of an
 expression.
 
-**Exercise 4.3.** Rewrite <tt>eval</tt> so that the dispatch is done in data-directed
+<strike>**Exercise 4.3.** Rewrite <tt>eval</tt> so that the dispatch is done in data-directed
 style.  Compare this with the data-directed
 differentiation procedure of
 exercise 2.73.
@@ -1476,7 +1476,7 @@ exercise 2.73.
 type of the expression, as is appropriate for the syntax implemented
 in this section.)
 .
-
+</strike>
 
 <strike>**Exercise 4.4.** Recall the definitions of the special forms <tt>and</tt> and <tt>or</tt>
 from chapter 1:

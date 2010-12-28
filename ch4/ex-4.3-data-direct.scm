@@ -1,6 +1,10 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 4 Section 1 The Metacircular Evaluator
 
+;;;; Exercise 4.3
+
+;;; eval written in a data-directed style, dispatching on the type of expression
+
 (define (get-type exp)
   (cond ((not (pair? exp))
 	 (cond ((self-evaluating? exp) 'self-evaluating)
