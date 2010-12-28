@@ -42,7 +42,9 @@
 
 		      ;; additional procedures
 		      (cons 'and eval-and)
-		      (cons 'or eval-or)))
+		      (cons 'or eval-or)
+		      (cons 'let eval-let)
+		      ))
 
 ;; data-directed eval
 (define (eval exp env)

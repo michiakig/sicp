@@ -9,6 +9,7 @@
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/meta-circ-eval.scm")
 
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.4-and-or.scm")
+(load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.6-let.scm")
 
 ;; data-directed version of eval
 (load "/Users/aki/hacking/structure-and-interpretation/ch4/ex-4.3-data-direct.scm")
