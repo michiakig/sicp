@@ -51,6 +51,7 @@
 		      (cons 'let* eval-let*)
 
 		      (cons 'for eval-for)
+		      (cons 'unbind! eval-unbind)
 		      ))
 
 ;; data-directed eval
