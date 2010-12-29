@@ -1,40 +1,40 @@
 # Structure and Interpretation of Computer Programs
 
-I'm reading [SICP](http://mitpress.mit.edu/sicp/), watching the [(1986) video lectures(http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/), and trying to complete as many of the programming exercises as I can.
+I'm reading [SICP](http://mitpress.mit.edu/sicp/), watching the [(1986) video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/), and trying to complete as many of the programming exercises as I can.
 
 The following list was extracted from the online version of the book. It was a quick and dirty job but gives an overview of which exercises I've completed.
 
 
 ## 1 Building Abstractions with Procedures
-<strike>**Exercise 1.1.** Below is a sequence of expressions.  
+X **Exercise 1.1.** Below is a sequence of expressions.  
 What is the result printed by the interpreter in response to each
 expression?  Assume that the sequence is to be evaluated in the order
-in which it is presented.</strike>
+in which it is presented.
 
-<strike>**Exercise 1.2.** Translate the following expression into prefix form
-</strike>
+X **Exercise 1.2.** Translate the following expression into prefix form
 
-<strike>**Exercise 1.3.** Define a procedure that takes three numbers as arguments and returns
+
+X **Exercise 1.3.** Define a procedure that takes three numbers as arguments and returns
 the sum of the squares of the two larger numbers.
-</strike>
 
-<strike>**Exercise 1.4.** Observe that our model of evaluation allows for combinations whose
+
+X **Exercise 1.4.** Observe that our model of evaluation allows for combinations whose
 operators are compound expressions.  Use this observation to
 describe the behavior of the following procedure:
-</strike>
 
-<strike>**Exercise 1.5.** Ben Bitdiddle has invented a test to determine whether the interpreter
+
+X **Exercise 1.5.** Ben Bitdiddle has invented a test to determine whether the interpreter
 he is faced with is using applicative-order evaluation or normal-order
 evaluation.  He defines the following two procedures:
-</strike>
 
-<strike>**Exercise 1.6.** Alyssa P. Hacker doesn't see why <tt>if</tt> needs
+
+X **Exercise 1.6.** Alyssa P. Hacker doesn't see why <tt>if</tt> needs
 to be provided as a special form.  ``Why can't I just define it as an
 ordinary procedure in terms of <tt>cond</tt>?'' she asks.
 Alyssa's friend Eva Lu Ator claims this can indeed be done, and
-she defines a new version of <tt>if</tt>:</strike>
+she defines a new version of <tt>if</tt>:
 
-<strike>**Exercise 1.7.** The <tt>good-enough?</tt> test used in computing square roots will not be
+X **Exercise 1.7.** The <tt>good-enough?</tt> test used in computing square roots will not be
 very effective for finding the square roots of very small numbers.
 Also, in real computers, arithmetic operations are almost always
 performed with limited precision.  This makes our test inadequate for
@@ -44,29 +44,29 @@ strategy for implementing <tt>good-enough?</tt> is to watch how <tt>guess</tt> c
 change is a very small fraction of the guess.  Design a square-root
 procedure that uses this kind of end test.  Does this work better for
 small and large numbers?
-</strike>
 
-<strike>**Exercise 1.8.** Newton's method for cube roots is based on the fact that if *y* is an
+
+X **Exercise 1.8.** Newton's method for cube roots is based on the fact that if *y* is an
 approximation to the cube root of *x*, then a better approximation is
 given by the value
-</strike>
 
-<strike>**Exercise 1.9.** Each of the following two procedures defines a method for adding two
+
+X **Exercise 1.9.** Each of the following two procedures defines a method for adding two
 positive integers in terms of the procedures <tt>inc</tt>,
 which increments its argument by 1, and <tt>dec</tt>, which decrements
-its argument by 1.</strike>
+its argument by 1.
 
-<strike>**Exercise 1.10.** The following procedure computes a mathematical function called
-Ackermann's function.</strike>
+X **Exercise 1.10.** The following procedure computes a mathematical function called
+Ackermann's function.
 
-<strike>**Exercise 1.11.** A function *f* is defined by the rule that *f*(*n*) = *n* if *n*&lt;3 and
+X **Exercise 1.11.** A function *f* is defined by the rule that *f*(*n*) = *n* if *n*&lt;3 and
 *f*(*n*) = *f*(*n* - 1) + 2*f*(*n* - 2) + 3*f*(*n* - 3) if *n*<u>&gt;</u> 3.  Write a procedure that
 computes *f* by means of a recursive process.  Write a procedure that
 computes *f* by means of an iterative process.
-</strike>
 
-<strike>**Exercise 1.12.** The following pattern of numbers is called
-*Pascal's triangle*.</strike>
+
+X **Exercise 1.12.** The following pattern of numbers is called
+*Pascal's triangle*.
 
 **Exercise 1.13.** Prove that  *F**i**b*(*n*) is the closest integer to <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-11.gif' /><sup><em>n</em></sup>/<img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-13.gif' />5,
 where <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-11.gif' /> =  (1 + <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-13.gif' />5)/2.  Hint: Let <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-12.gif' /> =  (1 - <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-13.gif' />5)/2.  Use
@@ -87,7 +87,7 @@ if *x* is
 sufficiently small, and the trigonometric identity 
 
 
-<strike>**Exercise 1.16.** Design a procedure that evolves an iterative exponentiation process
+X **Exercise 1.16.** Design a procedure that evolves an iterative exponentiation process
 that uses successive squaring and uses a logarithmic number of steps,
 as does <tt>fast-expt</tt>.  (Hint: Using the observation that
 (*b*<sup><em>n</em>/2</sup>)<sup>2</sup>  = (*b*<sup>2</sup>)<sup><em>n</em>/2</sup>, keep, along with the exponent *n* and the
@@ -97,20 +97,20 @@ from state to state.  At the beginning of the process *a* is taken to
 be 1, and the answer is given by the value of *a* at the end of the
 process.  In general, the technique of defining an *invariant
 quantity* that remains unchanged from state to state is a powerful way
-to think about the </strike>
+to think about the 
 
-<strike>**Exercise 1.17.** The exponentiation algorithms in this section are based on performing
+X **Exercise 1.17.** The exponentiation algorithms in this section are based on performing
 exponentiation by means of repeated multiplication.  In a similar way,
 one can perform integer multiplication by means of repeated addition.
 The following multiplication procedure (in which it is assumed that
-our language can only add, not multiply) is analogous to the <tt>expt</tt> procedure:</strike>
+our language can only add, not multiply) is analogous to the <tt>expt</tt> procedure:
 
-<strike>**Exercise 1.18.** Using the results of exercises 1.16
+X **Exercise 1.18.** Using the results of exercises 1.16
 and 1.17, devise a procedure that generates an iterative
 process for multiplying two integers in terms of adding, doubling, and
-halving and uses a logarithmic number of steps.<sup><small>40</small></sup></strike>
+halving and uses a logarithmic number of steps.<sup><small>40</small></sup>
 
-<strike>**Exercise 1.19.** 
+X **Exercise 1.19.** 
 There is a clever algorithm for computing the Fibonacci numbers in
 a logarithmic number of steps.
 Recall the transformation of the state variables
@@ -129,7 +129,7 @@ and compute *p*' and *q*' in terms of *p* and *q*.  This gives us an
 explicit way to square these transformations, and thus we can compute
 *T*<sup><em>n</em></sup> using successive squaring, as in the <tt>fast-expt</tt>
 procedure.  Put this all together to complete the following procedure,
-which runs in a logarithmic number of steps:<sup><small>41</small></sup></strike>
+which runs in a logarithmic number of steps:<sup><small>41</small></sup>
 
 **Exercise 1.20.** The process that a procedure generates is of course dependent on the
 rules used by the interpreter.  As an example, consider the iterative
@@ -146,19 +146,19 @@ in the normal-order evaluation of <tt>(gcd 206&nbsp;40)</tt>?
 In the applicative-order evaluation?
 
 
-<strike>**Exercise 1.21.** Use the <tt>smallest-divisor</tt> procedure to find the smallest divisor
+X **Exercise 1.21.** Use the <tt>smallest-divisor</tt> procedure to find the smallest divisor
 of each of the following numbers: 199, 1999, 19999.
-</strike>
 
-<strike>**Exercise 1.22.** Most Lisp implementations include a primitive called <tt>runtime</tt>
+
+X **Exercise 1.22.** Most Lisp implementations include a primitive called <tt>runtime</tt>
 that returns an integer that specifies the amount of time the system
 has been running (measured, for example, in microseconds).  The
 following <tt>timed-prime-test</tt> procedure, when called with an
 integer *n*, prints *n* and checks to see if *n* is prime.  If *n* is
 prime, the procedure prints three asterisks followed by the amount of time
-used in performing the test.</strike>
+used in performing the test.
 
-<strike>**Exercise 1.23.** The <tt>smallest-divisor</tt> procedure shown at the start of this section
+X **Exercise 1.23.** The <tt>smallest-divisor</tt> procedure shown at the start of this section
 does lots of needless testing: After it checks to see if the
 number is divisible by 2 there is no point in checking to see if
 it is divisible by any larger even numbers.  This suggests that the
@@ -174,30 +174,30 @@ number of test steps, you should expect it to run about twice as fast.
 Is this expectation confirmed?  If not, what is the observed ratio of
 the speeds of the two algorithms, and how do you explain the fact that
 it is different from 2?
-</strike>
 
-<strike>**Exercise 1.24.** Modify the <tt>timed-prime-test</tt> procedure of
+
+X **Exercise 1.24.** Modify the <tt>timed-prime-test</tt> procedure of
 exercise 1.22 to use <tt>fast-prime?</tt> (the
 Fermat method), and test each of the 12 primes you found in that
-exercise.  Since the Fermat test has <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(<tt>log</tt> *n*</strike>
+exercise.  Since the Fermat test has <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(<tt>log</tt> *n*
 
 **Exercise 1.25.** Alyssa P. Hacker complains that we went to a lot of extra work in
 writing <tt>expmod</tt>.  After all, she says, since we already know how
 to compute exponentials, we could have simply written
 
-<strike>**Exercise 1.26.** Louis Reasoner is having great difficulty doing
+X **Exercise 1.26.** Louis Reasoner is having great difficulty doing
 exercise 1.24.  His <tt>fast-prime?</tt> test
 seems to run more slowly than his <tt>prime?</tt> test.  Louis calls his
 friend Eva Lu Ator over to help.  When they examine Louis's code, they
 find that he has rewritten the <tt>expmod</tt> procedure to use an
-explicit multiplication, rather than calling <tt>square</tt>:</strike>
+explicit multiplication, rather than calling <tt>square</tt>:
 
-<strike>**Exercise 1.27.** Demonstrate that the Carmichael numbers listed in
+X **Exercise 1.27.** Demonstrate that the Carmichael numbers listed in
 footnote 47 really do fool
 the Fermat test.  That is, write a procedure that takes an integer *n*
 and tests whether *a*<sup><em>n</em></sup> is congruent to *a* modulo *n* for every
 *a*&lt;*n*, and try your procedure on the given Carmichael numbers.
-</strike>
+
 
 **Exercise 1.28.** One variant of the Fermat test that cannot be fooled is called the
 *Miller-Rabin test* (Miller 1976; Rabin 1980).  This starts from
@@ -221,17 +221,17 @@ the Miller-Rabin test with a procedure analogous to <tt>fermat-test</tt>.
 Check your procedure by testing various known primes and non-primes.
 Hint: One convenient way to make <tt>expmod</tt>
 
-<strike>**Exercise 1.29.** Simpson's Rule is a more accurate method of numerical integration than
+X **Exercise 1.29.** Simpson's Rule is a more accurate method of numerical integration than
 the method illustrated above.  Using Simpson's Rule, the integral of a
 function *f* between *a* and *b* is approximated as
-</strike>
 
-<strike>**Exercise 1.30.** The <tt>sum</tt> procedure above generates a linear recursion.  The
+
+X **Exercise 1.30.** The <tt>sum</tt> procedure above generates a linear recursion.  The
 procedure can be rewritten so that the sum is performed iteratively.
 Show how to do this by filling in the missing expressions in the
-following definition:</strike>
+following definition:
 
-<strike>**Exercise 1.31.** 
+X **Exercise 1.31.** 
 
 
 a. The <tt>sum</tt> procedure is only the simplest of a vast number of
@@ -240,20 +240,20 @@ called <tt>product</tt> that returns the product of the values of a
 function at points over a given range.
 Show how to define <tt>factorial</tt> in terms of
 <tt>product</tt>.  Also use <tt>product</tt> to compute approximations to
-<img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-9.gif' /> using the formula<sup><small>52</small></sup></strike>
+<img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-9.gif' /> using the formula<sup><small>52</small></sup>
 
-<strike>**Exercise 1.32.** a. Show that <tt>sum</tt> and <tt>product</tt>
+X **Exercise 1.32.** a. Show that <tt>sum</tt> and <tt>product</tt>
 (exercise 1.31) are both special cases of a still more
 general notion called <tt>accumulate</tt> that combines a collection of
-terms, using some general accumulation function:</strike>
+terms, using some general accumulation function:
 
-<strike>**Exercise 1.33.** You can obtain an even more general version of <tt>accumulate</tt>
+X **Exercise 1.33.** You can obtain an even more general version of <tt>accumulate</tt>
 (exercise 1.32) by introducing the notion of a *filter* on the terms to be combined.  That is, combine only those
 terms derived from values in the range that satisfy a specified
 condition.  The resulting <tt>filtered-accumulate</tt> abstraction takes
 the same arguments as accumulate, together with an additional
 predicate of one argument that specifies the filter.  Write <tt>filtered-accumulate</tt> as a procedure.  Show how to express the
-following using <tt>filtered-accumulate</tt>:</strike>
+following using <tt>filtered-accumulate</tt>:
 
 **Exercise 1.34.** Suppose we define the procedure
 
@@ -263,7 +263,7 @@ this fact to compute <img src='http://mitpress.mit.edu/sicp/full-text/book/book-
 procedure.
 
 
-<strike>**Exercise 1.36.** Modify <tt>fixed-point</tt> so that it prints the sequence of
+X **Exercise 1.36.** Modify <tt>fixed-point</tt> so that it prints the sequence of
 approximations it generates, using
 the <tt>newline</tt> and <tt>display</tt> primitives shown in
 exercise 1.22.  Then find a solution to *x*<sup><em>x</em></sup>  = 
@@ -271,7 +271,7 @@ exercise 1.22.  Then find a solution to *x*<sup><em>x</em></sup>  =
 Scheme's primitive <tt>log</tt> procedure, which computes natural
 logarithms.)  Compare the number of steps this takes with and without
 average damping.  (Note that you cannot start <tt>fixed-point</tt> with a
-guess of 1, as this would cause division by <tt>log</tt></strike>
+guess of 1, as this would cause division by <tt>log</tt>
 
 **Exercise 1.37.** a. An infinite *continued fraction* is an expression of the form
 
@@ -290,18 +290,18 @@ Euler's expansion.
 published in 1770 by the German mathematician J.H. Lambert:
 
 
-<strike>**Exercise 1.40.** Define a procedure <tt>cubic</tt> that can be used together with the <tt>newtons-method</tt> procedure in expressions of the form</strike>
+X **Exercise 1.40.** Define a procedure <tt>cubic</tt> that can be used together with the <tt>newtons-method</tt> procedure in expressions of the form
 
-<strike>**Exercise 1.41.** Define a procedure <tt>double</tt> that takes a procedure of one
+X **Exercise 1.41.** Define a procedure <tt>double</tt> that takes a procedure of one
 argument as argument and
 returns a procedure that applies the original procedure twice.  For
 example, if <tt>inc</tt> is a procedure that adds 1 to its argument,
 then <tt>(double inc)</tt> should be a procedure that adds 2.  What
-value is returned by</strike>
+value is returned by
 
-<strike>**Exercise 1.42.** Let *f* and *g* be two one-argument functions.  The *composition**f* after *g* is defined to be the function *x* <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-17.gif' />*f*(*g*(*x*)).
+X **Exercise 1.42.** Let *f* and *g* be two one-argument functions.  The *composition**f* after *g* is defined to be the function *x* <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-17.gif' />*f*(*g*(*x*)).
 Define a procedure <tt>compose</tt> that implements composition.  For
-example, if <tt>inc</tt></strike>
+example, if <tt>inc</tt>
 
 **Exercise 1.43.** If *f* is a numerical function and *n* is a positive integer, then we
 can form the *n*th repeated application of *f*, which is defined to be
@@ -357,14 +357,14 @@ section 1.3.3 in terms of <tt>iterative-improve</tt>.
 
 
 ## 2 Building Abstractions with Data
-<strike>**Exercise 2.1.** Define a better version of <tt>make-rat</tt> that
+X **Exercise 2.1.** Define a better version of <tt>make-rat</tt> that
 handles both positive and negative arguments.  <tt>Make-rat</tt> should
 normalize the sign so that if the rational number is positive, both
 the numerator and denominator are positive, and if the rational number
 is negative, only the numerator is negative.
-</strike>
 
-<strike>**Exercise 2.2.** Consider the problem of representing 
+
+X **Exercise 2.2.** Consider the problem of representing 
 line segments in a plane.  Each segment is
 represented as a pair of points: a starting point and an ending point.
 Define a constructor <tt>make-segment</tt> and selectors <tt>start-segment</tt>
@@ -377,29 +377,29 @@ selectors and constructors, define a procedure <tt>midpoint-segment</tt>
 that takes a line segment as argument and returns its midpoint (the
 point whose coordinates are the average of the coordinates of the
 endpoints).
-To try your procedures, you'll need a way to print points:</strike>
+To try your procedures, you'll need a way to print points:
 
 **Exercise 2.3.** Implement a representation for rectangles in a plane.
 (Hint: You may want to make use of exercise 2.2
 
-<strike>**Exercise 2.4.** Here is an alternative procedural representation of pairs.  For this
+X **Exercise 2.4.** Here is an alternative procedural representation of pairs.  For this
 representation, verify that <tt>(car (cons x y))</tt> yields <tt>x</tt> for
-any objects <tt>x</tt> and <tt>y</tt>.</strike>
+any objects <tt>x</tt> and <tt>y</tt>.
 
-<strike>**Exercise 2.5.** Show that we can represent pairs of nonnegative integers using only
+X **Exercise 2.5.** Show that we can represent pairs of nonnegative integers using only
 numbers and arithmetic operations if we represent the pair *a* and *b*
 as the integer that is the product 2<sup><em>a</em></sup> 3<sup><em>b</em></sup>.  Give the corresponding
 definitions of the procedures <tt>cons</tt>, <tt>car</tt>, and <tt>cdr</tt>.
-</strike>
 
-<strike>**Exercise 2.6.** In case representing pairs as procedures wasn't mind-boggling enough,
+
+X **Exercise 2.6.** In case representing pairs as procedures wasn't mind-boggling enough,
 consider that, in a language that can manipulate procedures, we can
 get by without numbers (at least insofar as nonnegative integers are
-concerned) by implementing 0 and the operation of adding 1 as</strike>
+concerned) by implementing 0 and the operation of adding 1 as
 
-<strike>**Exercise 2.7.** Alyssa's program is incomplete because she has not specified the
+X **Exercise 2.7.** Alyssa's program is incomplete because she has not specified the
 implementation of the interval abstraction.  Here is a definition of
-the interval constructor:</strike>
+the interval constructor:
 
 **Exercise 2.8.** Using reasoning analogous to Alyssa's, describe how the difference
 of two intervals may be computed.  Define a corresponding subtraction
@@ -424,31 +424,31 @@ divide by an interval that spans zero.  Modify Alyssa's code to
 check for this condition and to signal an error if it occurs.
 
 
-<strike>**Exercise 2.11.** In passing, Ben also cryptically comments: ``By testing the signs of
+X **Exercise 2.11.** In passing, Ben also cryptically comments: ``By testing the signs of
 the endpoints of the intervals, it is possible to break <tt>mul-interval</tt> into nine cases, only one of which requires more than
 two multiplications.''  Rewrite this procedure using Ben's
 suggestion.
-</strike>
 
-<strike>**Exercise 2.12.** Define a constructor <tt>make-center-percent</tt> that takes a center and
+
+X **Exercise 2.12.** Define a constructor <tt>make-center-percent</tt> that takes a center and
 a percentage tolerance and produces the desired interval.  You must
 also define a selector <tt>percent</tt> that produces the
-percentage tolerance for a given interval.  The <tt>center</tt></strike>
+percentage tolerance for a given interval.  The <tt>center</tt>
 
-<strike>**Exercise 2.13.** Show that under the assumption of small percentage tolerances there is
+X **Exercise 2.13.** Show that under the assumption of small percentage tolerances there is
 a simple formula for the approximate percentage tolerance of the
 product of two intervals in terms of the tolerances of the factors.
 You may simplify the problem by assuming that all numbers are
 positive.
-</strike>
 
-<strike>**Exercise 2.14.** Demonstrate that Lem is right. Investigate the behavior of the
+
+X **Exercise 2.14.** Demonstrate that Lem is right. Investigate the behavior of the
 system on a variety of arithmetic expressions. Make some intervals *A* and *B*,
 and use them in computing the expressions *A*/*A* and *A*/*B*.  You will
 get the most insight by using intervals whose width is a small
 percentage of the center value. Examine the results of the computation
 in center-percent form (see exercise 2.12).
-</strike>
+
 
 **Exercise 2.15.** Eva Lu Ator, another user, has also noticed the different intervals
 computed by different but algebraically equivalent expressions. She
@@ -465,11 +465,11 @@ does not have this shortcoming, or is this task impossible?  (Warning:
 This problem is very difficult.)
 
 
-<strike>**Exercise 2.17.** Define a procedure <tt>last-pair</tt> that returns the list that contains only
-the last element of a given (nonempty) list:</strike>
+X **Exercise 2.17.** Define a procedure <tt>last-pair</tt> that returns the list that contains only
+the last element of a given (nonempty) list:
 
-<strike>**Exercise 2.18.** Define a procedure <tt>reverse</tt> that takes a list as argument and
-returns a list of the same elements in reverse order:</strike>
+X **Exercise 2.18.** Define a procedure <tt>reverse</tt> that takes a list as argument and
+returns a list of the same elements in reverse order:
 
 **Exercise 2.19.** Consider the change-counting program of
 section 1.2.2.  It would be nice to be able to
@@ -481,30 +481,30 @@ procedure <tt>count-change</tt> (which knows that there are five
 kinds of U.S. coins).  It would be nicer to be able to
 supply a list of coins to be used for making change.
 
-<strike>**Exercise 2.20.** The procedures <tt>+</tt>, <tt>*</tt>, and <tt>list</tt> take arbitrary numbers
+X **Exercise 2.20.** The procedures <tt>+</tt>, <tt>*</tt>, and <tt>list</tt> take arbitrary numbers
 of arguments. One way to define such procedures is to use <tt>define</tt>
 with *dotted-tail notation*.  In a procedure definition, a parameter
 list that has a dot before the last parameter name indicates that, when the
 procedure is called, the initial parameters (if any) will have as values
 the initial arguments,
-as usual, but the final parameter's value will be a *list*</strike>
+as usual, but the final parameter's value will be a *list*
 
-<strike>**Exercise 2.21.** The procedure <tt>square-list</tt> takes a list of
+X **Exercise 2.21.** The procedure <tt>square-list</tt> takes a list of
 numbers as argument and returns a list of the squares of those
-numbers.</strike>
+numbers.
 
-<strike>**Exercise 2.22.** Louis Reasoner tries to rewrite the first <tt>square-list</tt> procedure of
+X **Exercise 2.22.** Louis Reasoner tries to rewrite the first <tt>square-list</tt> procedure of
 exercise 2.21 so that it evolves an iterative
-process:</strike>
+process:
 
-<strike>**Exercise 2.23.** The procedure <tt>for-each</tt> is similar to <tt>map</tt>.  It takes as
+X **Exercise 2.23.** The procedure <tt>for-each</tt> is similar to <tt>map</tt>.  It takes as
 arguments a procedure and a list of elements.  However, rather than
 forming a list of the  results, <tt>for-each</tt> just applies the procedure
 to each of the elements in turn, from left to right.  The values
 returned by applying the procedure to the elements are not used at
 all -- <tt>for-each</tt> is used with procedures that perform an action,
 such as printing.  For example,
-</strike>
+
 
 **Exercise 2.24.** Suppose we evaluate the expression <tt>(list 1 (list 2 (list 3 4)))</tt>.
 Give the result printed by the interpreter, the corresponding
@@ -522,34 +522,34 @@ produce a <tt>deep-reverse</tt> procedure that takes a list as argument
 and returns as its value the list with its elements reversed and with
 all sublists deep-reversed as well.  For example,
 
-<strike>**Exercise 2.28.** Write a procedure <tt>fringe</tt> that takes as argument a tree
+X **Exercise 2.28.** Write a procedure <tt>fringe</tt> that takes as argument a tree
 (represented as a list) and returns a list whose elements are all the
-leaves of the tree arranged in left-to-right order.  For example,</strike>
+leaves of the tree arranged in left-to-right order.  For example,
 
-<strike>**Exercise 2.29.** A binary mobile consists of two branches, a left branch and a right
+X **Exercise 2.29.** A binary mobile consists of two branches, a left branch and a right
 branch.  Each branch is a rod of a certain length, from which hangs
 either a weight or another binary mobile.  We can represent a binary
 mobile using compound data by constructing it from two branches (for
-example, using <tt>list</tt>):</strike>
+example, using <tt>list</tt>):
 
-<strike>**Exercise 2.30.** Define a procedure <tt>square-tree</tt> analogous to the <tt>square-list</tt>
-procedure of exercise 2.21.  That is, <tt>square-list</tt> should behave as follows:</strike>
+X **Exercise 2.30.** Define a procedure <tt>square-tree</tt> analogous to the <tt>square-list</tt>
+procedure of exercise 2.21.  That is, <tt>square-list</tt> should behave as follows:
 
 **Exercise 2.31.** Abstract your answer to exercise 2.30 to produce a
 procedure <tt>tree-map</tt> with the property that <tt>square-tree</tt>
 could be defined as
 
-<strike>**Exercise 2.32.** We can represent a set as a list of distinct elements, and we can
+X **Exercise 2.32.** We can represent a set as a list of distinct elements, and we can
 represent the set of all subsets of the set as a list of lists.  For
 example, if the set is <tt>(1&nbsp;2&nbsp;3)</tt>, then the set of all subsets is
 <tt>(() (3) (2) (2&nbsp;3) (1) (1&nbsp;3) (1&nbsp;2) (1&nbsp;2&nbsp;3))</tt>.  Complete the
 following definition of a procedure that generates the set of subsets
 of a set and give a clear explanation of why it works:
-</strike>
 
-<strike>**Exercise 2.33.** Fill in the missing expressions to complete the following definitions
+
+X **Exercise 2.33.** Fill in the missing expressions to complete the following definitions
 of some basic list-manipulation operations as accumulations:
-</strike>
+
 
 **Exercise 2.34.** Evaluating a polynomial in *x* at a given value of *x* can be
 formulated as an accumulation.  We evaluate the polynomial
@@ -582,9 +582,9 @@ similar to <tt>fold-right</tt>, except
 that it combines elements working in the opposite direction:
 
 
-<strike>**Exercise 2.39.** 
+X **Exercise 2.39.** 
 Complete the following definitions of <tt>reverse</tt>(exercise 2.18) in terms of <tt>fold-right</tt> and <tt>fold-left</tt> from exercise 2.38:
-</strike>
+
 
 **Exercise 2.40.** Define a procedure <tt>unique-pairs</tt> that, given an integer *n*,
 generates the sequence of pairs (*i*,*j*) with 1<u>&lt;</u> *j*&lt; *i*<u>&lt;</u> *n*.  Use <tt>unique-pairs</tt> to simplify the definition of <tt>prime-sum-pairs</tt>
@@ -596,7 +596,7 @@ triples of distinct positive integers *i*, *j*, and *k* less than or
 equal to a given integer *n* that sum to a given integer *s*.
 
 
-<strike>**Exercise 2.42.** </strike>
+X **Exercise 2.42.** 
 
 **Exercise 2.43.** Louis Reasoner is having a terrible time doing exercise 2.42.  His
 <tt>queens</tt> procedure seems to work, but it runs extremely slowly.
@@ -606,16 +606,16 @@ out that he has interchanged the order of the nested mappings in the
 <tt>flatmap</tt>, writing it as
 
 
-<strike>**Exercise 2.44.** Define the procedure <tt>up-split</tt> used by <tt>corner-split</tt>.
+X **Exercise 2.44.** Define the procedure <tt>up-split</tt> used by <tt>corner-split</tt>.
 It is similar to <tt>right-split</tt>, except that it switches the
-roles of <tt>below</tt> and <tt>beside</tt></strike>
+roles of <tt>below</tt> and <tt>beside</tt>
 
 **Exercise 2.45.** <tt>Right-split</tt> and <tt>up-split</tt> can be expressed as
 instances of a general splitting operation.
 Define a procedure <tt>split</tt> with the property that evaluating
 
 
-<strike>**Exercise 2.46.** A two-dimensional vector **v** running from the origin to a point
+X **Exercise 2.46.** A two-dimensional vector **v** running from the origin to a point
 can be represented as a pair
 consisting of an *x*-coordinate and a *y*-coordinate.  Implement a data
 abstraction for vectors by giving a constructor <tt>make-vect</tt> and
@@ -623,21 +623,21 @@ corresponding selectors <tt>xcor-vect</tt> and <tt>ycor-vect</tt>.  In
 terms of your selectors and constructor, implement procedures <tt>add-vect</tt>, <tt>sub-vect</tt>, and <tt>scale-vect</tt> that perform
 the operations vector addition, vector subtraction, and multiplying a
 vector by a scalar:
-</strike>
 
-<strike>**Exercise 2.47.** Here are two possible constructors for frames:
-</strike>
 
-<strike>**Exercise 2.48.** A directed line segment in the
+X **Exercise 2.47.** Here are two possible constructors for frames:
+
+
+X **Exercise 2.48.** A directed line segment in the
 plane can be represented as a pair of vectors -- the
 vector running from the origin to the start-point of the segment, and
 the vector running from the origin to the end-point of the segment.
 Use your vector representation from exercise 2.46 to
-define a representation for segments with a constructor <tt>make-segment</tt> and selectors <tt>start-segment</tt> and <tt>end-segment</tt></strike>
+define a representation for segments with a constructor <tt>make-segment</tt> and selectors <tt>start-segment</tt> and <tt>end-segment</tt>
 
-<strike>**Exercise 2.49.** Use <tt>segments-&gt;painter</tt> to define the following primitive painters:</strike>
+X **Exercise 2.49.** Use <tt>segments-&gt;painter</tt> to define the following primitive painters:
 
-<strike>**Exercise 2.50.** Define the transformation <tt>flip-horiz</tt></strike>
+X **Exercise 2.50.** Define the transformation <tt>flip-horiz</tt>
 
 **Exercise 2.51.** Define the <tt>below</tt> operation for painters.  <tt>Below</tt> takes two
 painters as arguments.  The resulting painter, given a frame,
@@ -651,8 +651,8 @@ rotation operations (from exercise 2.50
 figure 2.9 by working at each of the levels
 described above.  In particular:
 
-<strike>**Exercise 2.53.** What would the interpreter print in response to evaluating each of the
-following expressions?</strike>
+X **Exercise 2.53.** What would the interpreter print in response to evaluating each of the
+following expressions?
 
 **Exercise 2.54.** Two lists are said to be <tt>equal?</tt> if they contain equal elements
 arranged in the same order.  For example,
@@ -660,8 +660,8 @@ arranged in the same order.  For example,
 **Exercise 2.55.** Eva Lu Ator types to the interpreter the expression
 
 
-<strike>**Exercise 2.56.** Show how to extend the basic differentiator to handle more kinds of
-expressions.  For instance, implement the differentiation rule</strike>
+X **Exercise 2.56.** Show how to extend the basic differentiator to handle more kinds of
+expressions.  For instance, implement the differentiation rule
 
 **Exercise 2.57.** Extend the differentiation program to handle sums and products of
 arbitrary numbers of (two or more) terms.
@@ -677,9 +677,9 @@ predicates, selectors, and constructors that define the representation
 of the algebraic expressions on which the differentiator is to
 operate.
 
-<strike>**Exercise 2.59.** Implement the <tt>union-set</tt> operation for the unordered-list
+X **Exercise 2.59.** Implement the <tt>union-set</tt> operation for the unordered-list
 representation of sets.
-</strike>
+
 
 **Exercise 2.60.** We specified that a set would be represented as a list with no
 duplicates.  Now suppose we allow duplicates.  For instance,
@@ -691,15 +691,15 @@ there applications for which you would use this representation in
 preference to the non-duplicate one?
 
 
-<strike>**Exercise 2.61.** Give an implementation of <tt>adjoin-set</tt> using the ordered
-representation.  By analogy with <tt>element-of-set?</tt></strike>
+X **Exercise 2.61.** Give an implementation of <tt>adjoin-set</tt> using the ordered
+representation.  By analogy with <tt>element-of-set?</tt>
 
 **Exercise 2.62.** Give a <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(*n*) implementation of <tt>union-set</tt> for sets
 represented as ordered lists.
 
 
-<strike>**Exercise 2.63.** Each of the following two procedures converts a binary tree to a list.
-</strike>
+X **Exercise 2.63.** Each of the following two procedures converts a binary tree to a list.
+
 
 **Exercise 2.64.** The following procedure <tt>list-&gt;tree</tt> converts an ordered list to a
 balanced binary tree.  The helper procedure <tt>partial-tree</tt> takes
@@ -715,10 +715,10 @@ with <tt>cons</tt>) whose <tt>car</tt> is the constructed tree and whose
 
 **Exercise 2.66.** Implement the <tt>lookup</tt>
 
-<strike>**Exercise 2.67.** Define an encoding tree and a sample message:</strike>
+X **Exercise 2.67.** Define an encoding tree and a sample message:
 
-<strike>**Exercise 2.68.** The <tt>encode</tt> procedure takes as arguments a message and a tree and
-produces the list of bits that gives the encoded message.</strike>
+X **Exercise 2.68.** The <tt>encode</tt> procedure takes as arguments a message and a tree and
+produces the list of bits that gives the encoded message.
 
 **Exercise 2.69.** The following procedure takes as its argument a list of
 symbol-frequency pairs (where no symbol appears in more than one pair)
@@ -747,9 +747,9 @@ needed to encode the most frequent and least frequent symbols in the
 alphabet.
 
 
-<strike>**Exercise 2.73.** Section 2.3.2 described a program that
+X **Exercise 2.73.** Section 2.3.2 described a program that
 performs symbolic differentiation:
-</strike>
+
 
 **Exercise 2.74.** Insatiable Enterprises, Inc., is a highly decentralized conglomerate
 company consisting of a large number of independent divisions located
@@ -765,10 +765,10 @@ division managers is hastily called to search for a strategy to
 integrate the files that will satisfy headquarters' needs while
 preserving the existing autonomy of the divisions.
 
-<strike>**Exercise 2.75.** Implement the constructor <tt>make-from-mag-ang</tt> in message-passing style.
+X **Exercise 2.75.** Implement the constructor <tt>make-from-mag-ang</tt> in message-passing style.
 This procedure should be analogous to the <tt>make-from-real-imag</tt>
 procedure given above.
-</strike>
+
 
 **Exercise 2.76.** As a large system with generic operations evolves, new types of data
 objects or new operations may be needed.  For each of the three
@@ -919,14 +919,14 @@ to the two term lists supplied by <tt>reduce-terms</tt>.
 
 
 ## 3 Modularity, Objects, and State
-<strike>**Exercise 3.1.** An *accumulator* is a procedure that is called repeatedly with a
+X **Exercise 3.1.** An *accumulator* is a procedure that is called repeatedly with a
 single numeric argument and accumulates its arguments into a sum.
 Each time it is called, it returns the currently accumulated sum.
 Write a procedure <tt>make-accumulator</tt> that generates accumulators,
 each maintaining an independent sum.  The input to <tt>make-accumulator</tt> should specify the initial value of the sum; for
-example</strike>
+example
 
-<strike>**Exercise 3.2.** In software-testing applications, it is useful to be able to count the
+X **Exercise 3.2.** In software-testing applications, it is useful to be able to count the
 number of times a given procedure is called during the course of a
 computation.  Write a procedure <tt>make-monitored</tt> that takes as
 input a procedure, <tt>f</tt>, that itself takes one input.  The result
@@ -937,11 +937,11 @@ special symbol <tt>how-many-calls?</tt>, then <tt>mf</tt> returns the
 value of the counter.  If the input is the special symbol <tt>reset-count</tt>, then <tt>mf</tt> resets the counter to zero.  For any other
 input, <tt>mf</tt> returns the result of calling <tt>f</tt> on that input
 and increments the counter.  For instance, we could make a monitored
-version of the <tt>sqrt</tt> procedure:</strike>
+version of the <tt>sqrt</tt> procedure:
 
-<strike>**Exercise 3.3.** Modify the <tt>make-account</tt> procedure so that it creates
+X **Exercise 3.3.** Modify the <tt>make-account</tt> procedure so that it creates
 password-protected accounts.  That is, <tt>make-account</tt> should take
-a symbol as an additional argument, as in</strike>
+a symbol as an additional argument, as in
 
 **Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
 exercise 3.3 by adding another local state
@@ -950,7 +950,7 @@ consecutive times with an incorrect password, it invokes the procedure
 <tt>call-the-cops</tt>.
 
 
-<strike>**Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
+X **Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
 integrals by means of Monte Carlo simulation.  Consider computing the
 area of a region of space described by a predicate *P*(*x*, *y*) that is
 true for points (*x*, *y*) in the region and false for points not in the
@@ -968,7 +968,7 @@ If we try this with many points, then the fraction of points that fall
 in the region should give an estimate of the proportion of the
 rectangle that lies in the region.  Hence, multiplying this fraction
 by the area of the entire rectangle should produce an estimate of the
-integral.</strike>
+integral.
 
 **Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
 a sequence starting from a given value.  Design a new <tt>rand</tt>
@@ -1023,7 +1023,7 @@ section 2.2.1:
 
 **Exercise 3.13.** Consider the following <tt>make-cycle</tt> procedure, which uses the <tt>last-pair</tt> procedure defined in exercise 3.12:
 
-<strike>**Exercise 3.14.** The following procedure is quite useful, although obscure:</strike>
+X **Exercise 3.14.** The following procedure is quite useful, although obscure:
 
 **Exercise 3.15.** Draw box-and-pointer diagrams to explain the effect of <tt>set-to-wow!</tt> on the structures <tt>z1</tt> and <tt>z2</tt> above.
 
@@ -1041,10 +1041,10 @@ auxiliary data structure that is used to keep track of which pairs
 have already been counted.)
 
 
-<strike>**Exercise 3.18.** Write a procedure that examines a list and determines whether it
+X **Exercise 3.18.** Write a procedure that examines a list and determines whether it
 contains a cycle, that is, whether a program that tried to find the
 end of the list by taking successive <tt>cdr</tt>s would go into an
-infinite loop.  Exercise 3.13</strike>
+infinite loop.  Exercise 3.13
 
 **Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
 constant amount of space.  (This requires a very clever idea.)
@@ -1053,9 +1053,9 @@ constant amount of space.  (This requires a very clever idea.)
 **Exercise 3.20.** Draw environment diagrams to illustrate the evaluation of the sequence
 of expressions
 
-<strike>**Exercise 3.21.** Ben Bitdiddle decides to test the queue implementation described
+X **Exercise 3.21.** Ben Bitdiddle decides to test the queue implementation described
 above.  He types in the procedures to the Lisp interpreter and
-proceeds to try them out:</strike>
+proceeds to try them out:
 
 **Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
 queue as a procedure with local state.  The local state will consist
@@ -1069,7 +1069,7 @@ give implementations of the operations.<sup><small>23</small></sup>
 All operations should be accomplished in <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(1) steps.
 
 
-<strike>**Exercise 3.24.** In the table implementations above, the keys are tested for equality
+X **Exercise 3.24.** In the table implementations above, the keys are tested for equality
 using <tt>equal?</tt> (called by <tt>assoc</tt>).  This is not always the appropriate test.  For
 instance, we might have a table with numeric keys in which we don't
 need an exact match to the number we're looking up,
@@ -1077,14 +1077,14 @@ but only a number within some tolerance of it.
 Design a table constructor <tt>make-table</tt> that takes as an argument a <tt>same-key?</tt> procedure
 that will be used to test ``equality'' of keys.  <tt>Make-table</tt> should
 return a <tt>dispatch</tt> procedure that can be used to access
-appropriate <tt>lookup</tt> and <tt>insert!</tt></strike>
+appropriate <tt>lookup</tt> and <tt>insert!</tt>
 
-<strike>**Exercise 3.25.** Generalizing one- and two-dimensional tables, show how to implement a
+X **Exercise 3.25.** Generalizing one- and two-dimensional tables, show how to implement a
 table in which values are stored under an arbitrary number of keys and
 different values may be stored under different numbers of keys.  The
 <tt>lookup</tt> and <tt>insert!</tt> procedures should take as input a list
 of keys used to access the table.
-</strike>
+
 
 **Exercise 3.26.** To search a table as implemented above, one needs to scan through the
 list of records.  This is basically the unordered list representation of
@@ -1109,9 +1109,9 @@ and stores this in the table.  As an example of memoization, recall
 from section 1.2.2 the exponential process for
 computing Fibonacci numbers:
 
-<strike>**Exercise 3.28.** Define an or-gate as a primitive function box.  Your <tt>or-gate</tt>
+X **Exercise 3.28.** Define an or-gate as a primitive function box.  Your <tt>or-gate</tt>
 constructor should be similar to <tt>and-gate</tt>.
-</strike>
+
 
 **Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
 device, built from and-gates and inverters.  Define a procedure <tt>or-gate</tt> that accomplishes this.  What is the delay time of the
@@ -1449,7 +1449,7 @@ successively more trials.
 
 
 ## 4 Metalinguistic Abstraction
-<strike>**Exercise 4.1.** Notice that we cannot tell whether the metacircular evaluator
+X **Exercise 4.1.** Notice that we cannot tell whether the metacircular evaluator
 evaluates operands from left to right or from right to left.  Its evaluation
 order is inherited from the underlying Lisp:
 If the arguments to <tt>cons</tt> in <tt>list-of-values</tt>
@@ -1457,9 +1457,9 @@ are evaluated from left to right, then <tt>list-of-values</tt> will
 evaluate operands from left to right; and 
 if the arguments to <tt>cons</tt>
 are evaluated from right to left, then <tt>list-of-values</tt> will
-evaluate operands from right to left.</strike>
+evaluate operands from right to left.
 
-**Exercise 4.2.** Louis Reasoner plans to reorder the <tt>cond</tt> clauses
+X **Exercise 4.2.** Louis Reasoner plans to reorder the <tt>cond</tt> clauses
 in <tt>eval</tt> so that the clause for procedure applications appears
 before the clause for assignments.  He argues that this will make the
 interpreter more efficient:  Since programs usually contain more
@@ -1468,7 +1468,7 @@ his modified <tt>eval</tt> will usually check fewer
 clauses than the original <tt>eval</tt> before identifying the type of an
 expression.
 
-<strike>**Exercise 4.3.** Rewrite <tt>eval</tt> so that the dispatch is done in data-directed
+X **Exercise 4.3.** Rewrite <tt>eval</tt> so that the dispatch is done in data-directed
 style.  Compare this with the data-directed
 differentiation procedure of
 exercise 2.73.
@@ -1476,35 +1476,35 @@ exercise 2.73.
 type of the expression, as is appropriate for the syntax implemented
 in this section.)
 .
-</strike>
 
-<strike>**Exercise 4.4.** Recall the definitions of the special forms <tt>and</tt> and <tt>or</tt>
+
+X **Exercise 4.4.** Recall the definitions of the special forms <tt>and</tt> and <tt>or</tt>
 from chapter 1:
-</strike>
 
-<strike>**Exercise 4.5.** Scheme allows an additional syntax for <tt>cond</tt> clauses, <tt>(&lt;<em>test</em>&gt; =&gt; &lt;<em>recipient</em>&gt;)</tt>.  If &lt;*test*&gt;
+
+X **Exercise 4.5.** Scheme allows an additional syntax for <tt>cond</tt> clauses, <tt>(&lt;<em>test</em>&gt; =&gt; &lt;<em>recipient</em>&gt;)</tt>.  If &lt;*test*&gt;
 evaluates to a true value, then &lt;*recipient*&gt; is evaluated.  Its
 value must be a procedure of one argument; this procedure is then
 invoked on the value of the &lt;*test*&gt;, and the result is returned as
-the value of the <tt>cond</tt> expression.  For example</strike>
+the value of the <tt>cond</tt> expression.  For example
 
-<strike>**Exercise 4.6.** <tt>Let</tt> expressions are derived expressions, because</strike>
+X **Exercise 4.6.** <tt>Let</tt> expressions are derived expressions, because
 
-<strike>**Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
+X **Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
 binding is made in an environment in which all of the preceding
 bindings are visible.  For example
-</strike>
 
-<strike>**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
-</strike>
 
-<strike>**Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
+X **Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
+
+
+X **Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
 iterative processes can be expressed in terms of ordinary procedure
 calls, so special iteration constructs provide no essential gain in
 computational power.  On the other hand, such constructs are often
 convenient.  Design some iteration constructs, give examples of their
 use, and show how to implement them as derived expressions.
-</strike>
+
 
 **Exercise 4.10.** By using data abstraction, we were able to write an <tt>eval</tt>
 procedure that is independent of the particular syntax of the language
@@ -1513,16 +1513,16 @@ syntax for Scheme by modifying the procedures in this section, without
 changing <tt>eval</tt> or <tt>apply</tt>.
 
 
-<strike>**Exercise 4.11.**</strike>
+X **Exercise 4.11.**
 
-<strike>**Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
+X **Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
 and <tt>lookup-variable-value</tt> can be expressed in terms of
 more abstract procedures for traversing the environment structure.
 Define abstractions that capture the common patterns and redefine
 the three procedures in terms of these abstractions.
-</strike>
 
-<strike>**Exercise 4.13.** Scheme allows us to create new bindings for variables by means of <tt>define</tt>, but provides no way to get rid of bindings.  Implement for
+
+X **Exercise 4.13.** Scheme allows us to create new bindings for variables by means of <tt>define</tt>, but provides no way to get rid of bindings.  Implement for
 the evaluator a special form <tt>make-unbound!</tt> that removes the
 binding of a given symbol from the environment in which the
 <tt>make-unbound!</tt> expression is evaluated.
@@ -1530,29 +1530,29 @@ This problem is not completely specified.  For example,
 should we remove only the binding in the first frame of the
 environment?  Complete the specification and justify any choices you
 make.
-</strike>
 
-<strike>**Exercise 4.14.** Eva Lu Ator and Louis Reasoner are each experimenting with the
+
+X **Exercise 4.14.** Eva Lu Ator and Louis Reasoner are each experimenting with the
 metacircular evaluator.  Eva types in the definition of <tt>map</tt>, and
 runs some test programs that use it.  They work fine.  Louis, in contrast,
 has installed the system version of <tt>map</tt> as a primitive for the
 metacircular evaluator.  When he tries it, things go terribly
 wrong.  Explain why Louis's <tt>map</tt> fails even though Eva's works.
-</strike>
 
-<strike>**Exercise 4.15.** Given a one-argument procedure <tt>p</tt> and an object <tt>a</tt>, <tt>p</tt>
+
+X **Exercise 4.15.** Given a one-argument procedure <tt>p</tt> and an object <tt>a</tt>, <tt>p</tt>
 is said to ``halt'' on <tt>a</tt> if evaluating the expression <tt>(p
 a)</tt> returns a value (as opposed to terminating with an error message
 or running forever).  Show that it is impossible to write a procedure
 <tt>halts?</tt> that correctly determines whether <tt>p</tt> halts on <tt>a</tt> for any procedure <tt>p</tt> and object <tt>a</tt>.  Use the following
 reasoning: If you had such a procedure <tt>halts?</tt>, you could
 implement the following program:
-</strike>
 
-<strike>**Exercise 4.16.** In this exercise we implement the method just described for
+
+X **Exercise 4.16.** In this exercise we implement the method just described for
 interpreting internal definitions.
 We assume that the evaluator supports <tt>let</tt>
-(see exercise 4.6).</strike>
+(see exercise 4.6).
 
 **Exercise 4.17.** Draw diagrams of the environment in effect when evaluating the
 expression &lt;*e3*&gt; in the procedure in the text, comparing how this
@@ -1580,12 +1580,12 @@ simultaneously and have the same scope as each other.  The sample
 procedure <tt>f</tt> above can be written without internal definitions,
 but with exactly the same meaning, as
 
-<strike>**Exercise 4.21.** Amazingly, Louis's intuition in exercise 4.20
+X **Exercise 4.21.** Amazingly, Louis's intuition in exercise 4.20
 is correct.  It is indeed possible to specify recursive procedures
 without using <tt>letrec</tt> (or even <tt>define</tt>), although the method
 for accomplishing this is much more subtle than Louis imagined.  The
 following expression computes 10 factorial by applying a recursive
-factorial procedure:<sup><small>27</small></sup></strike>
+factorial procedure:<sup><small>27</small></sup>
 
 **Exercise 4.22.** Extend the evaluator in this section to support the special form <tt>let</tt>.
 (See exercise 4.6
@@ -1603,8 +1603,8 @@ of time that is spent in analysis versus execution for various
 procedures.
 
 
-<strike>**Exercise 4.25.** Suppose that (in ordinary applicative-order Scheme) we define <tt>unless</tt>
-as shown above and then define <tt>factorial</tt> in terms of <tt>unless</tt> as</strike>
+X **Exercise 4.25.** Suppose that (in ordinary applicative-order Scheme) we define <tt>unless</tt>
+as shown above and then define <tt>factorial</tt> in terms of <tt>unless</tt> as
 
 **Exercise 4.26.** Ben Bitdiddle and Alyssa P. Hacker disagree over the importance of
 lazy evaluation for implementing things such as <tt>unless</tt>.  Ben
