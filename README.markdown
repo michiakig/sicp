@@ -1515,7 +1515,7 @@ changing <tt>eval</tt> or <tt>apply</tt>.
 
 X **Exercise 4.11.**
 
-X **Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
+**Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
 and <tt>lookup-variable-value</tt> can be expressed in terms of
 more abstract procedures for traversing the environment structure.
 Define abstractions that capture the common patterns and redefine
