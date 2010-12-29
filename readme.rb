@@ -5,7 +5,7 @@ infile = ARGV[0]
 outfile = ARGV[1]
 #listfile = ARGV[2]
 
-README = "# Structure and Interpretation of Computer Programs\n\nI'm reading [SICP](http://mitpress.mit.edu/sicp/), watching the [(1986) video lectures(http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/), and trying to complete as many of the programming exercises as I can.\n\nThe following list was extracted from the online version of the book. It was a quick and dirty job but gives an overview of which exercises I've completed.\n\n"
+README = "# Structure and Interpretation of Computer Programs\n\nI'm reading [SICP](http://mitpress.mit.edu/sicp/), watching the [(1986) video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/), and trying to complete as many of the programming exercises as I can.\n\nThe following list was extracted from the online version of the book. It was a quick and dirty job but gives an overview of which exercises I've completed.\n\n"
 
 # chapter titles
 chapters = ["1 Building Abstractions with Procedures",
@@ -17,11 +17,13 @@ chapters = ["1 Building Abstractions with Procedures",
 completed = Hash.new
 
 done = `grep -r "Exercise " ch*`.to_a.map do |x|
-  mtch = x.match(/((\d)\.(\d( |$)|\d\d))/)
-  if(mtch[3].match(/0\d/))
-    mtch[2] + '.' + mtch[3].gsub(/0/,'')
-  else
-    mtch[2] + '.' + mtch[3]
+  mtch = x.match(/Exercise ((\d)\.(\d( |$)|\d\d))/)
+  if(mtch)
+    if(mtch[3].match(/0\d/))
+      mtch[2] + '.' + mtch[3].gsub(/0/,'')
+    else
+      mtch[2] + '.' + mtch[3]
+    end
   end
 end
 done.each { |x| completed[x] = true; }
@@ -58,7 +60,8 @@ File.open(outfile, 'w') do |f|
     end
 
     if(completed[match[1]])
-      f.write('<strike>')
+      f.write('X ')
+#      f.write('<strike>')
     end
 
     p.children.each do |c| 
@@ -88,7 +91,7 @@ File.open(outfile, 'w') do |f|
     end
 
     if(completed[match[1]])
-      f.write('</strike>')
+#      f.write('</strike>')
     end
 
     f.write("\n")

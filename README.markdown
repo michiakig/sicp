@@ -401,12 +401,12 @@ X **Exercise 2.7.** Alyssa's program is incomplete because she has not specified
 implementation of the interval abstraction.  Here is a definition of
 the interval constructor:
 
-**Exercise 2.8.** Using reasoning analogous to Alyssa's, describe how the difference
+X **Exercise 2.8.** Using reasoning analogous to Alyssa's, describe how the difference
 of two intervals may be computed.  Define a corresponding subtraction
 procedure, called <tt>sub-interval</tt>.
 
 
-**Exercise 2.9.** The *width* of an interval is half of the difference between its
+X **Exercise 2.9.** The *width* of an interval is half of the difference between its
 upper and lower bounds.  The width is a measure of the uncertainty of
 the number specified by the interval.  For some arithmetic operations
 the width of the result of combining two intervals is a function only
@@ -418,7 +418,7 @@ added (or subtracted).  Give examples to show that this is not true
 for multiplication or division.
 
 
-**Exercise 2.10.** Ben Bitdiddle, an expert systems programmer, looks over Alyssa's
+X **Exercise 2.10.** Ben Bitdiddle, an expert systems programmer, looks over Alyssa's
 shoulder and comments that it is not clear what it means to
 divide by an interval that spans zero.  Modify Alyssa's code to
 check for this condition and to signal an error if it occurs.
@@ -610,7 +610,7 @@ X **Exercise 2.44.** Define the procedure <tt>up-split</tt> used by <tt>corner-s
 It is similar to <tt>right-split</tt>, except that it switches the
 roles of <tt>below</tt> and <tt>beside</tt>
 
-**Exercise 2.45.** <tt>Right-split</tt> and <tt>up-split</tt> can be expressed as
+X **Exercise 2.45.** <tt>Right-split</tt> and <tt>up-split</tt> can be expressed as
 instances of a general splitting operation.
 Define a procedure <tt>split</tt> with the property that evaluating
 
@@ -654,16 +654,16 @@ described above.  In particular:
 X **Exercise 2.53.** What would the interpreter print in response to evaluating each of the
 following expressions?
 
-**Exercise 2.54.** Two lists are said to be <tt>equal?</tt> if they contain equal elements
+X **Exercise 2.54.** Two lists are said to be <tt>equal?</tt> if they contain equal elements
 arranged in the same order.  For example,
 
-**Exercise 2.55.** Eva Lu Ator types to the interpreter the expression
+X **Exercise 2.55.** Eva Lu Ator types to the interpreter the expression
 
 
 X **Exercise 2.56.** Show how to extend the basic differentiator to handle more kinds of
 expressions.  For instance, implement the differentiation rule
 
-**Exercise 2.57.** Extend the differentiation program to handle sums and products of
+X **Exercise 2.57.** Extend the differentiation program to handle sums and products of
 arbitrary numbers of (two or more) terms.
 Then the last example above could be expressed as
 
@@ -681,7 +681,7 @@ X **Exercise 2.59.** Implement the <tt>union-set</tt> operation for the unordere
 representation of sets.
 
 
-**Exercise 2.60.** We specified that a set would be represented as a list with no
+X **Exercise 2.60.** We specified that a set would be represented as a list with no
 duplicates.  Now suppose we allow duplicates.  For instance,
 the set {1,2,3} could be represented as the list <tt>(2 3 2 1 3 2
 2)</tt>.  Design procedures <tt>element-of-set?</tt>, <tt>adjoin-set</tt>, <tt>union-set</tt>, and <tt>intersection-set</tt> that operate on this
@@ -701,7 +701,7 @@ represented as ordered lists.
 X **Exercise 2.63.** Each of the following two procedures converts a binary tree to a list.
 
 
-**Exercise 2.64.** The following procedure <tt>list-&gt;tree</tt> converts an ordered list to a
+X **Exercise 2.64.** The following procedure <tt>list-&gt;tree</tt> converts an ordered list to a
 balanced binary tree.  The helper procedure <tt>partial-tree</tt> takes
 as arguments an integer *n* and list of at least *n* elements and
 constructs a balanced tree containing the first *n* elements of the
@@ -709,7 +709,7 @@ list.  The result returned by <tt>partial-tree</tt> is a pair (formed
 with <tt>cons</tt>) whose <tt>car</tt> is the constructed tree and whose
 <tt>cdr</tt> is the list of elements not included in the tree.
 
-**Exercise 2.65.** Use the results of exercises 2.63 and
+X **Exercise 2.65.** Use the results of exercises 2.63 and
  2.64 to give <img src='http://mitpress.mit.edu/sicp/full-text/book/book-Z-G-D-3.gif' />(*n*) implementations of <tt>union-set</tt> and <tt>intersection-set</tt> for sets implemented as
 (balanced) binary trees.<sup><small>41</small></sup>
 
@@ -943,14 +943,14 @@ X **Exercise 3.3.** Modify the <tt>make-account</tt> procedure so that it create
 password-protected accounts.  That is, <tt>make-account</tt> should take
 a symbol as an additional argument, as in
 
-**Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
+X **Exercise 3.4.** Modify the <tt>make-account</tt> procedure of
 exercise 3.3 by adding another local state
 variable so that, if an account is accessed more than seven
 consecutive times with an incorrect password, it invokes the procedure
 <tt>call-the-cops</tt>.
 
 
-X **Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
+**Exercise 3.5.** *Monte Carlo integration* is a method of estimating definite
 integrals by means of Monte Carlo simulation.  Consider computing the
 area of a region of space described by a predicate *P*(*x*, *y*) that is
 true for points (*x*, *y*) in the region and false for points not in the
@@ -970,7 +970,7 @@ rectangle that lies in the region.  Hence, multiplying this fraction
 by the area of the entire rectangle should produce an estimate of the
 integral.
 
-**Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
+X **Exercise 3.6.** It is useful to be able to reset a random-number generator to produce
 a sequence starting from a given value.  Design a new <tt>rand</tt>
 procedure that is called with an argument that is either the symbol
 <tt>generate</tt> or the symbol <tt>reset</tt> and behaves as follows: <tt>(rand
@@ -1034,7 +1034,7 @@ of pairs in any structure is the number in the <tt>car</tt> plus the
 number in the <tt>cdr</tt> plus one more to count the current pair.''
 So Ben writes the following procedure:
 
-**Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
+X **Exercise 3.17.** Devise a correct version of the <tt>count-pairs</tt> procedure of
 exercise 3.16 that returns the number of distinct
 pairs in any structure.  (Hint: Traverse the structure, maintaining an
 auxiliary data structure that is used to keep track of which pairs
@@ -1046,7 +1046,7 @@ contains a cycle, that is, whether a program that tried to find the
 end of the list by taking successive <tt>cdr</tt>s would go into an
 infinite loop.  Exercise 3.13
 
-**Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
+X **Exercise 3.19.** Redo exercise 3.18 using an algorithm that takes only a
 constant amount of space.  (This requires a very clever idea.)
 
 
@@ -1057,7 +1057,7 @@ X **Exercise 3.21.** Ben Bitdiddle decides to test the queue implementation desc
 above.  He types in the procedures to the Lisp interpreter and
 proceeds to try them out:
 
-**Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
+X **Exercise 3.22.** Instead of representing a queue as a pair of pointers, we can build a
 queue as a procedure with local state.  The local state will consist
 of pointers to the beginning and the end of an ordinary list.  Thus,
 the <tt>make-queue</tt> procedure will have the form
@@ -1113,7 +1113,7 @@ X **Exercise 3.28.** Define an or-gate as a primitive function box.  Your <tt>or
 constructor should be similar to <tt>and-gate</tt>.
 
 
-**Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
+X **Exercise 3.29.** Another way to construct an or-gate is as a compound digital logic
 device, built from and-gates and inverters.  Define a procedure <tt>or-gate</tt> that accomplishes this.  What is the delay time of the
 or-gate in terms of <tt>and-gate-delay</tt> and <tt>inverter-delay</tt>?
 
@@ -1490,12 +1490,12 @@ the value of the <tt>cond</tt> expression.  For example
 
 X **Exercise 4.6.** <tt>Let</tt> expressions are derived expressions, because
 
-**Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
+X **Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
 binding is made in an environment in which all of the preceding
 bindings are visible.  For example
 
 
-**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
+X **Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
 
 
 X **Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
@@ -1515,7 +1515,7 @@ changing <tt>eval</tt> or <tt>apply</tt>.
 
 X **Exercise 4.11.**
 
-**Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
+X **Exercise 4.12.** The procedures <tt>set-variable-value!</tt>, <tt>define-variable!</tt>,
 and <tt>lookup-variable-value</tt> can be expressed in terms of
 more abstract procedures for traversing the environment structure.
 Define abstractions that capture the common patterns and redefine
@@ -1606,7 +1606,7 @@ procedures.
 X **Exercise 4.25.** Suppose that (in ordinary applicative-order Scheme) we define <tt>unless</tt>
 as shown above and then define <tt>factorial</tt> in terms of <tt>unless</tt> as
 
-**Exercise 4.26.** Ben Bitdiddle and Alyssa P. Hacker disagree over the importance of
+X **Exercise 4.26.** Ben Bitdiddle and Alyssa P. Hacker disagree over the importance of
 lazy evaluation for implementing things such as <tt>unless</tt>.  Ben
 points out that it's possible to implement <tt>unless</tt> in applicative
 order as a special form.
@@ -1618,7 +1618,7 @@ argument.  Show how to implement <tt>unless</tt> as a derived expression
 and give an example of a situation where it might be useful to have
 <tt>unless</tt>
 
-**Exercise 4.27.** Suppose we type in the following definitions to the lazy evaluator:
+X **Exercise 4.27.** Suppose we type in the following definitions to the lazy evaluator:
 
 
 **Exercise 4.28.** <tt>Eval</tt> uses <tt>actual-value</tt> rather than <tt>eval</tt>
