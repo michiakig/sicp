@@ -6,10 +6,12 @@ The following list was extracted from the online version of the book. It was a q
 
 
 ## 1 Building Abstractions with Procedures
-<strike>**Exercise 1.1.** Below is a sequence of expressions.  
+<strike>
+**Exercise 1.1.** Below is a sequence of expressions.  
 What is the result printed by the interpreter in response to each
 expression?  Assume that the sequence is to be evaluated in the order
-in which it is presented.</strike>
+in which it is presented.
+</strike>
 
 <strike>**Exercise 1.2.** Translate the following expression into prefix form
 </strike>
