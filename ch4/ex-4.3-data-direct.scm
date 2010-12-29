@@ -52,6 +52,7 @@
 
 		      (cons 'for eval-for)
 		      (cons 'unbind! eval-unbind)
+		      (cons 'letrec eval-letrec)
 		      ))
 
 ;; data-directed eval

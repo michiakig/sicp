@@ -1572,7 +1572,7 @@ translates the example in the text to
 **Exercise 4.19.** Ben Bitdiddle, Alyssa P. Hacker, and Eva Lu Ator are arguing about
 the desired result of evaluating the expression
 
-**Exercise 4.20.** Because internal definitions look sequential but are actually
+X **Exercise 4.20.** Because internal definitions look sequential but are actually
 simultaneous, some people prefer to avoid them entirely, and use the
 special form <tt>letrec</tt> instead.  <tt>Letrec</tt> looks like <tt>let</tt>,
 so it is not surprising that the variables it binds are bound
