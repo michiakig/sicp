@@ -1490,12 +1490,12 @@ the value of the <tt>cond</tt> expression.  For example
 
 X **Exercise 4.6.** <tt>Let</tt> expressions are derived expressions, because
 
-X **Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
+**Exercise 4.7.** <tt>Let*</tt> is similar to <tt>let</tt>, except that the bindings of the <tt>let</tt> variables are performed sequentially from left to right, and each
 binding is made in an environment in which all of the preceding
 bindings are visible.  For example
 
 
-X **Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
+**Exercise 4.8.** ``Named <tt>let</tt>'' is a variant of <tt>let</tt> that has the form
 
 
 X **Exercise 4.9.** Many languages support a variety of iteration constructs, such as <tt>do</tt>, <tt>for</tt>, <tt>while</tt>, and <tt>until</tt>.  In Scheme,
