@@ -1587,7 +1587,7 @@ for accomplishing this is much more subtle than Louis imagined.  The
 following expression computes 10 factorial by applying a recursive
 factorial procedure:<sup><small>27</small></sup>
 
-**Exercise 4.22.** Extend the evaluator in this section to support the special form <tt>let</tt>.
+X **Exercise 4.22.** Extend the evaluator in this section to support the special form <tt>let</tt>.
 (See exercise 4.6
 
 **Exercise 4.23.** Alyssa P. Hacker doesn't understand why <tt>analyze-sequence</tt> needs to be
