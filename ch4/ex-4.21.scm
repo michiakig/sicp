@@ -1,3 +1,6 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 4 Section 1 The Metacircular Evaluator
+
 ;;;; Exercise 4.21 
 
 ;; factorial using the y-combinator

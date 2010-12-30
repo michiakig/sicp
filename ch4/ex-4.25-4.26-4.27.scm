@@ -1,3 +1,6 @@
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 4 Section 2 Variations on a Scheme: Lazy Evaluation
+
 ;;;; Exercise 4.25
 
 ;; from the text:
@@ -10,9 +13,9 @@
           (* n (factorial (- n 1)))
           1))
 
-;; If this procedure were evaluated in an applicative-order Scheme,
-;; it would enter an infinite loop, since each call to `unless` would
-;; evaluate its arguments, including a recursive call to `factorial`.
+;; If this procedure were evaluated in an applicative-order Scheme, it would enter
+;; an infinite loop, since each call to `unless` would evaluate its arguments, 
+;; including a recursive call to `factorial`.
 
 ;; In a normal-order Scheme, this would work.
 
@@ -28,7 +31,8 @@
 	      (unless-exceptional exp)
 	      (unless-usual exp))))
 
-;; I cannot fathom when it would be useful to use unless as an argument to a higher-order procedure
+;; I cannot fathom when it would be useful to use unless as an argument to a
+;; higher-order procedure
 
 ;;;; Exercise 4.27
 
@@ -48,10 +52,10 @@ count
 ;; 2
 
 ;; I was actually wrong above, my intuition was that in the definition
-;; (define w (id (id 10))), (id (id 10)) would be delayed, and so count
-;; would be 0. But the definition is evaluated, which results in the
-;; definition value is evaluated, and this is an application, so the
-;; inner call to id is delayed but the outer is not.
+;; (define w (id (id 10))), (id (id 10)) would be delayed, and so count would be 0.
+;; But the definition is evaluated, which results in the definition value is
+;; evaluated, and this is an application, so the inner call to id is delayed but
+;; the outer is not.
 
 (define (square x)
   (* x x))
@@ -62,5 +66,5 @@ count
 
 count
 
-;; When the evaluator uses memoization, count will be 1, and when it
-;; doesn't it will be 2.
+;; When the evaluator uses memoization, count will be 1, and when it doesn't it
+;; will be 2.
