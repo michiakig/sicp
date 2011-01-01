@@ -1667,7 +1667,7 @@ evaluating the expression
 
 **Exercise 4.34.**
 
-**Exercise 4.35.** Write a procedure <tt>an-integer-between</tt> that returns an integer
+X **Exercise 4.35.** Write a procedure <tt>an-integer-between</tt> that returns an integer
 between two given bounds.  This can be used to implement a
 procedure that finds Pythagorean triples,
 i.e., triples of integers (*i*,*j*,*k*) between the given bounds such
@@ -1690,7 +1690,7 @@ Pythagorean triples is more efficient than the one in
 exercise 4.35.  Is he correct?  (Hint: Consider
 the number of possibilities that must be explored.)
 
-**Exercise 4.38.** Modify the multiple-dwelling procedure to omit the requirement that
+X **Exercise 4.38.** Modify the multiple-dwelling procedure to omit the requirement that
 Smith and Fletcher do not live on adjacent floors.  How many solutions
 are there to this modified puzzle?
 
@@ -1781,18 +1781,18 @@ ordinary procedure that uses <tt>amb</tt>, to be defined by the user as
 part of a nondeterministic program, we would have had to implement it
 as a special form.  This would require syntax procedures
 
-**Exercise 4.55.** Give simple queries that retrieve the following information from the
+X **Exercise 4.55.** Give simple queries that retrieve the following information from the
 data base:
 
-**Exercise 4.56.** Formulate compound queries that retrieve the following information:
+X **Exercise 4.56.** Formulate compound queries that retrieve the following information:
 
-**Exercise 4.57.** Define a rule that says that person 1 can replace person 2 if either
+X **Exercise 4.57.** Define a rule that says that person 1 can replace person 2 if either
 person 1 does the same job as person 2 or someone who does person 1's
 job can also do person 2's job, and if person 1 and person 2 are not
 the same person. Using your rule, give queries that find the
 following:
 
-**Exercise 4.58.** Define a rule that says that a person is a ``big shot'' in a division
+X **Exercise 4.58.** Define a rule that says that a person is a ``big shot'' in a division
 if the person works in the division but does not have a supervisor who
 works in the division.
 
@@ -1804,7 +1804,7 @@ meetings of the firm to the Microshaft data base by
 asserting the following:
 
 
-**Exercise 4.60.** By giving the query
+X **Exercise 4.60.** By giving the query
 
 
 **Exercise 4.61.** The following rules implement a <tt>next-to</tt>
