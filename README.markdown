@@ -1807,16 +1807,16 @@ asserting the following:
 X **Exercise 4.60.** By giving the query
 
 
-**Exercise 4.61.** The following rules implement a <tt>next-to</tt>
+X **Exercise 4.61.** The following rules implement a <tt>next-to</tt>
 
-**Exercise 4.62.** Define rules to implement the <tt>last-pair</tt> operation of
+X **Exercise 4.62.** Define rules to implement the <tt>last-pair</tt> operation of
 exercise 2.17, which returns a list containing the last
 element of a nonempty list.  Check your rules on queries such as
 <tt>(last-pair (3) ?x)</tt>, <tt>(last-pair (1 2 3) ?x)</tt>, and <tt>(last-pair (2 ?x) (3))</tt>.
 Do your rules work correctly on queries such as <tt>(last-pair ?x (3))</tt> ?
 
 
-**Exercise 4.63.** The following data base (see Genesis 4) traces the genealogy of the
+X **Exercise 4.63.** The following data base (see Genesis 4) traces the genealogy of the
 descendants of Ada back to Adam, by way of Cain:
 
 **Exercise 4.64.** Louis Reasoner mistakenly deletes the <tt>outranked-by</tt> rule

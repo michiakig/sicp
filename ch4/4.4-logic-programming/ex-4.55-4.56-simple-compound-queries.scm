@@ -21,7 +21,7 @@
 ;; a. the names of all people who are supervised by Ben Bitdiddle,
 ;; together with their addresses;
 
-(and (supervisor ?person (Ben Bitdiddle))
+(and (supervisor ?person (Bitdiddle Ben))
      (address ?person ?where))
 
 ;; b. all people whose salary is less than Ben Bitdiddles's, together
