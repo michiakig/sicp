@@ -1938,7 +1938,7 @@ has an extra <tt>save</tt> and an extra <tt>restore</tt>, which can be
 removed to make a faster machine.  Where are these instructions?
 
 
-**Exercise 5.7.** Use the simulator to test the machines you designed in
+X **Exercise 5.7.** Use the simulator to test the machines you designed in
 exercise 5.4.
 
 

@@ -3,28 +3,7 @@
 
 ;;;; Exercise 5.2
 
-'(data-paths
- (registers
-  ((name p)
-   (buttons ((name p<-p*c) (source (operation *)))))
-  ((name c)
-   (buttons ((name c<-c+1) (source (operation 1+)))))
-  ((name n))))
-
-'(operations
- ((name *)
-  (inputs (register p) (register c)))
- ((name >)
-  (inputs (register c) (register n))))
-
-'(controller
- test-c
- (test (op >))
- (branch (label fact-done))
- (p<-p)
- (c<-c+1)
- (goto (label test-c))
- fact-done)
+;; actual register machine definition and driving code
 
 (define fact-machine
   (make-machine
@@ -44,13 +23,33 @@
 (start fact-machine)
 (get-register-contents fact-machine 'p)
 
+
 ;;;; Exercise 5.3
 
-'(controller
- test-g
- (test (op good-enough?))
- (branch (label sqrt-done))
- (g<-i)
- (goto (label test-g))
- (sqrt-done))
+;; actual register machine definition and driving code
+
+(define sqrt-machine
+  (make-machine
+   '(x g t)
+   (list (list 'square square)
+         (list '- -)
+         (list 'abs abs)
+         (list '< <)
+         (list '/ /)
+         (list 'average (lambda (a b) (/ (+ a b) 2))))
+   '(test-g
+     (assign t (op square) (reg g))
+     (assign t (op -) (reg t) (reg x))
+     (assign t (op abs) (reg t))
+     (test (op <) (reg t) (const 0.001))
+     (branch (label sqrt-done))
+     (assign t (op /) (reg x) (reg g))
+     (assign g (op average) (reg g) (reg t))
+     (goto (label test-g))
+     sqrt-done)))
+
+(set-register-contents! sqrt-machine 'g 1.0)
+(set-register-contents! sqrt-machine 'x 16)
+(start sqrt-machine)
+(get-register-contents sqrt-machine 'g)
 
