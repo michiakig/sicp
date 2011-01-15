@@ -1916,7 +1916,7 @@ we saw how to use local environments to avoid name conflicts between
 the parameters of procedures.  For example, in evaluating
 
 ## 5 Computing with Register Machines
-**Exercise 5.1.** Design a register machine to compute factorials using the iterative
+X **Exercise 5.1.** Design a register machine to compute factorials using the iterative
 algorithm specified by the following procedure.  Draw data-path and
 controller diagrams for this machine.
 
