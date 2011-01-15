@@ -3,7 +3,7 @@
 
 ;;;; Exercise 5.2
 
-(data-paths
+'(data-paths
  (registers
   ((name p)
    (buttons ((name p<-p*c) (source (operation *)))))
@@ -11,13 +11,13 @@
    (buttons ((name c<-c+1) (source (operation 1+)))))
   ((name n))))
 
-(operations
+'(operations
  ((name *)
   (inputs (register p) (register c)))
  ((name >)
   (inputs (register c) (register n))))
 
-(controller
+'(controller
  test-c
  (test (op >))
  (branch (label fact-done))
@@ -28,7 +28,7 @@
 
 ;;;; Exercise 5.3
 
-(controller
+'(controller
  test-g
  (test (op good-enough?))
  (branch (label sqrt-done))
