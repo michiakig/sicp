@@ -26,6 +26,24 @@
  (goto (label test-c))
  fact-done)
 
+(define fact-machine
+  (make-machine
+   '(p c n)
+   (list (list '* *) (list '> >) (list '+ +))
+   '(test-c
+     (test (op >) (reg c) (reg n))
+     (branch (label fact-done))
+     (assign p (op *) (reg p) (reg c))
+     (assign c (op +) (reg c) (const 1))
+     (goto (label test-c))
+     fact-done)))
+
+(set-register-contents! fact-machine 'p 1)
+(set-register-contents! fact-machine 'c 1)
+(set-register-contents! fact-machine 'n 5)
+(start fact-machine)
+(get-register-contents fact-machine 'p)
+
 ;;;; Exercise 5.3
 
 '(controller
