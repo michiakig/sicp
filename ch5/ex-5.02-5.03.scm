@@ -25,3 +25,14 @@
  (c<-c+1)
  (goto (label test-c))
  fact-done)
+
+;;;; Exercise 5.3
+
+(controller
+ test-g
+ (test (op good-enough?))
+ (branch (label sqrt-done))
+ (g<-i)
+ (goto (label test-g))
+ (sqrt-done))
+
