@@ -1916,15 +1916,15 @@ we saw how to use local environments to avoid name conflicts between
 the parameters of procedures.  For example, in evaluating
 
 ## 5 Computing with Register Machines
-X **Exercise 5.1.** Design a register machine to compute factorials using the iterative
+**Exercise 5.1.** Design a register machine to compute factorials using the iterative
 algorithm specified by the following procedure.  Draw data-path and
 controller diagrams for this machine.
 
-**Exercise 5.2.** Use the register-machine language to describe
+X **Exercise 5.2.** Use the register-machine language to describe
 the iterative factorial machine of exercise 5.1.
 
 
-**Exercise 5.3.** Design a machine to compute square roots using Newton's method, as
+X **Exercise 5.3.** Design a machine to compute square roots using Newton's method, as
 described in section 1.1.7:
 
 **Exercise 5.4.** Specify register machines that implement each of the following

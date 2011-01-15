@@ -1,7 +1,7 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 5 Section 1 Designing Register Machines
 
-;;;; Exercise 5.1
+;;;; Exercise 5.2
 
 (data-paths
  (registers
@@ -19,6 +19,7 @@
 
 (controller
  test-c
+ (test >)
  (branch (label fact-done))
  (p<-p)
  (c<-c+1)
