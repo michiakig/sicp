@@ -19,7 +19,7 @@
 
 (controller
  test-c
- (test >)
+ (test (op >))
  (branch (label fact-done))
  (p<-p)
  (c<-c+1)
