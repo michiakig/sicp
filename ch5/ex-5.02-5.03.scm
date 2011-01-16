@@ -55,3 +55,56 @@
   (start sqrt-machine)
   (get-register-contents sqrt-machine 'g))
 
+;;;; Exercise 5.4
+
+;; a. recursive exponentiation
+(define expt-machine
+  (make-machine
+   '(b n val continue)
+   (list (list '= =) (list '* *) (list '- -))
+   '((assign continue (label expt-done))
+     expt-loop
+     (test (op =) (reg n) (const 0))
+     (branch (label base-case))
+     (save continue)
+     (save b)
+     (assign n (op -) (reg n) (const 1))
+     (assign continue (label after-expt))
+     (goto (label expt-loop))
+     after-expt
+     (restore b)
+     (restore continue)
+     (assign val (op *) (reg b) (reg val))
+     (goto (reg continue))     
+     base-case
+     (assign val (const 1))
+     (goto (reg continue))
+     expt-done)))
+
+(begin 
+  (set-register-contents! expt-machine 'b 2)
+  (set-register-contents! expt-machine 'n 3)
+  (start expt-machine)
+  (get-register-contents expt-machine 'val))
+
+;; b. iterative exponentiation
+
+(define iter-expt-machine
+  (make-machine
+   '(b n c p)
+   (list (list '= =) (list '- -) (list '* *))
+   '((assign c (reg n))
+     (assign p (const 1))
+     test-c
+     (test (op =) (reg c) (const 0))
+     (branch (label done))
+     (assign c (op -) (reg c) (const 1))
+     (assign p (op *) (reg b) (reg p))
+     (goto (label test-c))
+     done)))
+
+(begin 
+  (set-register-contents! iter-expt-machine 'b 3)
+  (set-register-contents! iter-expt-machine 'n 4)
+  (start iter-expt-machine)
+  (get-register-contents iter-expt-machine 'p))
