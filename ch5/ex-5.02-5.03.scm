@@ -17,11 +17,12 @@
      (goto (label test-c))
      fact-done)))
 
-(set-register-contents! fact-machine 'p 1)
-(set-register-contents! fact-machine 'c 1)
-(set-register-contents! fact-machine 'n 5)
-(start fact-machine)
-(get-register-contents fact-machine 'p)
+(begin 
+  (set-register-contents! fact-machine 'p 1)
+  (set-register-contents! fact-machine 'c 1)
+  (set-register-contents! fact-machine 'n 5)
+  (start fact-machine)
+  (get-register-contents fact-machine 'p))
 
 
 ;;;; Exercise 5.3
@@ -48,8 +49,9 @@
      (goto (label test-g))
      sqrt-done)))
 
-(set-register-contents! sqrt-machine 'g 1.0)
-(set-register-contents! sqrt-machine 'x 16)
-(start sqrt-machine)
-(get-register-contents sqrt-machine 'g)
+(begin 
+  (set-register-contents! sqrt-machine 'g 1.0)
+  (set-register-contents! sqrt-machine 'x 16)
+  (start sqrt-machine)
+  (get-register-contents sqrt-machine 'g))
 

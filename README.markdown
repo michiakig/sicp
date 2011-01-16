@@ -1927,7 +1927,7 @@ the iterative factorial machine of exercise 5.1.
 X **Exercise 5.3.** Design a machine to compute square roots using Newton's method, as
 described in section 1.1.7:
 
-**Exercise 5.4.** Specify register machines that implement each of the following
+X **Exercise 5.4.** Specify register machines that implement each of the following
 procedures.  For each machine, write a controller instruction sequence
 and draw a diagram showing the data paths.
 
