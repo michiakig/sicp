@@ -56,6 +56,7 @@
   (get-register-contents sqrt-machine 'g))
 
 ;;;; Exercise 5.4
+;;;; Exercise 5.7
 
 ;; a. recursive exponentiation
 (define expt-machine
