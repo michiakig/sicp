@@ -1933,7 +1933,7 @@ and draw a diagram showing the data paths.
 
 **Exercise 5.5.**
 
-**Exercise 5.6.** Ben Bitdiddle observes that the Fibonacci machine's controller sequence
+X **Exercise 5.6.** Ben Bitdiddle observes that the Fibonacci machine's controller sequence
 has an extra <tt>save</tt> and an extra <tt>restore</tt>, which can be
 removed to make a faster machine.  Where are these instructions?
 
@@ -1946,7 +1946,7 @@ exercise 5.4.
 <tt>here</tt> is defined more than once:
 
 
-**Exercise 5.9.** The treatment of machine operations above permits them to operate
+X **Exercise 5.9.** The treatment of machine operations above permits them to operate
 on labels as well as on constants and the contents of registers.
 Modify the expression-processing procedures to enforce the condition
 that operations can be used only with registers and constants.
