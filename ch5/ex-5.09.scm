@@ -1,7 +1,7 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 5 Section 2 A Register-Machine Simulator
 
-;;;; Exercise 5.09
+
 
 ;; a sample machine which operates on a label
 (define test-machine
