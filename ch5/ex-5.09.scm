@@ -3,6 +3,14 @@
 
 ;;;; Exercise 5.09
 
+;; a sample machine which operates on a label
+(define test-machine
+  (make-machine
+   '(foo bar baz)
+   (list (list '+ +) (list '- -))
+   '(start
+     (assign foo (op +) (label start) (reg bar)))))
+
 ;; I don't know if this is correct - it's not entirely clear what
 ;; "enforce the condition that operations can be used only with
 ;; registers and constants" but this new version of
