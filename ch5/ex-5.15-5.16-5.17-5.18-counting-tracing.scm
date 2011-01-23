@@ -1,7 +1,8 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 5 Section 2 A Register Machine Simulator
 
-;;;; Exercise 5.15
+;;;; Exercise 5.15 instruction counting
+;;;; Exercise 5.16 instruction tracing
 
 (define (make-new-machine)
   (let ((pc (make-register 'pc))
@@ -9,7 +10,9 @@
         (stack (make-stack))
         (the-instruction-sequence '())
         ;; ex 5.15 counting instructions
-        (instruction-count 0))
+        (instruction-count 0)
+        ;; ex 5.16 instruction tracing, off by default
+        (instruction-tracing-on #f))
     
     (let ((the-ops
            (list (list 'initialize-stack
@@ -39,9 +42,14 @@
               'done
               (begin
                 ((instruction-execution-proc (car insts)))
-                
-                ;; ex 5.14 counting instructions
+                ;; ex 5.15 counting instructions
                 (set! instruction-count (+ instruction-count 1))
+                ;; ex 5.16 instruction tracing
+                (if instruction-tracing-on
+                    (begin
+                      (display "TRACE: ")
+                      (display (instruction-text (car insts)))
+                      (newline)))
                 (execute)))))
       
       (define (dispatch message)
@@ -57,10 +65,18 @@
               ((eq? message 'stack) stack)
               ((eq? message 'operations) the-ops)
 
-              ;; ex.5.15 counting instructions
+              ;; ex 5.15 counting instructions
               ((eq? message 'get-count) instruction-count)
               ((eq? message 'reset-count)
                (lambda () (set! instruction-count 0)))
+
+              ;; ex 5.16 instruction tracing
+              ((eq? message 'trace-on)
+               (set! instruction-tracing-on #t)
+               'instruction-tracing-on)
+              ((eq? message 'trace-off)
+               (set! instruction-tracing-on #f)
+               'instruction-tracing-off)
               
               (else (error "Unknown request -- MACHINE" message))))
       dispatch)))
