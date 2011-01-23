@@ -14,8 +14,10 @@
      (goto (label test-b))
      gcd-done)))
 
-(set-register-contents! gcd-machine 'a 206)
-(set-register-contents! gcd-machine 'b 40)
-(start gcd-machine)
-(get-register-contents gcd-machine 'a)
+(begin 
+  (set-register-contents! gcd-machine 'a 206)
+  (set-register-contents! gcd-machine 'b 40)
+  (start gcd-machine)
+  (get-register-contents gcd-machine 'a))
+
 
