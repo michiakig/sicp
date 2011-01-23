@@ -180,32 +180,3 @@
                     (let ((extras (update-insts! insts labels machine)))
                       (cons insts extras)))))
 
-;; recursive factorial machine from fig. 5.11
-(define recur-fact-machine
-  (make-machine
-   '()
-   (list (list '* *) (list '- -) (list '= =))
-   '((assign continue (label fact-done))
-    fact-loop
-    (test (op =) (reg n) (const 1))
-    (branch (label base-case))
-    (save continue)
-    (save n)
-    (assign n (op -) (reg n) (const 1))
-    (assign continue (label after-fact))
-    (goto (label fact-loop))
-    after-fact
-    (restore n)
-    (restore continue)
-    (assign val (op *) (reg n) (reg val))
-    (goto (reg continue))
-    base-case
-    (assign val (const 1))
-    (goto (reg continue))
-    fact-done)))
-
-(begin
-  (set-register-contents! recur-fact-machine 'n 5)
-  (start recur-fact-machine)
-  (get-register-contents recur-fact-machine 'val))
-
