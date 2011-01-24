@@ -3,6 +3,7 @@
 
 ;;;; Exercise 5.15 instruction counting
 ;;;; Exercise 5.16 instruction tracing
+;;;; Exercise 5.17 print labels along with instruction tracing
 
 (define (make-new-machine)
   (let ((pc (make-register 'pc))
@@ -47,7 +48,13 @@
                 ;; ex 5.16 instruction tracing
                 (if instruction-tracing-on
                     (begin
-                      (display "TRACE: ")
+                      (display "TRACE ")
+                      ;; ex 5.17 if there is a label, print it too
+                      (if (not (null? (instruction-label (car insts))))
+                          (begin
+                            (display "(LABEL ")
+                            (display (instruction-label (car insts)))
+                            (display ") ")))
                       (display (instruction-text (car insts)))
                       (newline)))
                 (execute)))))
@@ -77,6 +84,41 @@
               ((eq? message 'trace-off)
                (set! instruction-tracing-on #f)
                'instruction-tracing-off)
+              ((eq? message 'trace?)
+               instruction-tracing-on)
               
               (else (error "Unknown request -- MACHINE" message))))
       dispatch)))
+
+;; ex 5.17 instructions are now represented as a list of three items:
+;; text, execution procedure, and label, if there is any
+(define (make-instruction text) (list text '() '()))
+(define (instruction-text inst) (car inst))
+(define (instruction-execution-proc inst) (cadr inst))
+(define (instruction-label inst) (caddr inst))
+(define (set-instruction-execution-proc! inst proc) (set-car! (cdr inst) proc))
+(define (set-instruction-label! inst label) (set-car! (cddr inst) label))
+
+(define (extract-labels text receive)
+  (if (null? text)
+      (receive '() '())
+      (extract-labels (cdr text)
+       (lambda (insts labels)
+         (let ((next-inst (car text)))
+           (if (symbol? next-inst)
+               (begin
+                 ;; ex 5.17 if this isn't the last instruction (for instance,
+                 ;; a label "done" as the last item in the register
+                 ;; code text
+                 (if (not (null? insts))
+                     ;; set the label associated with this instruction
+                     (set-instruction-label! (car insts) next-inst))
+                 
+                 (receive insts
+                          (cons (make-label-entry next-inst
+                                                  insts)
+                                labels)))
+               (receive (cons (make-instruction next-inst)
+                              insts)
+                        labels)))))))
+
