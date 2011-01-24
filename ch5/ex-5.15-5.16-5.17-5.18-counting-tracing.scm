@@ -4,6 +4,7 @@
 ;;;; Exercise 5.15 instruction counting
 ;;;; Exercise 5.16 instruction tracing
 ;;;; Exercise 5.17 print labels along with instruction tracing
+;;;; Exercise 5.18 register tracing
 
 (define (make-new-machine)
   (let ((pc (make-register 'pc))
@@ -121,4 +122,37 @@
                (receive (cons (make-instruction next-inst)
                               insts)
                         labels)))))))
+
+;; ex 5.18
+(define (make-register name)
+  (let ((contents '*unassigned*)
+        (register-trace-on #f))
+    (define (dispatch message)
+      (cond ((eq? message 'get) contents)
+            ((eq? message 'set)
+             (lambda (value)
+               (if register-trace-on
+                   (begin 
+                     (display "REG TRACE: ")
+                     (display name)
+                     (display " OLD: ")
+                     (display contents)
+                     (display " NEW: ")
+                     (display value)
+                     (newline)))
+               (set! contents value)))
+            ;; ex 5.18
+            ((eq? message 'trace-on)
+             (set! register-trace-on #t))
+            ((eq? message 'trace-off)
+             (set! register-trace-on #f))
+            (else
+             (error "Unknown request -- REGISTER" message))))
+    dispatch))
+
+(define (turn-on-register-trace! machine register)
+  (((machine 'get-register) register) 'trace-on))
+
+(define (turn-off-register-trace! machine register)
+  (((machine 'get-register) register) 'trace-off))
 
