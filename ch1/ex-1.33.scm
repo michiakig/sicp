@@ -14,5 +14,3 @@
 
 (define (prime? x) (fast-prime? x 4))
 ; (filtered-accumulate + 0 (lambda (x) (* x x)) 2 (lambda (x) (+ x 1)) 10 prime?)
-
-; 

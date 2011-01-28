@@ -3,7 +3,7 @@
 
 ;;; Exercise 1.32
 
-; Recursive accumulate function
+;; Recursive accumulate function
 (define accumulate
   (lambda (combiner null-value term a next b)
     (if (> a b)
@@ -11,12 +11,7 @@
         (combiner (term a)
                   (accumulate combiner null-value term (next a) next b)))))
 
-; 2 error> (accumulate + 0 (lambda (x) x) 1 (lambda (x) (+ x 1)) 10)
-;Value: 55
-; 2 error> (accumulate * 1 (lambda (x) x) 1 (lambda (x) (+ x 1)) 5)
-;Value: 120
-
-; ... and iterative one:
+;; ... and iterative one:
 (define accumulate
   (lambda (combiner null-value term a next b)
     (define iter

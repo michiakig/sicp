@@ -1,9 +1,7 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 1 Section 2 Procedures and the Processes They Generate
 
-;;; Exercise 1.10
-
-; (not a programming exercise ... not that fun either!)
+;;; Exercise 1.10 Ackermann 
 
 (define (A x y)
   (cond ((= y 0) 0)

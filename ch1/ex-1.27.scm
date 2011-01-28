@@ -3,7 +3,6 @@
 
 ;;; Exercise 1.27
 
-
 (define carmichael-test
   (lambda (n)
     (carmichael-test-r 1 n)))

@@ -1,144 +1,152 @@
--r ";
-Exercise 1.01
-Exercise 1.02
-Exercise 1.03
-Exercise 1.04
-Exercise 1.05
-Exercise 1.06
-Exercise 1.07
-Exercise 1.08
-Exercise 1.09
-Exercise 1.10
-Exercise 1.11
-Exercise 1.12
-Exercise 1.16
-Exercise 1.17
-Exercise 1.18
-Exercise 1.19
-Exercise 1.21
-Exercise 1.22
-Exercise 1.23
-Exercise 1.24
-Exercise 1.26
-Exercise 1.27
-Exercise 1.29
-Exercise 1.30
-Exercise 1.31
-Exercise 1.32
-Exercise 1.33
-Exercise 1.36
-Exercise 1.40
-Exercise 1.41
-Exercise 1.42
-Exercise 2.17
-Exercise 2.18
-Exercise 2.20
-Exercise 2.21
-Exercise 2.22
-Exercise 2.23
-Exercise 2.28
-Exercise 2.29
-Exercise 2.30
-Exercise 2.32
-Exercise 2.33,
-Exercise 2.39
-Exercise 2.42
-Exercise 2.44.
-Exercise 2.45.
-Exercise 2.46.
-Exercise 2.47.
-Exercise 2.48.
-Exercise 2.49.
-Exercise 2.50
-Exercise 2.53
-Exercise 2.54
-Exercise 2.55
-Exercise 2.56.
-Exercise 2.57
-Exercise 2.59
-Exercise 2.60.
-Exercise 2.61
-Exercise 2.61
-Exercise 2.63,
-Exercise 2.64
-Exercise 2.65
-Exercise 2.67
-Exercise 2.68
-Exercise 2.73
-Exercise 2.75
-Exercise 2.01
-Exercise 2.02
-Exercise 2.04
-Exercise 2.05
-Exercise 2.06
-Exercise 2.07
-Exercise 2.8
-Exercise 2.9
-Exercise 2.10
-Exercise 2.11
-Exercise 2.11
-Exercise 2.12
-Exercise 2.12
-Exercise 2.13
-Exercise 2.13...
-Exercise 2.14
-Exercise 2.14,
-Exercise 3.1
-Exercise 3.2
-Exercise 3.3
-Exercise 3.4
-Exercise 3.6
-Exercise 3.14
-Exercise 3.17
-Exercise 3.18
-Exercise 3.19
-Exercise 3.21
-Exercise 3.22
-Exercise 3.24
-Exercise 3.25
-Exercise 3.28
-Exercise 3.29
-Exercise 4.55
-Exercise 4.56
-Exercise 4.57
-Exercise 4.58
-Exercise 4.60
-Exercise 4.61
-Exercise 4.62
-Exercise 4.63
-Exercise 4.1
-Exercise 4.2
-Exercise 4.3
-Exercise 4.4
-Exercise 4.5
-Exercise 4.6
-Exercise 4.7
-Exercise 4.8
-Exercise 4.9
-Exercise 4.11
-Exercise 4.12
-Exercise 4.13
-Exercise 4.14
-Exercise 4.15
-Exercise 4.16
-Exercise 4.20
-Exercise 4.21
-Exercise 4.22
-Exercise 4.25
-Exercise 4.26
-Exercise 4.27
-Exercise 4.35
-Exercise 4.38
-Exercise 5.2
-Exercise 5.3
-Exercise 5.4
-Exercise 5.7
-Exercise 5.6
-Exercise 4.8
-Exercise 5.12
-Exercise 5.13
-Exercise 5.14
-Exercise 5.15
-Exercise 5.16
-Exercise 5.17
-Exercise 5.18
+  Exercise 1.01 what is printed in response to each expression?
+  Exercise 1.02 translate the following expression into prefix form
+  Exercise 1.03 sum of the squares of the two larger numbers out of three
+  Exercise 1.04 describe the behavior of the following procedure:
+  Exercise 1.05 applicative-order evaluation or normal-order evaluation
+  Exercise 1.06
+  Exercise 1.07
+  Exercise 1.08 Newton's method for cube roots
+  Exercise 1.09 illustrate iterative and recursive procedures
+  Exercise 1.10 Ackermann
+  Exercise 1.11
+  Exercise 1.12 Pascal's triangle
+  Exercise 1.15
+  Exercise 1.16
+  Exercise 1.17
+  Exercise 1.18
+  Exercise 1.19
+  Exercise 1.20
+  Exercise 1.21
+  Exercise 1.22
+  Exercise 1.23
+  Exercise 1.24
+  Exercise 1.25
+  Exercise 1.26
+  Exercise 1.27
+  Exercise 1.29
+  Exercise 1.30
+  Exercise 1.31
+  Exercise 1.32
+  Exercise 1.33
+  Exercise 1.34
+  Exercise 1.35
+  Exercise 1.36
+  Exercise 1.37 basic continued fraction function for
+  Exercise 1.38 approximation of e from Euler's De Fractionibus
+  Exercise 1.39 approximation of tangent by J H Lambert, 1770
+  Exercise 1.40
+  Exercise 1.41
+  Exercise 1.42
+  Exercise 2.17
+  Exercise 2.18 and 2.27
+  Exercise 2.20
+  Exercise 2.21
+  Exercise 2.22
+  Exercise 2.23
+  Exercise 2.28
+  Exercise 2.29
+  Exercise 2.30 and 2.31
+  Exercise 2.32
+  Exercise 2.33, 2.34, 2.35, 2.36, 2.37
+  Exercise 2.39
+  Exercise 2.42
+  Exercise 2.44.
+  Exercise 2.45.
+  Exercise 2.46.
+  Exercise 2.47.
+  Exercise 2.48.
+  Exercise 2.49.
+  Exercise 2.50
+  Exercise 2.53
+  Exercise 2.54
+  Exercise 2.55
+  Exercise 2.56.
+  Exercise 2.57
+  Exercise 2.59
+  Exercise 2.60.
+  Exercise 2.61
+  Exercise 2.61
+  Exercise 2.63, 2.64
+  Exercise 2.64 refers to the following procedures, defined in the text:
+  Exercise 2.65
+  Exercise 2.67
+  Exercise 2.68
+  Exercise 2.73
+  Exercise 2.75
+  Exercise 2.01
+  Exercise 2.02
+  Exercise 2.04 cons, car, and cdr as closures
+  Exercise 2.05 pairs of non-negative integers represented as (2^a)(3^b)
+  Exercise 2.06 Church numerals
+  Exercise 2.07
+  Exercise 2.8
+  Exercise 2.9
+  Exercise 2.10
+  Exercise 2.11
+  Exercise 2.12
+  Exercise 2.13
+  Exercise 2.14
+  Exercise 3.1
+  Exercise 3.2
+  Exercise 3.3
+  Exercise 3.4
+  Exercise 3.6
+  Exercise 3.14
+  Exercise 3.17
+  Exercise 3.18
+  Exercise 3.19
+  Exercise 3.21
+  Exercise 3.22
+  Exercise 3.24
+  Exercise 3.25 n-dimensional tables
+  Exercise 3.28
+  Exercise 3.29
+  Exercise 4.55
+  Exercise 4.56
+  Exercise 4.57
+  Exercise 4.58
+  Exercise 4.60
+  Exercise 4.61
+  Exercise 4.62
+  Exercise 4.63
+  Exercise 4.1
+  Exercise 4.2
+  Exercise 4.3
+  Exercise 4.4
+  Exercise 4.5
+  Exercise 4.6
+  Exercise 4.7
+  Exercise 4.8
+  Exercise 4.9
+  Exercise 4.11
+  Exercise 4.12
+  Exercise 4.13
+  Exercise 4.14
+  Exercise 4.15 An old friend.
+  Exercise 4.16
+  Exercise 4.20
+  Exercise 4.21
+  Exercise 4.22
+  Exercise 4.25
+  Exercise 4.26
+  Exercise 4.27
+  Exercise 4.35
+  Exercise 4.38
+  Exercise 5.2
+  Exercise 5.3
+  Exercise 5.4
+  Exercise 5.7
+  Exercise 5.6
+  Exercise 4.8
+  Exercise 5.12
+  Exercise 5.13
+  Exercise 5.14
+  Exercise 5.15 instruction counting
+  Exercise 5.16 instruction tracing
+  Exercise 5.17 print labels along with instruction tracing
+  Exercise 5.18 register tracing
+  Exercise 5.19 adding breakpoints
+  Exercise 5.20
+  Exercise 5.21
+  Exercise 5.23 add cond by expanding into an if
+  Exercise 5.24 add cond manually

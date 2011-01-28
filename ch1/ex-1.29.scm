@@ -45,4 +45,3 @@
 ;
 ; I cheated by using "let" since it isn't introduced until the next section,
 ; but that's the result of reading the entire chapter before the exercises
-;

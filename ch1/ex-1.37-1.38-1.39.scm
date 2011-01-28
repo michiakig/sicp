@@ -1,4 +1,7 @@
-; (1.37) basic continued fraction function for
+;;;; Structure and Interpretation of Computer Programs
+;;;; Chapter 1 Section 1 Elements of Programming
+
+;;; Exercise 1.37 basic continued fraction function for
 (define cont-frac
   (lambda (n d k)
     (define cont-frac-r
@@ -7,8 +10,8 @@
               (else (/ (n i) (+ (d i) (cont-frac-r (+ i 1))))))))
     (cont-frac-r 1)))
 
-; (1.38) approximation of e from Euler's De Fractionibus Continuis 
-; "D sub i are successively 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ..."
+;;; Exercise 1.38 approximation of e from Euler's De Fractionibus
+;;; Continuis 
 (define d
   (lambda (i)
     (cond ((= i 1) 1)
@@ -16,7 +19,7 @@
           ((= (remainder (- i 2) 3) 0) (+ (d (- i 1)) (d (- i 2)) (d (- i 3))))
           (else 1))))
 
-; (1.39) approximation of tangent by J H Lambert, 1770
+;;; Exercise 1.39 approximation of tangent by J H Lambert, 1770
 (define tan
   (lambda (x k)
     (/ x

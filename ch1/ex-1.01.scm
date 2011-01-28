@@ -1,12 +1,7 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 1 Section 1 Elements of Programming
 
-;;; Exercise 1.01
-
-; (not a programming exercise, but for completeness,
-; and to make it easy to find unfinished exercises ...)
-
-; Below is a sequence of expressions. What is the result printed by the interpreter in response to each expression? Assume that the sequence is to be evaluated in the order in which it is presented.
+;;; Exercise 1.01 what is printed in response to each expression?
 
 10
 ; 10
