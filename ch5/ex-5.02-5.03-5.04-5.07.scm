@@ -17,6 +17,7 @@
      (goto (label test-c))
      fact-done)))
 
+
 (begin 
   (set-register-contents! fact-machine 'p 1)
   (set-register-contents! fact-machine 'c 1)
