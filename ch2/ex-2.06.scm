@@ -1,15 +1,15 @@
 ;;;; Structure and Interpretation of Computer Programs
 ;;;; Chapter 2 Section 1 Introduction to Data Abstraction
 
-;;; Exercise 2.06
+;;; Exercise 2.06 Church numerals
 
-; Church numerals in Scheme... 
-; I am continually delighted by the depth of SICP. This is the second section 
-; of Chapter 2, something like the 50th exercise? Awesome.
+;; I am continually delighted by the depth of SICP. This is the second section 
+;; of Chapter 2, something like the 50th exercise? Awesome.
+
 (define zero (lambda (f) (lambda (x) x)))
 (define (add-1 n) (lambda (f) (lambda (x) (f ((n f) x)))))
 
-; Derivation of the number 1, as a Church numeral
+;; Derivation of the number 1, as a Church numeral
 (add-1 zero)
 (add-1 (lambda (f) (lambda (x) x)) )
 (lambda (f) (lambda (x) (f ( ((lambda (f) (lambda (x) x))f) x))))

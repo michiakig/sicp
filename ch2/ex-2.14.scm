@@ -3,8 +3,6 @@
 
 ;;; Exercise 2.14
 
-; Exercise 2.14, also non-programming...
-
 (define (par1 r1 r2)
   (div-interval (mul-interval r1 r2)
                 (add-interval r1 r2)))

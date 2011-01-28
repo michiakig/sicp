@@ -3,7 +3,6 @@
 
 ;;; Exercise 2.11
 
-; Exercise 2.11
 ; "... by testing sign of end-points, it is possible to break
 ; mul-interval up into 9 cases, only one of which requires more
 ; than 2 multiplications"
@@ -25,7 +24,7 @@
 ; this is a tedious solution, which makes me think there may be a smarter way 
 ; vim is actually slowed by having to handle the parens matching on this...
 (define (mul-interval2 x y)
-  (cond ((and (pos? (low x)) (pos? (up x))) (cond ((and (pos? (low y)) (pos? (up y)))
+  (cond ((and (pos? (low x)) (pos? (up x)))(cond ((and (pos? (low y)) (pos? (up y)))
                                                    (display "here we are")
                                                    (make-interval (* (low x) (low y)) (* (up x) (up y))))
                                                   ((and (neg? (low y)) (neg? (up y)))

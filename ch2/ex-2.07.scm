@@ -11,20 +11,20 @@
   (make-interval (+ (lower-bound x) (lower-bound y))
                  (+ (upper-bound x) (upper-bound y))))
 
-; Exercise 2.8
+;;; Exercise 2.8
 (define sub-interval
   (lambda (x y)
     (make-interval (- (upper-bound x) (upper-bound y))
                    (- (lower-bound x) (lower-bound y)))))
 
-; Exercise 2.9
+;;; Exercise 2.9
 (define width
   (lambda (x)
     (/ (abs (- (upper-bound x)
                (lower-bound x)))
        2)))
 
-; Exercise 2.10
+;;; Exercise 2.10
 (define (div-interval x y)
   (if (= 0 (width y))
       (error "divide by 0")

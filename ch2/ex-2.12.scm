@@ -3,7 +3,6 @@
 
 ;;; Exercise 2.12
 
-; Exercise 2.12
 (define make-center-percent
   (lambda (c p)
     (let ((w (/ (* c p) 100.0)))
